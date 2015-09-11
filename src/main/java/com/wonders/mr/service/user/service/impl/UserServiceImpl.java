@@ -67,4 +67,16 @@ public class UserServiceImpl implements UserService {
 	public List<UserPO> findAll() {
 		return userDao.findAll();
 	}
+	
+	@Override
+	public int login(String loginName, String pwd) {
+		int n;
+		UserPO userPO = findByLoginName(loginName);
+		if(pwd.equals(userPO.getPassWord())) {
+			n=1;
+		}else {
+			n=-1;
+		}
+		return n;
+	}
 }

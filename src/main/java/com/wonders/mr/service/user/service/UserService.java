@@ -61,5 +61,14 @@ public interface UserService {
 	 * @return
 	 */
 	public List<UserPO> findAll();
+	
+	/**
+	 * 根据登录名判断登陆密码是否正确
+	 * 
+	 * @param loginName
+	 * @param pwd
+	 * @return
+	 */
+	public int login(String loginName, String pwd);
 
 }
