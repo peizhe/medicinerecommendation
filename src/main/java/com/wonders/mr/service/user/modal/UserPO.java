@@ -23,19 +23,17 @@ public class UserPO {
 	private Integer age;
 	private String gender;// 用户性别
 	private Integer deleteFlag;
-	private String passWord;
 
 	public UserPO() {
 	}
 
 	public UserPO(String name, String loginName, Integer age, String gender,
-			Integer deleteFlag, String passWord) {
+			Integer deleteFlag) {
 		this.name = name;
 		this.loginName = loginName;
 		this.age = age;
 		this.gender = gender;
 		this.deleteFlag = deleteFlag;
-		this.passWord = passWord;
 	}
 
 	@Id
@@ -93,15 +91,5 @@ public class UserPO {
 	public void setDeleteFlag(Integer deleteFlag) {
 		this.deleteFlag = deleteFlag;
 	}
-
-	@Column(name = "pwd")
-	public String getPassWord() {
-		return passWord;
-	}
-
-	public void setPassWord(String passWord) {
-		this.passWord = passWord;
-	}
-
 
 }
