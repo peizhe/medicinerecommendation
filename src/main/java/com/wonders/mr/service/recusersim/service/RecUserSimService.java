@@ -1,6 +1,8 @@
 package com.wonders.mr.service.recusersim.service;
 
-import com.wonders.mr.service.recusersim.modal.RecUserSimPO;
+import java.util.List;
+
+import com.wonders.mr.service.user.modal.UserPO;
 
 /**
  * 找病友service接口
@@ -16,6 +18,6 @@ public interface RecUserSimService {
 	 * @param id
 	 * @return
 	 */
-	public RecUserSimPO findByUserId(Long id);
+	public List<UserPO> findByUserId(long id);
 
 }

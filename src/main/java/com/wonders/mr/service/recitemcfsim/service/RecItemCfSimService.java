@@ -1,6 +1,8 @@
 package com.wonders.mr.service.recitemcfsim.service;
 
-import com.wonders.mr.service.recitemcfsim.modal.RecItemCfSimPO;
+import java.util.List;
+
+import com.wonders.mr.service.item.modal.po.ItemPO;
 
 /**
  * 用药service接口定义
@@ -16,5 +18,5 @@ public interface RecItemCfSimService {
 	 * @param id
 	 * @return
 	 */
-	public RecItemCfSimPO findByItemId(Long id);
+	public List<ItemPO> findByItemId(long id);
 }

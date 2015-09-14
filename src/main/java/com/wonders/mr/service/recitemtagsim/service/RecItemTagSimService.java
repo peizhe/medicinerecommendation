@@ -1,6 +1,8 @@
 package com.wonders.mr.service.recitemtagsim.service;
 
-import com.wonders.mr.service.recitemtagsim.modal.RecItemTagSimPO;
+import java.util.List;
+
+import com.wonders.mr.service.item.modal.po.ItemPO;
 
 /**
  * 物品相似度service接口
@@ -16,6 +18,6 @@ public interface RecItemTagSimService {
 	 * @param id
 	 * @return
 	 */
-	public RecItemTagSimPO findByItemId(Long id);
+	public List<ItemPO> findByItemId(long id);
 
 }
