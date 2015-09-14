@@ -18,7 +18,7 @@ import com.wonders.mr.service.recitemtagsim.service.RecItemTagSimService;
  * @author lixiang
  *
  */
-@Service("RecItemTagSimServiceImpl")
+@Service("recItemTagSimServiceImpl")
 public class RecItemTagSimServiceImpl implements RecItemTagSimService {
 
 	@Autowired
