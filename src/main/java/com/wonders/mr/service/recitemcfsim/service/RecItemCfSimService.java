@@ -5,7 +5,7 @@ import java.util.List;
 import com.wonders.mr.service.item.modal.po.ItemPO;
 
 /**
- * 用药service接口定义
+ * 用过该药的用户还用过什么药service接口定义
  * 
  * @author lixiang
  *

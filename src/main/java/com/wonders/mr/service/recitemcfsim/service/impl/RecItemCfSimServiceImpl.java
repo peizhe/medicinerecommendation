@@ -13,7 +13,7 @@ import com.wonders.mr.service.recitemcfsim.modal.RecItemCfSimPO;
 import com.wonders.mr.service.recitemcfsim.service.RecItemCfSimService;
 
 /**
- * 用过该药的用户还用过service实现
+ * 用过该药的用户还用过什么药service实现
  * 
  * @author lixiang
  *

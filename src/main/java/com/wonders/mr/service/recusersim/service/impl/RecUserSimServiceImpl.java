@@ -13,7 +13,8 @@ import com.wonders.mr.service.user.modal.UserPO;
 import com.wonders.mr.service.user.service.UserService;
 
 /**
- * 找病友service实现
+ * 找病友（相似用户推荐）service实现
+ * 根据用户id查找用药相似用户
  * 
  * @author lixiang
  *

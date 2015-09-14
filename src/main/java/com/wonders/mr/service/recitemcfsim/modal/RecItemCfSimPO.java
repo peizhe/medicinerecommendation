@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 
 /**
- * 用过该药的用户还用过po
+ * 用过该药的用户还用过什么药po
  * 
  * @author lixiang
  *
@@ -19,7 +19,7 @@ import javax.persistence.Table;
 public class RecItemCfSimPO {
 	
 	private Long id;
-	private Long itemId;
+	private Long itemId;//药品id
 	private String itemIdList;
 	
 	public RecItemCfSimPO () {		
