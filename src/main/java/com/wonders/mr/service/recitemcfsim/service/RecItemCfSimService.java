@@ -13,7 +13,7 @@ import com.wonders.mr.service.item.modal.po.ItemPO;
 public interface RecItemCfSimService {
 
 	/**
-	 * 根据药品id查找
+	 * 根据根据用过该药用户用药id查找还用过什么药
 	 * 
 	 * @param id
 	 * @return

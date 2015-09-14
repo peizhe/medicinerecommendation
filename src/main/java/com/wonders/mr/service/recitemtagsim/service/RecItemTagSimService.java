@@ -13,7 +13,7 @@ import com.wonders.mr.service.item.modal.po.ItemPO;
 public interface RecItemTagSimService {
 	
 	/**
-	 * 根据ID查找对象
+	 * 根据药品ID查找相似药品
 	 * 
 	 * @param id
 	 * @return

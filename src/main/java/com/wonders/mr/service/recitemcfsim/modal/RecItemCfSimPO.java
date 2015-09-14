@@ -41,6 +41,7 @@ public class RecItemCfSimPO {
 		this.id = id;
 	}
 
+	@Column(name = "item_id")
 	public Long getItemId() {
 		return itemId;
 	}
@@ -49,6 +50,7 @@ public class RecItemCfSimPO {
 		this.itemId = itemId;
 	}
 
+	@Column(name = "item_id_list")
 	public String getItemIdList() {
 		return itemIdList;
 	}

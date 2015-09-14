@@ -27,18 +27,25 @@ public class RecItemTagSimPO {
 	public Long getId() {
 		return id;
 	}
+	
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
+	@Column(name = "item_id")
 	public Long getItemId() {
 		return itemId;
 	}
+	
 	public void setItemId(Long itemId) {
 		this.itemId = itemId;
 	}
+	
+	@Column(name = "item_id_list")
 	public String getItemIdList() {
 		return itemIdList;
 	}
+	
 	public void setItemIdList(String itemIdList) {
 		this.itemIdList = itemIdList;
 	}

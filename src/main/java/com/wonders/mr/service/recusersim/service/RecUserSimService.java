@@ -13,7 +13,7 @@ import com.wonders.mr.service.user.modal.UserPO;
 public interface RecUserSimService {
 	
 	/**
-	 * 根据用户id查找用户
+	 * 根据用户id查找用药相似用户
 	 * 
 	 * @param id
 	 * @return

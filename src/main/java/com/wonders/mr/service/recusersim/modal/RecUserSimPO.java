@@ -39,6 +39,7 @@ public class RecUserSimPO {
 		this.id = id;
 	}
 
+	@Column(name = "user_id")
 	public Long getUserId() {
 		return userId;
 	}
@@ -47,6 +48,7 @@ public class RecUserSimPO {
 		this.userId = userId;
 	}
 
+	@Column(name = "user_id_list")
 	public String getUserIdList() {
 		return userIdList;
 	}
