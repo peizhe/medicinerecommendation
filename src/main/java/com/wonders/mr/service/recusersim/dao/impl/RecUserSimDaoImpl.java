@@ -6,7 +6,7 @@ import com.wonders.mr.service.recusersim.dao.RecUserSimDao;
 import com.wonders.mr.service.recusersim.modal.RecUserSimPO;
 
 /**
- * 找病友dao实现
+ * 找病友（相似用户推荐）dao实现
  * 
  * @author lixiang
  *

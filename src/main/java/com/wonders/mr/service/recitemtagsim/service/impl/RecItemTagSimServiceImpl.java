@@ -13,7 +13,7 @@ import com.wonders.mr.service.recitemtagsim.modal.RecItemTagSimPO;
 import com.wonders.mr.service.recitemtagsim.service.RecItemTagSimService;
 
 /**
- * 物品相似度service实现
+ * 类似药品展示模块service实现
  * 
  * @author lixiang
  *

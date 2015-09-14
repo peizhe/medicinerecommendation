@@ -5,7 +5,7 @@ import java.util.List;
 import com.wonders.mr.service.item.modal.po.ItemPO;
 
 /**
- * 物品相似度service接口
+ * 类似药品展示模块service接口
  * 
  * @author lixiang
  *

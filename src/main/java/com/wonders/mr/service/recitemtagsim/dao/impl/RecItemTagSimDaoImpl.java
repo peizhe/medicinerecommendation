@@ -8,7 +8,7 @@ import com.wonders.mr.service.recitemtagsim.dao.RecItemTagSimDao;
 import com.wonders.mr.service.recitemtagsim.modal.RecItemTagSimPO;
 
 /**
- * 物品相似度Dao实现
+ * 类似药品展示模块Dao实现
  * 
  * @author lixiang
  *

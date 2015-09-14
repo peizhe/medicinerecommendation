@@ -8,7 +8,7 @@ import com.wonders.mr.service.recitemcfsim.dao.RecItemCfSimDao;
 import com.wonders.mr.service.recitemcfsim.modal.RecItemCfSimPO;
 
 /**
- * 用过该药的人还用过dao实现
+ * 用过该药的用户还用过什么药dao实现
  * 
  * @author lixiang
  *

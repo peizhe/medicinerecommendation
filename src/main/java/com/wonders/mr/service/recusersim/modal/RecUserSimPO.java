@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
- * 找病友PO
+ * 找病友（相似用户推荐）PO
  * @author lixiang
  *
  */

@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
- * 物品相似度模块PO
+ * 类似药品展示模块PO
  * 
  * @author lixiang
  *
