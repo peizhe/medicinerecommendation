@@ -7,21 +7,12 @@
 		<link href="static/css/style.css" rel="stylesheet" type="text/css" media="all" />	
 		<!--//theme-style-->
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<meta charset="UTF-8" pageEncoding="UTF-8">
 		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+		<!--fonts-->
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
 		<!--//fonts-->
 		<script src="static/js/jquery.min.js"></script>
 		<!--script-->
-		
-		<!-- bootstrap 引入begin -->
-		<link href="static/bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-		<link href="static/bootstrap-3.3.5-dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
-		
-		<script src="static/js/jquery-v1.11.3.js"></script>
-		<script src="static/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
-		<!-- bootstrap 引入end -->
-		
-		
 	</head>
 	<body> 
 		<!--header-->
@@ -31,7 +22,7 @@
 					<div class="top-header-left">
 						<ul class="support">
 							<li><a href="#"><label> </label></a></li>
-							<li><a href="#">24小时<span class="live">热线支持</span></a></li>
+							<li><a href="#">24x7 live<span class="live"> support</span></a></li>
 						</ul>
 						<ul class="support">
 							<li class="van"><a href="#"><label> </label></a></li>
@@ -56,9 +47,6 @@
 							  <option value="Euro" class="in-of">Euro</option>
 								</select>
 						 </div>
-						 <div class="down-top">		
-						 <label class="in-of currentUser" ></label>
-					 </div>
 						 <!---->
 						<div class="clearfix"> </div>	
 					</div>
@@ -194,8 +182,8 @@
 						</a>
 		   		     </div>
 		   		     <div class="products">
-		   		     	<h5 class="latest-product">和您用药相似的用户还用过了以下药物</h5>	
-		   		     	  <a class="view-all" href="product.html">查看全部<span> </span></a> 		     
+		   		     	<h5 class="latest-product">LATEST PRODUCTS</h5>	
+		   		     	  <a class="view-all" href="product.html">VIEW ALL<span> </span></a> 		     
 		   		     </div>
 		   		     <div class="product-left">
 		   		     	<div class="col-md-4 chain-grid">
@@ -282,8 +270,8 @@
 		   		     	 <div class="clearfix"> </div>
 		   		     </div>
 		   		     <div class="products">
-		   		     	<h5 class="latest-product">和您用药相似的用户还有</h5>	
-		   		     	  <a class="view-all" href="product.html">查看全部<span> </span></a> 		     
+		   		     	<h5 class="latest-product">LATEST PRODUCTS</h5>	
+		   		     	  <a class="view-all" href="product.html">VIEW ALL<span> </span></a> 		     
 		   		     </div>
 		   		     <div class="product-left">
 		   		     	<div class="col-md-4 chain-grid">
@@ -440,29 +428,6 @@
 				    });
 				
 				});
-				$(document).ready(function(){
-					displayCurrentUser();
-				});
-				function displayCurrentUser(){
-					var name=decodeURI(getQueryString("currentUser"));
-					console.log(name);
-					$(".currentUser").html(name);
-				}
-				function getQueryString(name) { 
-					var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i"); 
-					var r = window.location.search.substr(1).match(reg); 
-					if (r != null) return unescape(r[2]); return null; 
-				}
-				function getRecTableUcf(){
-					$.ajax({
-						url:"",
-						type:"GET",
-						dataType:"json",
-						success:function(data){
-							
-						}
-					});
-				}
 			</script>
 						<div class=" chain-grid menu-chain">
 		   		     		<a href="single.html"><img class="img-responsive chain" src="images/wat.jpg" alt=" " /></a>	   		     		
