@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.wonders.bud.framework.common.util.QueryParam;
 import com.wonders.mr.service.user.dao.UserDao;
 import com.wonders.mr.service.user.modal.UserPO;
 import com.wonders.mr.service.user.service.UserService;
@@ -20,6 +21,7 @@ import com.wonders.mr.util.Constant;
 @Service("userServiceImpl")
 public class UserServiceImpl implements UserService {
 
+	@SuppressWarnings("unused")
 	private static Logger logger = LoggerFactory
 			.getLogger(UserServiceImpl.class);
 
@@ -66,5 +68,22 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public List<UserPO> findAll() {
 		return userDao.findAll();
+	}
+
+	@Override
+	public UserPO login(String loginName, String pwd) {
+		QueryParam queryParam = new QueryParam();
+		
+		Map<String, Object> eqMap = new HashMap<>();
+		eqMap.put("loginName", loginName);
+		eqMap.put("pwd", pwd);
+		eqMap.put("deleteFlag", Constant.USER_NOT_DELETE);
+		queryParam.setEq(eqMap);
+		List<UserPO> list = userDao.findByAnd(queryParam);
+		if(list.size() > 0) {
+			return list.get(0);
+		}
+		
+		return null;
 	}
 }

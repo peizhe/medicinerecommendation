@@ -91,38 +91,35 @@ input[type="button"] {
 			</div>
 		</div>
 		<div class="bottom-header">
-			<div class="container">
-				<div class="header-bottom-left">
-					<div class="logo">
-						<a href="index.html"><img src="images/logo.png" alt=" " /></a>
+				<div class="container">
+					<div class="header-bottom-left">
+						<div class="logo">
+							<a href="index.html"><img src="images/logo.png" alt=" " /></a>
+						</div>
+						<div class="search">
+							<input type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" >
+							<input type="submit"  value="搜索">
+	
+						</div>
+						<div class="clearfix"> </div>
 					</div>
-					<div class="search">
-						<input type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" >
-						<input type="submit"  value="SEARCH">
-
+					<div class="header-bottom-right">
+						<div class="input-group" style="float:left">
+  							用户名：<input type="text" id="userName" placeholder="userName" readonly/></div>					
+							<div class="account"><a href="login.html"><span> </span>用户登录</a></div>
+						<div class="clearfix"> </div>
 					</div>
-					<div class="clearfix"> </div>
+					<div class="clearfix"> </div>	
 				</div>
-				<div class="header-bottom-right">					
-						<div class="account"><a href="login.html"><span> </span>YOUR ACCOUNT</a></div>
-							<ul class="login">
-								<li><a href="login.html"><span> </span>LOGIN</a></li> |
-								<li ><a href="register.html">SIGNUP</a></li>
-							</ul>
-						<div class="cart"><a href="#"><span> </span>CART</a></div>
-					<div class="clearfix"> </div>
-				</div>
-				<div class="clearfix"> </div>	
 			</div>
-		</div>
 	</div>
 	<!---->
 	<div class="container">
 		
       	   <div class="account_grid">
 			   <div class=" login-right">
-			  	<h3>REGISTERED CUSTOMERS</h3>
-				<p>If you have an account with us, please log in.</p>
+			  	<h3>注册客户</h3>
+				<p>如果您已经有一个帐户，请登录</p>
 				<form>
 				  <div>
 					<span>用户名<label>*</label></span>
@@ -137,9 +134,9 @@ input[type="button"] {
 			    </form>
 			   </div>	
 			    <div class=" login-left">
-			  	 <h3>NEW CUSTOMERS</h3>
-				 <p>By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more.</p>
-				 <a class="acount-btn" href="register.html">Create an Account</a>
+			  	 <h3>新客户</h3>
+				 <p>通过在我们店铺建立一个账户，您可以更快的结账；存储多个送货地址以及查看和跟踪订单。</p>
+				 <a class="acount-btn" href="register.html">创建账户</a>
 			   </div>
 			   <div class="clearfix"> </div>
 			 </div>
@@ -194,6 +191,7 @@ input[type="button"] {
 		
 	</ul>
 					</div>
+<<<<<<< HEAD
 				<!--initiate accordion-->
 		<script type="text/javascript">
 			$(function() {
@@ -239,6 +237,7 @@ input[type="button"] {
 				});
 			}
 		</script>
+
 					<div class=" chain-grid menu-chain">
 	   		     		<a href="single.html"><img class="img-responsive chain" src="images/wat.jpg" alt=" " /></a>	   		     		
 	   		     		<div class="grid-chain-bottom chain-watch">
@@ -341,5 +340,50 @@ input[type="button"] {
 			</div>
 		</div>
 	</div>
+<!--initiate accordion-->
+<script type="text/javascript">
+	$(function() {
+	    var menu_ul = $('.menu > li > ul'),
+	           menu_a  = $('.menu > li > a');
+	    menu_ul.hide();
+	    menu_a.click(function(e) {
+	        e.preventDefault();
+	        if(!$(this).hasClass('active')) {
+	            menu_a.removeClass('active');
+	            menu_ul.filter(':visible').slideUp('normal');
+	            $(this).addClass('active').next().stop(true,true).slideDown('normal');
+	        } else {
+	            $(this).removeClass('active');
+	            $(this).next().stop(true,true).slideUp('normal');
+	        }
+	    });
+	
+	});
+	
+	//用户登录
+	function userLogin() {
+		var username=$('#user-name').val();
+		var userpwd=$('#user-pwd').val();
+		alert(username);
+		
+		$.ajax({
+			url:"web/user/controller/userLogin",
+			type:"POST",
+			data:{"username":username,"userpwd":userpwd},
+			success:function(data){
+				if (data.msg == "isNull") {
+					yeshidenotify('warning', 'middle center', '登录名和密码不能为空！', '提示框将在3秒内关闭', 3000);
+				}else if (data.msg == "success") {
+                    yeshidenotify('success', 'middle center', '登陆成功！', '提示框将在3秒内关闭', 3000);
+                }else if (data.msg == "failure") {
+                    yeshidenotify('warning', 'middle center', '登录名或密码有错误，请重新输入！', '提示框将在3秒内关闭', 3000);
+                }else if (data.msg == "error") {
+                	yeshidenotify('error', 'middle center', '登陆失败！', '提示框将在3秒内关闭', 3000);
+                }
+			}
+		});
+		
+	}
+</script>
 </body>
 </html>
