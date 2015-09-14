@@ -20,21 +20,47 @@ public class UserPO {
 	private Long id;
 	private String name;
 	private String loginName;
+	private String pwd;//用户密码
 	private Integer age;
 	private String gender;// 用户性别
+	private String occupation;//用户职业
 	private Integer deleteFlag;
 
 	public UserPO() {
 	}
 
-	public UserPO(String name, String loginName, Integer age, String gender,
-			Integer deleteFlag) {
+	
+	public UserPO(String name, String loginName, String pwd, Integer age,
+			String gender, String occupation, Integer deleteFlag) {
 		this.name = name;
 		this.loginName = loginName;
+		this.pwd = pwd;
 		this.age = age;
 		this.gender = gender;
+		this.occupation = occupation;
 		this.deleteFlag = deleteFlag;
 	}
+
+
+	@Column(name = "pwd")
+	public String getPwd() {
+		return pwd;
+	}
+
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
+	}
+
+
+	public String getOccupation() {
+		return occupation;
+	}
+
+
+	public void setOccupation(String occupation) {
+		this.occupation = occupation;
+	}
+
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)

@@ -1,44 +1,53 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Mall</title>
+		<meta charset="UTF-8">
+		<title>Wondersgroup Medicine care system---your personal Consultant</title>
 		<link href="static/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 		<!--theme-style-->
 		<link href="static/css/style.css" rel="stylesheet" type="text/css" media="all" />	
 		<!--//theme-style-->
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-		<!--fonts-->
-		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
 		<!--//fonts-->
 		<script src="static/js/jquery.min.js"></script>
 		<!--script-->
+		
+		<!-- bootstrap 引入begin -->
+		<link href="static/bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+		<link href="static/bootstrap-3.3.5-dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+		
+		<script src="static/js/jquery-v1.11.3.js"></script>
+		<script src="static/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+		<!-- bootstrap 引入end -->
 	</head>
 	<body> 
 		<!--header-->
 		<div class="header">
-			<div class="top-header">
+			<div class="top-header" >
 				<div class="container">
 					<div class="top-header-left">
 						<ul class="support">
 							<li><a href="#"><label> </label></a></li>
-							<li><a href="#">24x7 live<span class="live"> support</span></a></li>
+							<li><a href="#">24小时<span class="live">热线支持</span></a></li>
 						</ul>
 						<ul class="support">
 							<li class="van"><a href="#"><label> </label></a></li>
-							<li><a href="#">Free shipping <span class="live">on order over 500</span></a></li>
+							<li><a href="#">单笔交易超200 <span class="live">免费送药上门</span></a></li>
 						</ul>
 						<div class="clearfix"> </div>
 					</div>
+					<!-- 右侧 语言 价格单位选项 -->
+					<!-- 
 					<div class="top-header-right">
-					 <div class="down-top">		
-							  <select class="in-drop">
-								  <option value="English" class="in-of">English</option>
-								  <option value="Japanese" class="in-of">Japanese</option>
-								  <option value="French" class="in-of">French</option>
-								  <option value="German" class="in-of">German</option>
-								</select>
-						 </div>
+						<div class="down-top">		
+						  	<select class="in-drop">
+							  <option value="English" class="in-of">English</option>
+							  <option value="Japanese" class="in-of">Japanese</option>
+							  <option value="French" class="in-of">French</option>
+							  <option value="German" class="in-of">German</option>
+							</select>
+						</div>
 						<div class="down-top top-down">
 							  <select class="in-drop">
 							  
@@ -47,9 +56,10 @@
 							  <option value="Euro" class="in-of">Euro</option>
 								</select>
 						 </div>
-						 <!---->
 						<div class="clearfix"> </div>	
 					</div>
+					 -->
+					<!-- //右侧 语言 价格单位选项 -->
 					<div class="clearfix"> </div>		
 				</div>
 			</div>
@@ -59,17 +69,25 @@
 						<div class="logo">
 							<a href="index.html"><img src="images/logo.png" alt=" " /></a>
 						</div>
-						<div class="search">
-							<input type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" >
-							<input type="submit"  value="搜索">
-	
+						<!-- 搜索框 -->
+						<div class="form-inline" style="margin-left: 300px;margin-top: 25px">
+						  <div class="form-group">
+						    <div class="input-group" style="width:260px">
+						      <input type="text" class="form-control " id="" placeholder="药名、症状">
+						    </div>
+						  </div>
+						  <button type="submit" class="btn btn-primary">搜索</button>
 						</div>
+						<!-- //搜索框 -->
 						<div class="clearfix"> </div>
 					</div>
-					<div class="header-bottom-right">
-							<div class="input-group" style="float:left">
-  							用户名：<input type="text" id="userName" placeholder="userName" readonly/></div>			
-							<div class="account"><a href="login.html"><span> </span>用户登录</a></div>
+					<div class="header-bottom-right">					
+							<div class="account"><a href="login.html"><span> </span>你的账户</a></div>
+								<ul class="login">
+									<li><a href="login.html"><span> </span>登录</a></li>
+									<li ><a href="register.html">注册</a></li>
+								</ul>
+							<div class="cart"><a href="#"><span> </span>购物车</a></div>
 						<div class="clearfix"> </div>
 					</div>
 					<div class="clearfix"> </div>	
@@ -78,74 +96,71 @@
 		</div>
 		<!---->
 		<div class="container">
-				<div class="shoes-grid">
+			<div class="shoes-grid">
 				<a href="single.html">
-				<div class="wrap-in">
-					<div class="wmuSlider example1 slide-grid">		 
-					   <div class="wmuSliderWrapper">		  
-						   <article style="position: absolute; width: 100%; opacity: 0;">					
-							<div class="banner-matter">
-							<div class="col-md-5 banner-bag">
-								<img class="img-responsive " src="images/bag.jpg" alt=" " />
-								</div>
-								<div class="col-md-7 banner-off">							
-									<h2>FLAT 50% 0FF</h2>
-									<label>FOR ALL PURCHASE <b>VALUE</b></label>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et </p>					
-									<span class="on-get">GET NOW</span>
-								</div>
+					<div class="wrap-in">
+						<div class="wmuSlider example1 slide-grid">		 
+			   				<div class="wmuSliderWrapper">		  
+				   				<article style="position: absolute; width: 100%; opacity: 0;">					
+									<div class="banner-matter">
+										<div class="col-md-5 banner-bag">
+											<img class="img-responsive " src="images/bag.jpg" alt=" " />
+										</div>
+										<div class="col-md-7 banner-off">							
+											<h2>FLAT 50% 0FF</h2>
+											<label>FOR ALL PURCHASE <b>VALUE</b></label>
+											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et </p>					
+											<span class="on-get">GET NOW</span>
+										</div>
+										<div class="clearfix"> </div>
+									</div>
+					
+				 				</article>
+							 	<article style="position: absolute; width: 100%; opacity: 0;">					
+									<div class="banner-matter">
+										<div class="col-md-5 banner-bag">
+											<img class="img-responsive " src="images/bag1.jpg" alt=" " />
+										</div>
+										<div class="col-md-7 banner-off">							
+											<h2>FLAT 50% 0FF</h2>
+											<label>FOR ALL PURCHASE <b>VALUE</b></label>
+											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et </p>					
+											<span class="on-get">GET NOW</span>
+										</div>
+										
+										<div class="clearfix"> </div>
+									</div>
 								
-								<div class="clearfix"> </div>
-							</div>
-							
-						 	</article>
-						 	<article style="position: absolute; width: 100%; opacity: 0;">					
-							<div class="banner-matter">
-							<div class="col-md-5 banner-bag">
-								<img class="img-responsive " src="images/bag1.jpg" alt=" " />
-								</div>
-								<div class="col-md-7 banner-off">							
-									<h2>FLAT 50% 0FF</h2>
-									<label>FOR ALL PURCHASE <b>VALUE</b></label>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et </p>					
-									<span class="on-get">GET NOW</span>
-								</div>
-								
-								<div class="clearfix"> </div>
-							</div>
-							
-						 	</article>
-						 	<article style="position: absolute; width: 100%; opacity: 0;">					
-							<div class="banner-matter">
-							<div class="col-md-5 banner-bag">
-								<img class="img-responsive " src="images/bag.jpg" alt=" " />
-								</div>
-								<div class="col-md-7 banner-off">							
-									<h2>FLAT 50% 0FF</h2>
-									<label>FOR ALL PURCHASE <b>VALUE</b></label>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et </p>					
-									<span class="on-get">GET NOW</span>
-								</div>
-								
-								<div class="clearfix"> </div>
-							</div>
-							
-						 	</article>
-							
-						 </div>
-						 </a>
-		                <ul class="wmuSliderPagination">
-		                	<li><a href="#" class="">0</a></li>
-		                	<li><a href="#" class="">1</a></li>
-		                	<li><a href="#" class="">2</a></li>
-		                </ul>
-						 <script src="static/js/jquery.wmuSlider.js"></script> 
-					  <script>
-		       			$('.example1').wmuSlider();         
-		   		     </script> 
-		            </div>
-		          </div>
-		           	</a >
+							 	</article>
+							 	<article style="position: absolute; width: 100%; opacity: 0;">					
+									<div class="banner-matter">
+										<div class="col-md-5 banner-bag">
+											<img class="img-responsive " src="images/bag.jpg" alt=" " />
+										</div>
+										<div class="col-md-7 banner-off">							
+											<h2>FLAT 50% 0FF</h2>
+											<label>FOR ALL PURCHASE <b>VALUE</b></label>
+											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et </p>					
+											<span class="on-get">GET NOW</span>
+										</div>
+										<div class="clearfix"> </div>
+									</div>
+							 	</article>
+					
+				 			</div>
+				 </a>
+                <ul class="wmuSliderPagination">
+                	<li><a href="#" class="">0</a></li>
+                	<li><a href="#" class="">1</a></li>
+                	<li><a href="#" class="">2</a></li>
+                </ul>
+				 <script src="static/js/jquery.wmuSlider.js"></script> 
+				  <script>
+	       			$('.example1').wmuSlider();         
+	   		     </script> 
+            </div>
+          </div>
+		           	</a>
 		   		      <!---->
 		   		     <div class="shoes-grid-left">
 				<a href="single.html">				 
@@ -395,6 +410,7 @@
 					<li ><a href="product.html">Ornared id aliquet</a></li>
 				</ul>
 			</li>
+			<!-- 
 			<ul class="kid-menu ">
 					<li><a href="product.html">Commodo sit</a></li>
 					<li ><a href="product.html">Urna ac tortor sc</a></li>
@@ -404,6 +420,7 @@
 					<li><a href="product.html">Faciisis ornare</a></li>
 					<li class="menu-kid-left"><a href="contact.html">Contact us</a></li>
 				</ul>
+			 -->
 		</ul>
 						</div>
 	
