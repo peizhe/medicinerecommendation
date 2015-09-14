@@ -62,4 +62,15 @@ public interface UserService {
 	 */
 	public List<UserPO> findAll();
 
+	/**
+	 * 用户登录
+	 * @param loginName 登录名
+	 * @param pwd 密码
+	 * @return 用户名和密码匹配则返回登录成功的用户对象，否则返回null
+	 */
+	public UserPO login(String loginName, String pwd);
+	
+	
+	
+	
 }
