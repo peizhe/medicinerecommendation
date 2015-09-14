@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.wonders.bud.framework.common.util.RestMsg;
+import com.wonders.mr.service.user.modal.UserPO;
 import com.wonders.mr.service.user.service.UserService;
 
 @Controller
@@ -29,8 +30,8 @@ public class UserController {
 			String userName=request.getParameter("userName");
 			String passWord=request.getParameter("password");
 			if(userName!=null&&passWord!=null){
-				int isExist=1;
-				if(isExist==1){
+				UserPO  user=userService.login(userName,passWord);
+				if(user!=null){
 					rm.setResult("success");
 					HttpSession session = request.getSession(); 
 					session.setAttribute("userName", userName);
