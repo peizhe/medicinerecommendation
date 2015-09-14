@@ -13,7 +13,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <link href="static/css/style.css" rel="stylesheet" type="text/css" media="all" />	
 <!--//theme-style-->
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script type="application/x-javascript"> /* addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }  */</script>
 <script src="static/js/jquery.min.js"></script>
 
 <!-- bootstrap 引入begin -->
@@ -22,6 +22,31 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		
 		<script src="static/js/jquery-v1.11.3.js"></script>
 		<script src="static/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+<style type="text/css">
+.acount-btn:hover, .login-right input[type="button"]:hover{
+	background:#1DBAA5;
+	text-decoration:none;
+	color:#fff;
+}
+.login-right input[type="button"] {
+        background: #F97E76;
+        color: #FFF;
+        font-size: 1em;
+        padding: 0.5em 1.2em;
+        transition: 0.5s all;
+        -webkit-transition: 0.5s all;
+        -moz-transition: 0.5s all;
+        -o-transition: 0.5s all;
+        display: inline-block;
+        text-transform: uppercase;
+        border: none;
+        outline: none;
+}
+input[type="button"] {
+        -webkit-appearance: button;
+        cursor: pointer;
+}
+</style>
 		<!-- bootstrap 引入end -->
 </head>
 <body> 
@@ -56,6 +81,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						  <option value="Yen" class="in-of">Yen</option>
 						  <option value="Euro" class="in-of">Euro</option>
 							</select>
+					 </div>
+					 <div class="down-top">		
+						 <label class="in-of currentUser" ></label>
 					 </div>
 					<div class="clearfix"> </div>	
 				</div>
@@ -95,14 +123,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<form>
 				  <div>
 					<span>用户名<label>*</label></span>
-					<input type="text" id="user-name"> 
+					<input id="userName" type="text"> 
 				  </div>
 				  <div>
 					<span>密码<label>*</label></span>
-					<input type="text" id="user-pwd"> 
+					<input id="password" type="text"> 
 				  </div>
-				  <a class="forgot" href="#">忘记密码？</a>
-				  <a class="acount-btn" href="index.html" onclick="userLogin()">登陆</a>
+				  <a class="forgot" href="#">Forgot Your Password?</a>
+				  <input type="button" id="login" value="登录">
 			    </form>
 			   </div>	
 			    <div class=" login-left">
@@ -163,7 +191,53 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		
 	</ul>
 					</div>
-		
+<<<<<<< HEAD
+				<!--initiate accordion-->
+		<script type="text/javascript">
+			$(function() {
+			    var menu_ul = $('.menu > li > ul'),
+			           menu_a  = $('.menu > li > a');
+			    menu_ul.hide();
+			    menu_a.click(function(e) {
+			        e.preventDefault();
+			        if(!$(this).hasClass('active')) {
+			            menu_a.removeClass('active');
+			            menu_ul.filter(':visible').slideUp('normal');
+			            $(this).addClass('active').next().stop(true,true).slideDown('normal');
+			        } else {
+			            $(this).removeClass('active');
+			            $(this).next().stop(true,true).slideUp('normal');
+			        }
+			    });
+			
+			});
+			$(document).ready(function(){
+				$("#login").click(function(){
+					login();
+				}); 
+			});
+			function login(){				
+				var userName=$("#userName").val();
+				var password=$("#password").val();
+				param={'userName':userName,'password':password}
+				$.ajax({
+					url:"api/common/user/login",
+					type : "POST",
+					data:param,
+					dataType:"json",
+					success:function(data){
+						if(data.result=="success"){
+							location.href=encodeURI("index.html?currentUser="+userName);
+							$(".currentUser").text(userName);
+						}
+						else{
+							alert("登录失败！");
+						}
+					}
+				});
+			}
+		</script>
+
 					<div class=" chain-grid menu-chain">
 	   		     		<a href="single.html"><img class="img-responsive chain" src="images/wat.jpg" alt=" " /></a>	   		     		
 	   		     		<div class="grid-chain-bottom chain-watch">
