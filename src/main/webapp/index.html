@@ -7,6 +7,7 @@
 		<link href="static/css/style.css" rel="stylesheet" type="text/css" media="all" />	
 		<!--//theme-style-->
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta charset="UTF-8" pageEncoding="UTF-8">
 		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 		<!--//fonts-->
 		<script src="static/js/jquery.min.js"></script>
@@ -55,6 +56,9 @@
 							  <option value="Euro" class="in-of">Euro</option>
 								</select>
 						 </div>
+						 <div class="down-top">		
+						 <label class="in-of currentUser" ></label>
+					 </div>
 						 <!---->
 						<div class="clearfix"> </div>	
 					</div>
@@ -436,6 +440,41 @@
 				    });
 				
 				});
+				$(document).ready(function(){
+					displayCurrentUser();
+				});
+				function displayCurrentUser(){
+					/* var href=window.location.href;
+					var paramString=new Array();
+					paramString=href.split("?");
+					var params=new Array();
+					params=paramString[1].split("&");
+					var User=params[0];
+					var str=new Array();
+					str=User.split("=");
+					var name=str[1];
+					alert(name); */
+					var name=decodeURI(getQueryString("currentUser"));
+					console.log(name);
+					$(".currentUser").html(name);
+				}
+	/* 			function GetRequest() { 
+					var url = location.search; //获取url中"?"符后的字串 
+					var theRequest = new Object(); 
+					if (url.indexOf("?") != -1) { 
+					var str = url.substr(1); 
+					strs = str.split("&"); 
+					for(var i = 0; i < strs.length; i ++) { 
+					theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]); 
+					} 
+					} 
+					return theRequest; 
+					}  */
+					function getQueryString(name) { 
+						var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i"); 
+						var r = window.location.search.substr(1).match(reg); 
+						if (r != null) return unescape(r[2]); return null; 
+						} 
 			</script>
 						<div class=" chain-grid menu-chain">
 		   		     		<a href="single.html"><img class="img-responsive chain" src="images/wat.jpg" alt=" " /></a>	   		     		
