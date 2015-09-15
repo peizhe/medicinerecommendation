@@ -2,9 +2,8 @@
 <html>
 	<head>
 		<title>Mall</title>
-		<link href="static/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 		<!--theme-style-->
-		<link href="static/css/style.css" rel="stylesheet" type="text/css" media="all" />	
+		<link href="static/css/style.css" rel="stylesheet" type="text/css"/>	
 		<!--//theme-style-->
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<meta charset="UTF-8" />
@@ -14,14 +13,12 @@
 		<!--script-->
 		
 		<!-- bootstrap 引入begin -->
-		<link href="static/bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-		<link href="static/bootstrap-3.3.5-dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+		<link href="static/bootstrap3.3.5/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+		<link href="static/bootstrap3.3.5/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
 		
 		<script src="static/js/jquery-v1.11.3.js"></script>
-		<script src="static/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+		<script src="static/bootstrap3.3.5/js/bootstrap.min.js"></script>
 		<!-- bootstrap 引入end -->
-		
-		
 	</head>
 	<body> 
 		<!--header-->
@@ -59,7 +56,7 @@
 						 </div>
 						 //语言 价格单位   -->
 						<div class="down-top">		
-							<label class="in-of currentUser" >您还未<a href="login.html">登录</a>，登录之后，我们将为你提供个性化推荐</label>
+							<label class="in-of currentUser" ></label>
 							<input type="hidden" id="loginName" />
 					 	</div>
 						 <!---->
@@ -426,18 +423,31 @@
 									var userName = array[0]
 									var loginName = array[1];
 									
-									$(".currentUser").html("欢迎您 :" + userName + "<li class='glyphicon glyphicon-log-out'></li>");
+									$(".currentUser").html("欢迎您 :" + userName + "&nbsp;&nbsp;&nbsp;<a href='javascript:;' class='glyphicon glyphicon-log-out' title='退出'></a>");
 									$("#loginName").val(loginName);
+									//绑定登出按钮单击事件(用户登出操作)
+									$(".glyphicon.glyphicon-log-out").bind("click", function() {
+										
+										$.post(
+											"api/common/user/logout",
+											{},
+											function(data) {
+												window.location.href = "index.html";
+											}
+										);
+									});
+								}else {
+									$(".currentUser").html('<a href="login.html">登录</a>之后,我们将为您提供个性化推荐');
 								}
 							});
 				}
-<<<<<<< HEAD
 				
 				function getQueryString(name) { 
 					var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i"); 
 					var r = window.location.search.substr(1).match(reg); 
 					if (r != null) return unescape(r[2]); return null; 
 				}
+				
 				function getRecTableUcf(){
 					$.ajax({
 						url:"",
@@ -448,49 +458,41 @@
 							if("success" == data.result) {
 								$(".currentUser").html(name);
 							}
-							
-							
-							
-							
-=======
-					function getQueryString(name) { 
-						var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i"); 
-						var r = window.location.search.substr(1).match(reg); 
-						if (r != null) return unescape(r[2]); return null; 
->>>>>>> mr/dev
 						}
+					});
+				}
 					
-					//页面左侧tag标签分类显示
-					function initTag() {
-						$('.menu').html("");//清空防止影响
-						
-						$.ajax({
-							url: "pages/index/controller/getTagInfo",
-							type: "POST",
-							success: function(data) {
-								if(data.msg == "success") {
-									var tagList = data.result;
-									var str = new Array();
-									for (i=0;i<10;i++) {
-										if(tagList[i]==null) {
-											break;
-										}
-										creatTagView(tagList[i].tagId,tagList[i].symptom,str);
+				//页面左侧tag标签分类显示
+				function initTag() {
+					$('.menu').html("");//清空防止影响
+					
+					$.ajax({
+						url: "pages/index/controller/getTagInfo",
+						type: "POST",
+						success: function(data) {
+							if(data.msg == "success") {
+								var tagList = data.result;
+								var str = new Array();
+								for (i=0;i<10;i++) {
+									if(tagList[i]==null) {
+										break;
 									}
-									$('.menu').html(str.join(""));
-								}else if(data.msg == "nothing") {
-									alert("抱歉，还没有进行分类！");
-								}else if(data.msg == "error") {
-									alert("获取分类内容出错，请重新登陆！");
+									creatTagView(tagList[i].tagId,tagList[i].symptom,str);
 								}
+								$('.menu').html(str.join(""));
+							}else if(data.msg == "nothing") {
+								alert("抱歉，还没有进行分类！");
+							}else if(data.msg == "error") {
+								alert("获取分类内容出错，请重新登陆！");
 							}
-						});
-					}
+						}
+					});
+				}
 					
-					function creatTagView(tagId,symptom,str) {
-						str.push('<li><a href="" onclick="">tag</a></li>');
-						//str.push('<a href="#tableEx-div"  data-toggle="modal" data-backdrop="static" onclick="getTableEx(' + cataTableId + ',\'' + cataTableName + '\')" title="查看样例数据"><span class="fa fa-table" style="color: #fff"></span></a></p>')
-					}
+				function creatTagView(tagId,symptom,str) {
+					str.push('<li><a href="" onclick="">tag</a></li>');
+					//str.push('<a href="#tableEx-div"  data-toggle="modal" data-backdrop="static" onclick="getTableEx(' + cataTableId + ',\'' + cataTableName + '\')" title="查看样例数据"><span class="fa fa-table" style="color: #fff"></span></a></p>')
+				}
 			</script>
 						<div class=" chain-grid menu-chain">
 		   		     		<a href="single.html"><img class="img-responsive chain" src="images/wat.jpg" alt=" " /></a>	   		     		

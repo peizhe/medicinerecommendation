@@ -70,4 +70,30 @@ public class UserController {
 		}
 		return restMsg;
 	}
+	
+	/**
+	 * 用户登出操作，清除session
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping(value = "/logout", method = RequestMethod.POST)
+	@ResponseBody
+	public RestMsg<String> logout(HttpServletRequest request) {
+		RestMsg<String> restMsg = new RestMsg<String>();
+		HttpSession session = request.getSession();
+		session.invalidate();
+		restMsg.setMsg("ok");
+		return restMsg;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
