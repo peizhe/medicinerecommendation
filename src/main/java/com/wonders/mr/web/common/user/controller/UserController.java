@@ -30,6 +30,7 @@ public class UserController {
 		try {
 			String userName = request.getParameter("userName");
 			String passWord = request.getParameter("password");
+			
 			if (userName != null && passWord != null) {
 				UserPO user = userService.login(userName, passWord);
 				if (user != null) {
@@ -38,6 +39,7 @@ public class UserController {
 					HttpSession session = request.getSession();
 					session.setAttribute("userName", userName);
 					session.setAttribute("loginName", user.getLoginName());
+					session.setAttribute("userId", user.getId());
 				} else {
 					rm.setMsg("error");
 				}
