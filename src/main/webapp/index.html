@@ -72,17 +72,17 @@
 							<a href="index.html"><img src="images/logo.png" alt=" " /></a>
 						</div>
 						<div class="search">
-							<input type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" >
+							<input type="text" placeholder="药名、症状、药品生产商"/>
 							<input type="submit"  value="SEARCH">
 	
 						</div>
 						<div class="clearfix"> </div>
 					</div>
-					
-					<div class="header-bottom-right cart" style="margin-left:200px">
+					<!-- 购物车 -->
+					<!-- <div class="header-bottom-right cart" style="margin-left:200px">
 						<a href="#"><span> </span>CART</a>
-					</div>
-					
+					</div> -->
+					<!-- //购物车 -->
 					<div class="clearfix"> </div>	
 				</div>
 			</div>
@@ -423,7 +423,7 @@
 									var userName = array[0]
 									var loginName = array[1];
 									
-									$(".currentUser").html("欢迎您 :" + userName + "&nbsp;&nbsp;&nbsp;<a href='javascript:;' class='glyphicon glyphicon-log-out' title='退出'></a>");
+									$(".currentUser").html("欢迎您 : " + userName + "&nbsp;&nbsp;&nbsp;<a href='javascript:;' class='glyphicon glyphicon-log-out' title='退出'></a>");
 									$("#loginName").val(loginName);
 									//绑定登出按钮单击事件(用户登出操作)
 									$(".glyphicon.glyphicon-log-out").bind("click", function() {
@@ -437,7 +437,7 @@
 										);
 									});
 								}else {
-									$(".currentUser").html('<a href="login.html">登录</a>之后,我们将为您提供个性化推荐');
+									$(".currentUser").html('<a href="login.html">登录</a> 后, 我们将为您提供个性化推荐');
 								}
 							});
 				}
