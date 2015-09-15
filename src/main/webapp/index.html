@@ -193,8 +193,8 @@
 						</a>
 		   		     </div>
 		   		     <div class="products">
-		   		     	<h5 class="latest-product">和您用药相似的用户还用过了以下药物</h5>	
-		   		     	  <a class="view-all" href="product.html">查看全部<span> </span></a> 		     
+		   		     	<h5 class="latest-product">LATEST PRODUCTS</h5>	
+		   		     	  <a class="view-all" href="product.html">VIEW ALL<span> </span></a> 		     
 		   		     </div>
 		   		     <div class="product-left">
 		   		     	<div class="col-md-4 chain-grid">
@@ -281,8 +281,8 @@
 		   		     	 <div class="clearfix"> </div>
 		   		     </div>
 		   		     <div class="products">
-		   		     	<h5 class="latest-product">和您用药相似的用户还有</h5>	
-		   		     	  <a class="view-all" href="product.html">查看全部<span> </span></a> 		     
+		   		     	<h5 class="latest-product">LATEST PRODUCTS</h5>	
+		   		     	  <a class="view-all" href="product.html">VIEW ALL<span> </span></a> 		     
 		   		     </div>
 		   		     <div class="product-left">
 		   		     	<div class="col-md-4 chain-grid">
@@ -372,36 +372,8 @@
 		   		   </div>   
 				   <div class="sub-cate">
 					<div class=" top-nav rsidebar span_1_of_left">
-						<h3 class="cate">CATEGORIES</h3>
+						<h3 class="cate">分类</h3>
 			 <ul class="menu">
-			<li class="item1"><a href="#">Curabitur sapien<img class="arrow-img" src="images/arrow1.png" alt=""/> </a>
-				<ul class="cute">
-					<li class="subitem1"><a href="product.html">Cute Kittens </a></li>
-					<li class="subitem2"><a href="product.html">Strange Stuff </a></li>
-					<li class="subitem3"><a href="product.html">Automatic Fails </a></li>
-				</ul>
-			</li>
-			<li class="item2"><a href="#">Dignissim purus <img class="arrow-img " src="images/arrow1.png" alt=""/></a>
-				<ul class="cute">
-					<li class="subitem1"><a href="product.html">Cute Kittens </a></li>
-					<li class="subitem2"><a href="product.html">Strange Stuff </a></li>
-					<li class="subitem3"><a href="product.html">Automatic Fails </a></li>
-				</ul>
-			</li>
-			<li class="item3"><a href="#">Ultrices id du<img class="arrow-img img-arrow" src="images/arrow1.png" alt=""/> </a>
-				<ul class="cute">
-					<li class="subitem1"><a href="product.html">Cute Kittens </a></li>
-					<li class="subitem2"><a href="product.html">Strange Stuff </a></li>
-					<li class="subitem3"><a href="product.html">Automatic Fails</a></li>
-				</ul>
-			</li>
-			<li class="item4"><a href="#">Cras iacaus rhone <img class="arrow-img img-left-arrow" src="images/arrow1.png" alt=""/></a>
-				<ul class="cute">
-					<li class="subitem1"><a href="product.html">Cute Kittens </a></li>
-					<li class="subitem2"><a href="product.html">Strange Stuff </a></li>
-					<li class="subitem3"><a href="product.html">Automatic Fails </a></li>
-				</ul>
-			</li>
 					<li>
 				<ul class="kid-menu">
 					<li><a href="product.html">Tempus pretium</a></li>
@@ -459,6 +431,7 @@
 								}
 							});
 				}
+<<<<<<< HEAD
 				
 				function getQueryString(name) { 
 					var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i"); 
@@ -479,9 +452,45 @@
 							
 							
 							
+=======
+					function getQueryString(name) { 
+						var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i"); 
+						var r = window.location.search.substr(1).match(reg); 
+						if (r != null) return unescape(r[2]); return null; 
+>>>>>>> mr/dev
 						}
-					});
-				}
+					
+					//页面左侧tag标签分类显示
+					function initTag() {
+						$('.menu').html("");//清空防止影响
+						
+						$.ajax({
+							url: "pages/index/controller/getTagInfo",
+							type: "POST",
+							success: function(data) {
+								if(data.msg == "success") {
+									var tagList = data.result;
+									var str = new Array();
+									for (i=0;i<10;i++) {
+										if(tagList[i]==null) {
+											break;
+										}
+										creatTagView(tagList[i].tagId,tagList[i].symptom,str);
+									}
+									$('.menu').html(str.join(""));
+								}else if(data.msg == "nothing") {
+									alert("抱歉，还没有进行分类！");
+								}else if(data.msg == "error") {
+									alert("获取分类内容出错，请重新登陆！");
+								}
+							}
+						});
+					}
+					
+					function creatTagView(tagId,symptom,str) {
+						str.push('<li><a href="" onclick="">tag</a></li>');
+						//str.push('<a href="#tableEx-div"  data-toggle="modal" data-backdrop="static" onclick="getTableEx(' + cataTableId + ',\'' + cataTableName + '\')" title="查看样例数据"><span class="fa fa-table" style="color: #fff"></span></a></p>')
+					}
 			</script>
 						<div class=" chain-grid menu-chain">
 		   		     		<a href="single.html"><img class="img-responsive chain" src="images/wat.jpg" alt=" " /></a>	   		     		

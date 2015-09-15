@@ -25,4 +25,13 @@ public class TagServiceImpl implements TagService {
 		return result;
 	}
 
+	@Override
+	public List<TagPO> findAll() {
+		
+		 return tagDao.findAll();
+		
+	}
+	
+	
+
 }
