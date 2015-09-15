@@ -7,7 +7,7 @@
 		<link href="static/css/style.css" rel="stylesheet" type="text/css" media="all" />	
 		<!--//theme-style-->
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<meta charset="UTF-8" pageEncoding="UTF-8">
+		<meta charset="UTF-8" />
 		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 		<!--//fonts-->
 		<script src="static/js/jquery.min.js"></script>
@@ -35,12 +35,13 @@
 						</ul>
 						<ul class="support">
 							<li class="van"><a href="#"><label> </label></a></li>
-							<li><a href="#">Free shipping <span class="live">on order over 500</span></a></li>
+							<li><a href="#">单笔交易满200元<span class="live">2公里免费送货</span></a></li>
 						</ul>
 						<div class="clearfix"> </div>
 					</div>
 					<div class="top-header-right">
-					 <div class="down-top">		
+					<!--语言 价格单位  
+					<div class="down-top">		
 							  <select class="in-drop">
 								  <option value="English" class="in-of">English</option>
 								  <option value="Japanese" class="in-of">Japanese</option>
@@ -56,9 +57,11 @@
 							  <option value="Euro" class="in-of">Euro</option>
 								</select>
 						 </div>
-						 <div class="down-top">		
-						 <label class="in-of currentUser" ></label>
-					 </div>
+						 //语言 价格单位   -->
+						<div class="down-top">		
+							<label class="in-of currentUser" >您还未<a href="login.html">登录</a>，登录之后，我们将为你提供个性化推荐</label>
+							<input type="hidden" id="loginName" />
+					 	</div>
 						 <!---->
 						<div class="clearfix"> </div>	
 					</div>
@@ -78,15 +81,11 @@
 						</div>
 						<div class="clearfix"> </div>
 					</div>
-					<div class="header-bottom-right">					
-							<div class="account"><a href="login.html"><span> </span>YOUR ACCOUNT</a></div>
-								<ul class="login">
-									<li><a href="login.html"><span> </span>LOGIN</a></li> |
-									<li ><a href="register.html">SIGNUP</a></li>
-								</ul>
-							<div class="cart"><a href="#"><span> </span>CART</a></div>
-						<div class="clearfix"> </div>
+					
+					<div class="header-bottom-right cart" style="margin-left:200px">
+						<a href="#"><span> </span>CART</a>
 					</div>
+					
 					<div class="clearfix"> </div>	
 				</div>
 			</div>
@@ -421,11 +420,10 @@
 				</ul>
 		</ul>
 						</div>
-					<!--initiate accordion-->
+		<!--initiate accordion-->
 			<script type="text/javascript">
 				$(function() {
-				    var menu_ul = $('.menu > li > ul'),
-				           menu_a  = $('.menu > li > a');
+				    var menu_ul = $('.menu > li > ul'), menu_a  = $('.menu > li > a');
 				    menu_ul.hide();
 				    menu_a.click(function(e) {
 				        e.preventDefault();
@@ -440,14 +438,28 @@
 				    });
 				
 				});
+				
 				$(document).ready(function(){
 					displayCurrentUser();
 				});
+				
+				//获取登录用户信息
 				function displayCurrentUser(){
-					var name=decodeURI(getQueryString("currentUser"));
-					console.log(name);
-					$(".currentUser").html(name);
+					$.post("api/common/user/isLogin",
+							{},
+							function (data) {
+								//用户已经登录
+								if("no" != data.msg) {
+									var array = data.msg.split("!");
+									var userName = array[0]
+									var loginName = array[1];
+									
+									$(".currentUser").html("欢迎您 :" + userName + "<li class='glyphicon glyphicon-log-out'></li>");
+									$("#loginName").val(loginName);
+								}
+							});
 				}
+				
 				function getQueryString(name) { 
 					var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i"); 
 					var r = window.location.search.substr(1).match(reg); 
@@ -459,6 +471,13 @@
 						type:"GET",
 						dataType:"json",
 						success:function(data){
+							
+							if("success" == data.result) {
+								$(".currentUser").html(name);
+							}
+							
+							
+							
 							
 						}
 					});
