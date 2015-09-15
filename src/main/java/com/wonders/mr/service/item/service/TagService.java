@@ -12,4 +12,11 @@ public interface TagService {
 	 * @return
 	 */
 	public List<TagPO> findBySymptom(String symptom);
+	
+	/**
+	 * 查找所有的Tag
+	 * @return
+	 */
+	public List<TagPO> findAll();		
+	
 }
