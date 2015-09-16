@@ -28,7 +28,7 @@ public class TagServiceImpl implements TagService {
 	@Override
 	public List<TagPO> findSpecial(long[] ids) {
 		
-		 return tagDao.findAll();
+		 return tagDao.findByIds(ids);
 		
 	}
 	
