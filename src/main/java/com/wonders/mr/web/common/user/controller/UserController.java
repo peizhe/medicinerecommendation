@@ -28,6 +28,7 @@ public class UserController {
 			HttpServletResponse response) {
 		RestMsg<UserPO> rm = new RestMsg<UserPO>();
 		try {
+
 			String userName = request.getParameter("userName");
 			String passWord = request.getParameter("password");
 			
