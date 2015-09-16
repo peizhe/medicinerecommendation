@@ -73,7 +73,7 @@
 						</div>
 						<div class="search">
 							<input type="text" placeholder="药名、症状、药品生产商"/>
-							<input type="submit"  value="SEARCH">
+							<input type="submit"  value="搜索">
 	
 						</div>
 						<div class="clearfix"> </div>
@@ -479,8 +479,7 @@
 				}
 					
 				function creatTagView(tagId,symptom,str) {
-					str.push('<li><a href="product.html" onclick="showTag('+tagId+')">'+symptom+'</a></li>');
-					//str.push('<a href="#tableEx-div"  data-toggle="modal" data-backdrop="static" onclick="getTableEx(' + cataTableId + ',\'' + cataTableName + '\')" title="查看样例数据"><span class="fa fa-table" style="color: #fff"></span></a></p>')
+					str.push('<li><a href="product.html?tagId='+tagId+'">'+symptom+'</a></li>');
 				}
 			</script>
 						<div class=" chain-grid menu-chain">

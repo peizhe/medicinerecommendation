@@ -18,7 +18,6 @@ import com.wonders.bud.framework.common.util.RestMsg;
 import com.wonders.mr.service.item.modal.po.TagPO;
 import com.wonders.mr.service.item.service.TagService;
 
-
 @Controller
 @RequestMapping("pages/index/controller")
 public class IndexTagController {
@@ -29,6 +28,8 @@ public class IndexTagController {
 	
 	/**
 	 * 获取tag标签
+	 * @param request
+	 * @return 
 	 */
 	@RequestMapping(value = "/getTagInfo", method = RequestMethod.POST)
 	@ResponseBody
