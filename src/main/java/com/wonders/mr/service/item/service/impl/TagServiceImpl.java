@@ -25,4 +25,13 @@ public class TagServiceImpl implements TagService {
 		return result;
 	}
 
+	@Override
+	public List<TagPO> findSpecial(long[] ids) {
+		
+		 return tagDao.findByIds(ids);
+		
+	}
+	
+	
+
 }

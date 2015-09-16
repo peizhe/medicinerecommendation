@@ -2,26 +2,23 @@
 <html>
 	<head>
 		<title>Mall</title>
-		<link href="static/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 		<!--theme-style-->
-		<link href="static/css/style.css" rel="stylesheet" type="text/css" media="all" />	
+		<link href="static/css/style.css" rel="stylesheet" type="text/css"/>	
 		<!--//theme-style-->
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<meta charset="UTF-8" pageEncoding="UTF-8">
+		<meta charset="UTF-8" />
 		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 		<!--//fonts-->
 		<script src="static/js/jquery.min.js"></script>
 		<!--script-->
 		
 		<!-- bootstrap 引入begin -->
-		<link href="static/bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-		<link href="static/bootstrap-3.3.5-dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+		<link href="static/bootstrap3.3.5/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+		<link href="static/bootstrap3.3.5/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
 		
 		<script src="static/js/jquery-v1.11.3.js"></script>
-		<script src="static/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+		<script src="static/bootstrap3.3.5/js/bootstrap.min.js"></script>
 		<!-- bootstrap 引入end -->
-		
-		
 	</head>
 	<body> 
 		<!--header-->
@@ -35,12 +32,13 @@
 						</ul>
 						<ul class="support">
 							<li class="van"><a href="#"><label> </label></a></li>
-							<li><a href="#">Free shipping <span class="live">on order over 500</span></a></li>
+							<li><a href="#">单笔交易满200元<span class="live">2公里免费送货</span></a></li>
 						</ul>
 						<div class="clearfix"> </div>
 					</div>
 					<div class="top-header-right">
-					 <div class="down-top">		
+					<!--语言 价格单位  
+					<div class="down-top">		
 							  <select class="in-drop">
 								  <option value="English" class="in-of">English</option>
 								  <option value="Japanese" class="in-of">Japanese</option>
@@ -56,9 +54,11 @@
 							  <option value="Euro" class="in-of">Euro</option>
 								</select>
 						 </div>
-						 <div class="down-top">		
-						 <label class="in-of currentUser" ></label>
-					 </div>
+						 //语言 价格单位   -->
+						<div class="down-top">		
+							<label class="in-of currentUser" ></label>
+							<input type="hidden" id="loginName" />
+					 	</div>
 						 <!---->
 						<div class="clearfix"> </div>	
 					</div>
@@ -72,21 +72,17 @@
 							<a href="index.html"><img src="images/logo.png" alt=" " /></a>
 						</div>
 						<div class="search">
-							<input type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" >
+							<input type="text" placeholder="药名、症状、药品生产商"/>
 							<input type="submit"  value="SEARCH">
 	
 						</div>
 						<div class="clearfix"> </div>
 					</div>
-					<div class="header-bottom-right">					
-							<div class="account"><a href="login.html"><span> </span>YOUR ACCOUNT</a></div>
-								<ul class="login">
-									<li><a href="login.html"><span> </span>LOGIN</a></li> |
-									<li ><a href="register.html">SIGNUP</a></li>
-								</ul>
-							<div class="cart"><a href="#"><span> </span>CART</a></div>
-						<div class="clearfix"> </div>
-					</div>
+					<!-- 购物车 -->
+					<!-- <div class="header-bottom-right cart" style="margin-left:200px">
+						<a href="#"><span> </span>CART</a>
+					</div> -->
+					<!-- //购物车 -->
 					<div class="clearfix"> </div>	
 				</div>
 			</div>
@@ -201,7 +197,7 @@
 		   		     	 <div class="clearfix"> </div>
 		   		     </div>
 		   		     <div class="products">
-		   		     	<h5 class="latest-product">和您用药相似的用户还有</h5>	
+		   		     	<h5 class="latest-product">您可能对以下药物感兴趣</h5>	
 		   		     	  <a class="view-all" href="product.html">查看全部<span> </span></a> 		     
 		   		     </div>
 		   		     <div class="product-left">
@@ -292,59 +288,18 @@
 		   		   </div>   
 				   <div class="sub-cate">
 					<div class=" top-nav rsidebar span_1_of_left">
-						<h3 class="cate">CATEGORIES</h3>
-			 <ul class="menu">
-			<li class="item1"><a href="#">Curabitur sapien<img class="arrow-img" src="images/arrow1.png" alt=""/> </a>
-				<ul class="cute">
-					<li class="subitem1"><a href="product.html">Cute Kittens </a></li>
-					<li class="subitem2"><a href="product.html">Strange Stuff </a></li>
-					<li class="subitem3"><a href="product.html">Automatic Fails </a></li>
-				</ul>
-			</li>
-			<li class="item2"><a href="#">Dignissim purus <img class="arrow-img " src="images/arrow1.png" alt=""/></a>
-				<ul class="cute">
-					<li class="subitem1"><a href="product.html">Cute Kittens </a></li>
-					<li class="subitem2"><a href="product.html">Strange Stuff </a></li>
-					<li class="subitem3"><a href="product.html">Automatic Fails </a></li>
-				</ul>
-			</li>
-			<li class="item3"><a href="#">Ultrices id du<img class="arrow-img img-arrow" src="images/arrow1.png" alt=""/> </a>
-				<ul class="cute">
-					<li class="subitem1"><a href="product.html">Cute Kittens </a></li>
-					<li class="subitem2"><a href="product.html">Strange Stuff </a></li>
-					<li class="subitem3"><a href="product.html">Automatic Fails</a></li>
-				</ul>
-			</li>
-			<li class="item4"><a href="#">Cras iacaus rhone <img class="arrow-img img-left-arrow" src="images/arrow1.png" alt=""/></a>
-				<ul class="cute">
-					<li class="subitem1"><a href="product.html">Cute Kittens </a></li>
-					<li class="subitem2"><a href="product.html">Strange Stuff </a></li>
-					<li class="subitem3"><a href="product.html">Automatic Fails </a></li>
-				</ul>
-			</li>
-					<li>
-				<ul class="kid-menu">
-					<li><a href="product.html">Tempus pretium</a></li>
-					<li ><a href="product.html">Dignissim neque</a></li>
-					<li ><a href="product.html">Ornared id aliquet</a></li>
-				</ul>
-			</li>
-			<ul class="kid-menu ">
-					<li><a href="product.html">Commodo sit</a></li>
-					<li ><a href="product.html">Urna ac tortor sc</a></li>
-					<li><a href="product.html">Ornared id aliquet</a></li>
-					<li><a href="product.html">Urna ac tortor sc</a></li>
-					<li ><a href="product.html">Eget nisi laoreet</a></li>
-					<li><a href="product.html">Faciisis ornare</a></li>
-					<li class="menu-kid-left"><a href="contact.html">Contact us</a></li>
-				</ul>
-		</ul>
-						</div>
-					<!--initiate accordion-->
+						<h3 class="cate">分类</h3>
+						 <ul class="menu">
+						 <li>
+							<ul class="kid-menu">
+							</ul>
+						 </li>
+						 </ul>
+					</div>
+		<!--initiate accordion-->
 			<script type="text/javascript">
 				$(function() {
-				    var menu_ul = $('.menu > li > ul'),
-				           menu_a  = $('.menu > li > a');
+				    var menu_ul = $('.menu > li > ul'), menu_a  = $('.menu > li > a');
 				    menu_ul.hide();
 				    menu_a.click(function(e) {
 				        e.preventDefault();
@@ -359,23 +314,52 @@
 				    });
 				
 				});
+				
 				$(document).ready(function(){
+					initTag();
 					displayCurrentUser();
 					getRecTableUcf();
 				});
+				
+				//获取登录用户信息
 				function displayCurrentUser(){
-					var name=decodeURI(getQueryString("currentUser"));
-					console.log(name);
-					$(".currentUser").html(name);
+					$.post("api/common/user/isLogin",
+							{},
+							function (data) {
+								//用户已经登录
+								if("no" != data.msg) {
+									var array = data.msg.split("!");
+									var userName = array[0]
+									var loginName = array[1];
+									
+									$(".currentUser").html("欢迎您 : " + userName + "&nbsp;&nbsp;&nbsp;<a href='javascript:;' class='glyphicon glyphicon-log-out' title='退出'></a>");
+									$("#loginName").val(loginName);
+									//绑定登出按钮单击事件(用户登出操作)
+									$(".glyphicon.glyphicon-log-out").bind("click", function() {
+										
+										$.post(
+											"api/common/user/logout",
+											{},
+											function(data) {
+												window.location.href = "index.html";
+											}
+										);
+									});
+								}else {
+									$(".currentUser").html('<a href="login.html">登录</a> 后, 我们将为您提供个性化推荐');
+								}
+							});
 				}
+				
 				function getQueryString(name) { 
 					var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i"); 
 					var r = window.location.search.substr(1).match(reg); 
 					if (r != null) return unescape(r[2]); return null; 
 				}
+				
 				function getRecTableUcf(){
 					$.ajax({
-						url:"api/pages/index/getRecTableUcf",
+						url:"pages/index/controller/getRecTableUcf",
 						type:"GET",
 						dataType:"json",
 						success:function(data){
@@ -386,7 +370,7 @@
 				} 
 				function getRecUserSim(){
 					$.ajax({
-						url:"api/pages/index/getRecUserSim",
+						url:"pages/index/controller/getRecUserSim",
 						type:"GET",
 						dataType:"json",
 						success:function(data){
@@ -395,6 +379,38 @@
 						}
 					});
 				} 
+
+				//页面左侧tag标签分类显示
+				function initTag() {
+					$('.kid-menu').html("");//清空防止影响
+					
+					$.ajax({
+						url: "pages/index/controller/getTagInfo",
+						type: "POST",
+						success: function(data) {
+							if(data.msg == "success") {
+								var tagList = data.result;
+								var str = new Array();
+								for (i=0;i<10;i++) {
+									if(tagList[i]==null) {
+										break;
+									}
+									creatTagView(tagList[i].tagId,tagList[i].symptom,str);
+								}
+								$('.kid-menu').html(str.join(""));
+							}else if(data.msg == "nothing") {
+								alert("抱歉，还没有进行分类！");
+							}else if(data.msg == "error") {
+								alert("获取分类内容出错，请重新登陆！");
+							}
+						}
+					});
+				}
+					
+				function creatTagView(tagId,symptom,str) {
+					str.push('<li><a href="product.html" onclick="showTag('+tagId+')">'+symptom+'</a></li>');
+					//str.push('<a href="#tableEx-div"  data-toggle="modal" data-backdrop="static" onclick="getTableEx(' + cataTableId + ',\'' + cataTableName + '\')" title="查看样例数据"><span class="fa fa-table" style="color: #fff"></span></a></p>')
+				}
 			</script>
 						<div class=" chain-grid menu-chain">
 		   		     		<a href="single.html"><img class="img-responsive chain" src="images/wat.jpg" alt=" " /></a>	   		     		

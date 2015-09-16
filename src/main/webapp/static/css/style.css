@@ -144,6 +144,7 @@ ul.login li a span{
 	-ms-transition: all 0.5s ease-out;
 	-o-transition: all 0.5s ease-out;
 }
+
 .search input[type="submit"] {
 	border-left: 1px solid #ddd;
 	outline: none;
@@ -867,6 +868,15 @@ p.m_text {
 	font-size:0.9em;
 	padding:10px;
 }
+
+.login-right input[type="password"] {
+	border: 1px solid #DDDBDB;
+	outline-color:#fb4d01;
+	width: 96%;
+	font-size:0.9em;
+	padding:10px;
+}
+
 .login-right input[type="submit"] {
 	background:#F97E76;
 	color: #FFF;

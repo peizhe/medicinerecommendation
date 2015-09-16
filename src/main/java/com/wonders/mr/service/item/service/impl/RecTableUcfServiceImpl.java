@@ -1,11 +1,15 @@
 package com.wonders.mr.service.item.service.impl;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.UncategorizedDataAccessException;
 import org.springframework.stereotype.Service;
 
+import com.wonders.bud.framework.common.util.QueryParam;
 import com.wonders.mr.service.item.dao.RecTableUcfDao;
 import com.wonders.mr.service.item.modal.po.ItemPO;
 import com.wonders.mr.service.item.modal.po.RecTableUcfPO;
@@ -22,7 +26,12 @@ public class RecTableUcfServiceImpl implements RecTableUcfService{
 	
 	@Override
 	public List<ItemPO> findByUserId(long userId) {
-		RecTableUcfPO recTableUcf = recTableUcfDao.get(userId);
+		
+		QueryParam qParam = new QueryParam();
+		Map<String, Object> eq = new HashMap<String, Object>();
+		eq.put("userId", userId);
+		qParam.setEq(eq);
+		RecTableUcfPO recTableUcf = recTableUcfDao.findByAnd(qParam).get(0);
 		String itemIdList = recTableUcf.getItemIdList();
 		String[] ids = itemIdList.split(",");
 		List<ItemPO> itemList = new ArrayList<ItemPO>();

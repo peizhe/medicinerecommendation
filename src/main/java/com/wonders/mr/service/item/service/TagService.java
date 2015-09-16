@@ -12,4 +12,12 @@ public interface TagService {
 	 * @return
 	 */
 	public List<TagPO> findBySymptom(String symptom);
+	
+	/**
+	 * 查找所有的Tag
+	 * @param long[] ids 是获取有限个数tag记录的一组数组
+	 * @return
+	 */
+	public List<TagPO> findSpecial(long[] ids);		
+	
 }

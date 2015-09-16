@@ -16,7 +16,6 @@ import javax.persistence.Table;
 @Table(name="tag")
 public class TagPO {
 
-	private Long id;
 	private Long tagId;
 	private String symptom;
 	
@@ -27,19 +26,10 @@ public class TagPO {
 		this.tagId = tagId;
 		this.symptom = symptom;
 	}
-	
+
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
-	@Column(name = "id", unique = true, nullable = false)
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	@Column(name = "tag_id")
+	@Column(name = "tag_id", unique = true, nullable = false)
 	public Long getTagId() {
 		return tagId;
 	}
