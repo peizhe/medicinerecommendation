@@ -21,8 +21,8 @@ import com.wonders.mr.service.item.service.TagService;
 
 @Controller
 @RequestMapping("pages/index/controller")
-public class indexPageController {
-	protected Logger log = Logger.getLogger(indexPageController.class);
+public class IndexTagController {
+	protected Logger log = Logger.getLogger(IndexTagController.class);
 	
 	@Resource
 	private TagService tagService;
@@ -34,9 +34,9 @@ public class indexPageController {
 	@ResponseBody
 	public RestMsg<List<Map<String, Object>>> getTagInfo(HttpServletRequest request) {
 		RestMsg<List<Map<String, Object>>> rm = new RestMsg<List<Map<String, Object>>>();
-		
+		long[] ids = {1,2,3,4,5,6,7,8,9,10};		
 		try {
-			List<TagPO> tagPOs = tagService.findAll();
+			List<TagPO> tagPOs = tagService.findSpecial(ids);
 			if(tagPOs==null||tagPOs.size()==0) {
 				rm.setMsg("nothing");
 				return rm;

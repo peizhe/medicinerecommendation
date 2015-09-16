@@ -370,25 +370,13 @@
 				   <div class="sub-cate">
 					<div class=" top-nav rsidebar span_1_of_left">
 						<h3 class="cate">分类</h3>
-			 <ul class="menu">
-					<li>
-				<ul class="kid-menu">
-					<li><a href="product.html">Tempus pretium</a></li>
-					<li ><a href="product.html">Dignissim neque</a></li>
-					<li ><a href="product.html">Ornared id aliquet</a></li>
-				</ul>
-			</li>
-			<ul class="kid-menu ">
-					<li><a href="product.html">Commodo sit</a></li>
-					<li ><a href="product.html">Urna ac tortor sc</a></li>
-					<li><a href="product.html">Ornared id aliquet</a></li>
-					<li><a href="product.html">Urna ac tortor sc</a></li>
-					<li ><a href="product.html">Eget nisi laoreet</a></li>
-					<li><a href="product.html">Faciisis ornare</a></li>
-					<li class="menu-kid-left"><a href="contact.html">Contact us</a></li>
-				</ul>
-		</ul>
-						</div>
+						 <ul class="menu">
+						 <li>
+							<ul class="kid-menu">
+							</ul>
+						 </li>
+						 </ul>
+					</div>
 		<!--initiate accordion-->
 			<script type="text/javascript">
 				$(function() {
@@ -409,6 +397,7 @@
 				});
 				
 				$(document).ready(function(){
+					initTag();
 					displayCurrentUser();
 				});
 				
@@ -464,7 +453,7 @@
 					
 				//页面左侧tag标签分类显示
 				function initTag() {
-					$('.menu').html("");//清空防止影响
+					$('.kid-menu').html("");//清空防止影响
 					
 					$.ajax({
 						url: "pages/index/controller/getTagInfo",
@@ -479,7 +468,7 @@
 									}
 									creatTagView(tagList[i].tagId,tagList[i].symptom,str);
 								}
-								$('.menu').html(str.join(""));
+								$('.kid-menu').html(str.join(""));
 							}else if(data.msg == "nothing") {
 								alert("抱歉，还没有进行分类！");
 							}else if(data.msg == "error") {
@@ -490,7 +479,7 @@
 				}
 					
 				function creatTagView(tagId,symptom,str) {
-					str.push('<li><a href="" onclick="">tag</a></li>');
+					str.push('<li><a href="product.html" onclick="showTag('+tagId+')">'+symptom+'</a></li>');
 					//str.push('<a href="#tableEx-div"  data-toggle="modal" data-backdrop="static" onclick="getTableEx(' + cataTableId + ',\'' + cataTableName + '\')" title="查看样例数据"><span class="fa fa-table" style="color: #fff"></span></a></p>')
 				}
 			</script>
