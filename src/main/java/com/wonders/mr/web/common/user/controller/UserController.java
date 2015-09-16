@@ -34,7 +34,8 @@ public class UserController {
 				if(user!=null){
 					rm.setResult("success");
 					HttpSession session = request.getSession(); 
-					session.setAttribute("userName", userName);
+					session.setAttribute("userId", user.getId());
+					session.setAttribute("userName",user.getName());
 				}
 				else{
 					rm.setResult("error");
