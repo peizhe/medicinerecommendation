@@ -343,6 +343,22 @@
 				function creatTagView(tagId,symptom,str) {
 					str.push('<li><a href="product.html?tagId='+tagId+'">'+symptom+'</a></li>');
 				}
+ 				
+/* 				function addToShoppingCart(itemId)
+				{
+					$.ajax({
+						url:"pages/index/controller/addToShoppingCart",
+						type:"POST",
+						data:{
+							itemId:itemId;
+						},
+						dataType:"json",
+						success:function(rm)
+						{
+							alert(rm.getMsg);
+						}
+					});
+				} */ 
 			</script>
 						
 		   		     	 <a class="view-all all-product" href="product.html">VIEW ALL PRODUCTS<span> </span></a> 	
