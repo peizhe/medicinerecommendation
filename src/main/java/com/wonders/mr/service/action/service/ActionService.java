@@ -2,6 +2,7 @@ package com.wonders.mr.service.action.service;
 
 import java.util.List;
 
+import com.wonders.mr.service.action.modal.ActionPO;
 import com.wonders.mr.service.item.modal.po.ItemPO;
 
 public interface ActionService {
@@ -11,4 +12,6 @@ public interface ActionService {
 	 * @return
 	 */
 	public List<ItemPO> findByUserId(long userId);
+	
+	public ActionPO saveAction(ActionPO actionpo);
 }
