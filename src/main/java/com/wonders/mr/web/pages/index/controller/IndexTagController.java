@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.wonders.bud.framework.common.util.RestMsg;
 import com.wonders.mr.service.item.modal.po.ItemPO;
 import com.wonders.mr.service.item.modal.po.TagPO;
+import com.wonders.mr.service.item.service.ItemService;
 import com.wonders.mr.service.item.service.RecTableIcfService;
 import com.wonders.mr.service.item.service.RecTableUcfService;
 import com.wonders.mr.service.item.service.TagService;
@@ -39,11 +40,13 @@ public class IndexTagController {
 	private TagService tagService;
 	@Resource
 	private RecTableIcfService recTableIcfService;
+	@Resource
+	private ItemService itemService;
 	
 	/**
-	 * 获取tag标签
+	 * 获取tag标签分类
 	 * @param request
-	 * @return 
+	 * @return RestMsg<List<Map<String, Object>>>
 	 */
 	@RequestMapping(value = "/getTagInfo", method = RequestMethod.POST)
 	@ResponseBody
@@ -74,6 +77,41 @@ public class IndexTagController {
 		return rm;
 	}
 	
+	/**
+	 * 获得搜索框搜索到的药品
+	 * @param request
+	 * @return RestMsg<List<Map<String, Object>>>
+	 */
+	@RequestMapping(value = "/getSearchInfo", method = RequestMethod.POST)
+	@ResponseBody
+	public RestMsg<List<Map<String, Object>>> getSearchInfo(HttpServletRequest request) {
+		RestMsg<List<Map<String, Object>>> rm = new RestMsg<List<Map<String, Object>>>();
+		String content = request.getParameter("content");
+		try {
+			List<ItemPO> itemPOs = itemService.findByInput(content);
+			if(itemPOs==null||itemPOs.size()==0) {
+				rm.setMsg("nothing");
+				return rm;
+			}
+			List<Map<String, Object>> list = new ArrayList<>();
+			for(ItemPO itemPO:itemPOs) {
+				Map<String, Object> tag = new HashMap<>();
+				tag.put("itemId",itemPO.getItemId());
+				tag.put("itemName", itemPO.getItemName());
+				tag.put("company", itemPO.getCompany());
+				tag.put("price", itemPO.getPrice());
+				tag.put("imgUrl", itemPO.getImgUrl());
+				list.add(tag);
+			}
+			rm.setResult(list);
+			rm.setMsg("success");
+		} catch (Exception exception) {
+			rm.setMsg("error");
+			exception.printStackTrace();
+			return rm;		}
+		return rm;
+	}
+	
 	@RequestMapping(value = "/getRecTableUcf", method = RequestMethod.GET)
 	@ResponseBody
 	public RestMsg<String> getRecTableUcf(HttpServletRequest request){
@@ -88,7 +126,7 @@ public class IndexTagController {
 					StringBuilder str=new StringBuilder();
 					for(int i=0;i<4;i++){
 						ItemPO item=items.get(i);
-						String link="single.html";
+						String link="single2.html?itemId="+item.getItemId();
 						str.append("<div class=\"col-md-4 chain-grid grid-top-chain\" style=\"width:30%;margin-right:15px;margin-bottom:10px\">");
 						str.append("<a href=\""+link+"\"><img class=\"img-responsive chain\" src=\""+item.getImgUrl()+"\" alt=\" \" /></a>");
 						str.append("<span class=\"star\"> </span>");
@@ -327,27 +365,23 @@ public class IndexTagController {
 					for(int i=0;i<limt;i++){
 						UserPO friend=simUsers.get(i);
 						String src="images/user.jpg";
-						String link="single.html";
-						if(i<3){
-							str.append("<div class=\"col-md-4 chain-grid\">");
-						}
-						else {
-							str.append("<div class=\"col-md-4 chain-grid grid-top-chain\">");
-						}
-						str.append("<a href=\""+link+"\"><img class=\"img-responsive chain\" src=\""+src+"\" alt=\" \" /></a>");
-						str.append("<span class=\"star\"> </span>");
-						str.append("<div class=\"grid-chain-bottom\">");
-						str.append("<h6><a href=\""+link+"\">"+friend.getName()+"</a></h6>");
-						str.append("<div class=\"star-price\">");
-						str.append("<div class=\"clearfix\"> </div>");
-						str.append("</div>");
-						str.append("</div>");
-						str.append("</div>");		
+						String link="userInfo.html?userId="+friend.getId();
+						str.append("<div class=\" chain-grid menu-chain\">");		
+						str.append("<a href=\""+link+"\"><img class=\"img-responsive chain\" src=\""+src+"\" alt=\" \"></a>	");	
+						str.append("<div class=\"grid-chain-bottom chain-watch\">");	
+						str.append("<span class=\"actual dolor-left-grid\"></span>");	
+						str.append("<span class=\"reducedfrom\"></span> ");	
+						str.append("<h6><a href=\""+link+"\">"+friend.getName()+"</a></h6>");	
+						str.append("</div>");	
+						str.append("</div>");	
 					}
 					htmlstr=str.toString();
 					rm.setMsg("success");
 					rm.setResult(htmlstr);
 				}
+			}
+			else {
+				
 			}
 		} catch (Exception e) {
 			rm.setMsg("error");

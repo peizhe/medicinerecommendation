@@ -1,38 +1,43 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Mall</title>
-		<!--theme-style-->
-		<link href="static/css/style.css" rel="stylesheet" type="text/css"/>	
-		<!--//theme-style-->
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<meta charset="UTF-8" />
-		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-		<!--//fonts-->
-		<script src="static/js/jquery.min.js"></script>
-		<!--script-->
-		
-		<!-- bootstrap 引入begin -->
-		<link href="static/bootstrap3.3.5/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-		<link href="static/bootstrap3.3.5/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
-		
-		<script src="static/js/jquery-v1.11.3.js"></script>
-		<script src="static/bootstrap3.3.5/js/bootstrap.min.js"></script>
-		<!-- bootstrap 引入end -->
-	</head>
-	<body> 
-		<!--header-->
-		<div class="header">
+<head>
+<title>Mall</title>
+<!--theme-style-->
+<link href="static/css/style.css" rel="stylesheet" type="text/css" />
+<!--//theme-style-->
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta charset="UTF-8" />
+<script type="application/x-javascript">
+	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+</script>
+<!--//fonts-->
+<script src="static/js/jquery.min.js"></script>
+<!--script-->
+
+<!-- bootstrap 引入begin -->
+<link href="static/bootstrap3.3.5/css/bootstrap.min.css"
+	rel="stylesheet" type="text/css" />
+<link href="static/bootstrap3.3.5/css/bootstrap-theme.min.css"
+	rel="stylesheet" type="text/css" />
+
+<script src="static/js/jquery-v1.11.3.js"></script>
+<script src="static/bootstrap3.3.5/js/bootstrap.min.js"></script>
+<!-- bootstrap 引入end -->
+</head>
+<body>
+	<!--header-->
+<div class="header">
 			<div class="top-header">
 				<div class="container">
 					<div class="top-header-left">
 						<ul class="support">
-							<li><a href="#"><label> </label></a></li>
-							<li><a href="#">24小时<span class="live">热线支持</span></a></li>
+							<li><a href="#"><label> </label></a>
+							<li><a href="#">24小时<span class="live">热线支持</span></a>
 						</ul>
 						<ul class="support">
-							<li class="van"><a href="#"><label> </label></a></li>
-							<li><a href="#">单笔交易满200元<span class="live">2公里免费送货</span></a></li>
+							<li class="van"><a href="#"><label> </label></a>
+							<li><a href="#">单笔交易满200元<span class="live">2公里免费送货</span></a>
 						</ul>
 						<div class="clearfix"> </div>
 					</div>
@@ -44,7 +49,7 @@
 								  <option value="Japanese" class="in-of">Japanese</option>
 								  <option value="French" class="in-of">French</option>
 								  <option value="German" class="in-of">German</option>
-								</select>
+								<lect>
 						 </div>
 						<div class="down-top top-down">
 							  <select class="in-drop">
@@ -52,7 +57,7 @@
 							  <option value="Dollar" class="in-of">Dollar</option>
 							  <option value="Yen" class="in-of">Yen</option>
 							  <option value="Euro" class="in-of">Euro</option>
-								</select>
+								<lect>
 						 </div>
 						 //语言 价格单位   -->
 						<div class="down-top">		
@@ -72,9 +77,8 @@
 							<a href="index.html"><img src="images/logo.png" alt=" " /></a>
 						</div>
 						<div class="search">
-							<input type="text" placeholder="药名、症状、药品生产商"/>
-							<input type="submit"  value="搜索">
-	
+							<input id="med-search" type="text" placeholder="药名、症状、药品生产商" >
+							<input id="search-btn" type="button" style="width: 89px;height: 35px;" onclick="medRsearch()"  value="搜索">
 						</div>
 						<div class="clearfix"> </div>
 					</div>
@@ -87,8 +91,9 @@
 				</div>
 			</div>
 		</div>
+
 		<!---->
-		<div class="container">
+		<div class="container" id="search-med">
 				<div class="shoes-grid">
 				<a href="single.html">
 				<div class="wrap-in">
@@ -158,38 +163,8 @@
 		          </div>
 		           	</a>
 		   		      <!---->
-		   		     <div class="shoes-grid-left">
-				<a href="single.html">				 
-		   		     	<div class="col-md-6 con-sed-grid">
-						
-		   		     		<div class=" elit-grid"> 
-							
-			   		     		<h4>consectetur  elit</h4>
-			   		     		<label>FOR ALL PURCHASE VALUE</label>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, </p>
-								<span class="on-get">GET NOW</span>						
-							</div>						
-							<img class="img-responsive shoe-left" src="images/sh.jpg" alt=" " />
-								
-							<div class="clearfix"> </div>
-							
-		   		     	</div>
-						</a>
-						<a href="single.html">	
-		   		     	<div class="col-md-6 con-sed-grid sed-left-top">
-		   		     		<div class=" elit-grid"> 
-			   		     		<h4>consectetur  elit</h4>
-			   		     		<label>FOR ALL PURCHASE VALUE</label>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, </p>
-								<span class="on-get">GET NOW</span>
-							</div>		
-							<img class="img-responsive shoe-left" src="images/wa.jpg" alt=" " />
-							
-							<div class="clearfix"> </div>
-		   		     	</div>
-						</a>
-		   		     </div>
-		   		     <div class="products">
+
+	<div class="products">
 		   		     	<h5 class="latest-product">和您用药相似的用户还用过了以下药物</h5>	
 		   		     	  <a class="view-all" href="rectableallucf.html">查看全部<span> </span></a> 		     
 		   		     </div>
@@ -210,7 +185,7 @@
 						<h3 class="cate">分类</h3>
 						 <ul class="menu">
 						 <li>
-							<ul class="kid-menu">
+							<ul class="kid-menu" id="tag-menu">
 							</ul>
 						 </li>
 						 </ul>
@@ -260,7 +235,7 @@
 										
 										$.post(
 											"api/common/user/logout",
-											{},
+											{}, 
 											function(data) {
 												window.location.href = "index.html";
 											}
@@ -300,22 +275,23 @@
 						}
 					});
 				}
-				function getRecUserSim(){
-					$.ajax({
-						url:"pages/index/controller/getRecUserSim",
-						type:"GET",
-						dataType:"json",
-						success:function(data){
-							var htmlstr=data.result;
-							//$("#rec_table_ucf").prepend(htmlstr);
-							$('.kid-menu').after(htmlstr);
-						}
-					});
-				} 
+			function getRecUserSim() {
+				$.ajax({
+					url : "pages/index/controller/getRecUserSim",
+					type : "GET",
+					dataType : "json",
+					success : function(data) {
+						var htmlstr = data.result;
+						//$("#rec_table_ucf").prepend(htmlstr);
+						$('.span_1_of_left').after(htmlstr);
+					}
+				});
+			}
+
 
 				//页面左侧tag标签分类显示
 				function initTag() {
-					$('.kid-menu').html("");//清空防止影响
+					$('#tag-menu').html("");//清空防止影响
 					
 					$.ajax({
 						url: "pages/index/controller/getTagInfo",
@@ -330,18 +306,61 @@
 									}
 									creatTagView(tagList[i].tagId,tagList[i].symptom,str);
 								}
-								$('.kid-menu').html(str.join(""));
+								$('#tag-menu').html(str.join(""));
 							}else if(data.msg == "nothing") {
 								alert("抱歉，还没有进行分类！");
 							}else if(data.msg == "error") {
 								alert("获取分类内容出错，请重新登陆！");
 							}
-						}
+					  }
 					});
-				}
+			}
 					
 				function creatTagView(tagId,symptom,str) {
 					str.push('<li><a href="product.html?tagId='+tagId+'">'+symptom+'</a></li>');
+				}
+				
+				//搜索框按钮处理事件
+				function medRsearch() {
+					var content = $("#med-search").val();
+					$('#search-med').html("");//清空防止影响
+					$.ajax({
+						url: "pages/index/controller/getSearchInfo",
+						type: "POST",
+						data:{"content":content},
+						success: function(data) {
+							if(data.msg == "success") {
+								var searchList = data.result;
+								var str = new Array();
+								$.each(searchList,function(i,search) {
+									creatSearchView(search.itemId,search.itemName,search.company,search.price,search.imgUrl,str);
+								});
+								$('#search-med').html(str.join(""));
+							}else if(data.msg == "nothing") {
+								alert("抱歉，没有找到您要查询的药品！");
+							}else if(data.msg == "error") {
+								alert("获取查询内容出错，请重新登陆！");
+							}
+						}
+					});
+				}
+				
+				function creatSearchView(itemId,itemName,company,price,imgUrl,str) {
+					str.push('<div class="product-grid" style="padding-left:111px">');
+					str.push('<div class="content-box">');
+					str.push('<a href="single.html?itemId='+itemId+'">');
+					str.push('<div class="left-grid-view grid-view-left">');
+					str.push('<img src="'+imgUrl+'" class="img-responsive watch-right" alt="" />');
+					//str.push('<div class="mask">');
+					//str.push('<div class="info">Quick View</div>');
+					//str.push('</div>');
+					str.push('</div>');
+					str.push('</a>');
+					str.push('</div>');
+					str.push('<h4><a href="#">'+itemName+'</a></h4>');
+					str.push('<p>'+company+'</p>');
+					str.push('<p>￥'+price+'</p>');
+					str.push('</div>');
 				}
  				
 /* 				function addToShoppingCart(itemId)
@@ -380,81 +399,86 @@
 						</div>
 						<div class="clearfix"> </div>
 					</div>
-					<div class="latter-right">
-						<p>FOLLOW US</p>
-						<ul class="face-in-to">
-							<li><a href="#"><span> </span></a></li>
-							<li><a href="#"><span class="facebook-in"> </span></a></li>
-							<div class="clearfix"> </div>
-						</ul>
-						<div class="clearfix"> </div>
-					</div>
-					<div class="clearfix"> </div>
+					
+				<div class="latter-right">
+					<p>FOLLOW US</p>
+					<ul class="face-in-to">
+						<li><a href="#"><span> </span></a></li>
+						<li><a href="#"><span class="facebook-in"> </span></a></li>
+						<div class="clearfix"></div>
+					</ul>
+					<div class="clearfix"></div>
 				</div>
-			</div>
-			<div class="footer-bottom">
-				<div class="container">
-					<div class="footer-bottom-cate">
-						<h6>CATEGORIES</h6>
-						<ul>
-							<li><a href="#">Curabitur sapien</a></li>
-							<li><a href="#">Dignissim purus</a></li>
-							<li><a href="#">Tempus pretium</a></li>
-							<li ><a href="#">Dignissim neque</a></li>
-							<li ><a href="#">Ornared id aliquet</a></li>
-							<li><a href="#">Ultrices id du</a></li>
-							<li><a href="#">Commodo sit</a></li>
-							<li ><a href="#">Urna ac tortor sc</a></li>
-							<li><a href="#">Ornared id aliquet</a></li>
-							<li><a href="#">Urna ac tortor sc</a></li>
-							<li ><a href="#">Eget nisi laoreet</a></li>
-							<li ><a href="#">Faciisis ornare</a></li>
-						</ul>
-					</div>
-					<div class="footer-bottom-cate bottom-grid-cat">
-						<h6>FEATURE PROJECTS</h6>
-						<ul>
-							<li><a href="#">Curabitur sapien</a></li>
-							<li><a href="#">Dignissim purus</a></li>
-							<li><a href="#">Tempus pretium</a></li>
-							<li ><a href="#">Dignissim neque</a></li>
-							<li ><a href="#">Ornared id aliquet</a></li>
-							<li><a href="#">Ultrices id du</a></li>
-							<li><a href="#">Commodo sit</a></li>
-						</ul>
-					</div>
-					<div class="footer-bottom-cate">
-						<h6>TOP BRANDS</h6>
-						<ul>
-							<li><a href="#">Curabitur sapien</a></li>
-							<li><a href="#">Dignissim purus</a></li>
-							<li><a href="#">Tempus pretium</a></li>
-							<li ><a href="#">Dignissim neque</a></li>
-							<li ><a href="#">Ornared id aliquet</a></li>
-							<li><a href="#">Ultrices id du</a></li>
-							<li><a href="#">Commodo sit</a></li>
-							<li ><a href="#">Urna ac tortor sc</a></li>
-							<li><a href="#">Ornared id aliquet</a></li>
-							<li><a href="#">Urna ac tortor sc</a></li>
-							<li ><a href="#">Eget nisi laoreet</a></li>
-							<li ><a href="#">Faciisis ornare</a></li>
-						</ul>
-					</div>
-					<div class="footer-bottom-cate cate-bottom">
-						<h6>地址</h6>
-						<ul>
-							<li>上海市</li>
-							<li>闵行区</li>
-							<li>浦江镇</li>
-							<li>联航路1518号</li>
-							<li>万达信息股份有限公司</li>
-							<li class="phone">联系我们 : 6985792466</li>
-							<li class="temp"> <p class="footer-class">Design by <a href="#" target="_blank">bigdataTeam</a> </p></li>
-						</ul>
-					</div>
-					<div class="clearfix"> </div>
-				</div>
+				<div class="clearfix"></div>
 			</div>
 		</div>
-	</body>
+		<div class="footer-bottom">
+			<div class="container">
+				<div class="footer-bottom-cate">
+					<h6>CATEGORIES</h6>
+					<ul>
+						<li><a href="#">Curabitur sapien</a></li>
+						<li><a href="#">Dignissim purus</a></li>
+						<li><a href="#">Tempus pretium</a></li>
+						<li><a href="#">Dignissim neque</a></li>
+						<li><a href="#">Ornared id aliquet</a></li>
+						<li><a href="#">Ultrices id du</a></li>
+						<li><a href="#">Commodo sit</a></li>
+						<li><a href="#">Urna ac tortor sc</a></li>
+						<li><a href="#">Ornared id aliquet</a></li>
+						<li><a href="#">Urna ac tortor sc</a></li>
+						<li><a href="#">Eget nisi laoreet</a></li>
+						<li><a href="#">Faciisis ornare</a></li>
+					</ul>
+				</div>
+				<div class="footer-bottom-cate bottom-grid-cat">
+					<h6>FEATURE PROJECTS</h6>
+					<ul>
+						<li><a href="#">Curabitur sapien</a></li>
+						<li><a href="#">Dignissim purus</a></li>
+						<li><a href="#">Tempus pretium</a></li>
+						<li><a href="#">Dignissim neque</a></li>
+						<li><a href="#">Ornared id aliquet</a></li>
+						<li><a href="#">Ultrices id du</a></li>
+						<li><a href="#">Commodo sit</a></li>
+					</ul>
+				</div>
+				<div class="footer-bottom-cate">
+					<h6>TOP BRANDS</h6>
+					<ul>
+						<li><a href="#">Curabitur sapien</a></li>
+						<li><a href="#">Dignissim purus</a></li>
+						<li><a href="#">Tempus pretium</a></li>
+						<li><a href="#">Dignissim neque</a></li>
+						<li><a href="#">Ornared id aliquet</a></li>
+						<li><a href="#">Ultrices id du</a></li>
+						<li><a href="#">Commodo sit</a></li>
+						<li><a href="#">Urna ac tortor sc</a></li>
+						<li><a href="#">Ornared id aliquet</a></li>
+						<li><a href="#">Urna ac tortor sc</a></li>
+						<li><a href="#">Eget nisi laoreet</a></li>
+						<li><a href="#">Faciisis ornare</a></li>
+					</ul>
+				</div>
+				<div class="footer-bottom-cate cate-bottom">
+					<h6>地址</h6>
+					<ul>
+						<li>上海市</li>
+						<li>闵行区</li>
+						<li>浦江镇</li>
+						<li>联航路1518号</li>
+						<li>万达信息股份有限公司</li>
+						<li class="phone">联系我们 : 6985792466</li>
+						<li class="temp">
+							<p class="footer-class">
+								Design by <a href="#" target="_blank">bigdataTeam</a>
+							</p>
+						</li>
+					</ul>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+</body>
 </html>
