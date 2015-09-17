@@ -122,7 +122,7 @@ public class IndexTagController {
 				List<ItemPO> items=recTableUcfService.findByUserId(Long.parseLong(userId.toString()));
 				if(items!=null&&items.size()>0){					
 					StringBuilder str=new StringBuilder();
-					for(int i=0;i<4;i++){
+					for(int i=0;i<3;i++){
 						ItemPO item=items.get(i);
 						String link="single2.html?itemId="+item.getItemId();
 						str.append("<div class=\"col-md-4 chain-grid grid-top-chain\">");

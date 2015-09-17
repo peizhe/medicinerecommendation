@@ -44,10 +44,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 .women-product {
 	width: 100%;
 }
-
-.container {
-	background-color: white;
+.content_box{
+	width:300px
 }
+/* .container {
+	background-color: white;
+} */
 p { word-wrap:break-word; word-break:normal; } 
 .mask{
 	padding-left: 62px;
@@ -57,6 +59,9 @@ p { word-wrap:break-word; word-break:normal; }
 }
 .product-grid h4{
 padding-left: 130px;
+}
+.product{
+background-color: rgba(249, 60, 60, 0.14);
 }
 .itemInfo{
 font-family: Georgia;
@@ -144,10 +149,14 @@ font-family: Georgia;
 	<!-- start content -->
 	
 	<div class="container" id="item_info"></div>
-		
+	
+		<div class="grid-product" style="margin: 5% 0" id="rec_item_tag_sim">
+			<div class="clearfix"></div></div>
+			
 		<div class="grid-product" style="margin: 5% 0" id="rec_item_cf_sim">
-			<div class="clearfix"></div>
+			<div class="clearfix"></div>		
 		</div>
+		
 			<!--initiate accordion-->
 			<script type="text/javascript">
 				$(function() {
@@ -187,10 +196,25 @@ font-family: Georgia;
 						success : function(data) {
 							var htmlstr = data.result;
 							$("#item_info").prepend(htmlstr);
+							getRecItemTagSim(itemId);
+
+						}
+					});
+				}
+				function getRecItemTagSim(itemId){					
+					$.ajax({
+						url : "pages/product/controller/getRecItemTagSim",
+						type : "POST",
+						data : {'itemId' : itemId},
+						dataType : "json",
+						success : function(data) {
+							var htmlstr = data.result;
+							$("#rec_item_tag_sim").prepend(htmlstr);
 							getRecItemCfSim(itemId);
 						}
 					});
 				}
+				
 				function getRecItemCfSim(itemId){					
 					$.ajax({
 						url : "pages/product/controller/getRecItemCfSim",
