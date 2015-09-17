@@ -7,11 +7,13 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -124,13 +126,8 @@ public class IndexTagController {
 					StringBuilder str=new StringBuilder();
 					for(int i=0;i<4;i++){
 						ItemPO item=items.get(i);
-						String link="single.html";
-						if(i<3){
-							str.append("<div class=\"col-md-4 chain-grid\">");
-						}
-						else {
-							str.append("<div class=\"col-md-4 chain-grid grid-top-chain\">");
-						}
+						String link="single2.html?itemId="+item.getItemId();
+						str.append("<div class=\"col-md-4 chain-grid grid-top-chain\" style=\"width:30%;margin-right:15px;margin-bottom:10px\">");
 						str.append("<a href=\""+link+"\"><img class=\"img-responsive chain\" src=\""+item.getImgUrl()+"\" alt=\" \" /></a>");
 						str.append("<span class=\"star\"> </span>");
 						str.append("<div class=\"grid-chain-bottom\">");
@@ -152,7 +149,7 @@ public class IndexTagController {
 						str.append("<label for=\"rating-input-1-1\" class=\"rating-star\"> </label>");
 						str.append("</span>");
 						str.append("</div>");
-						str.append("<a class=\"now-get get-cart\" href=\"#\">加入购物车</a> ");
+						str.append("<a class=\"now-get get-cart\" onclick=\"addToShoppingCart("+item.getItemId()+")\">加入购物车</a> ");
 						str.append("<div class=\"clearfix\"> </div>");
 						str.append("</div>");
 						str.append("</div>");
@@ -189,7 +186,7 @@ public class IndexTagController {
 					for(int i=0;i<9;i++){
 						ItemPO item=items.get(i);
 						String link="single.html";
-						str.append("<div class=\"col-md-4 chain-grid grid-top-chain\">");
+						str.append("<div class=\"col-md-4 chain-grid grid-top-chain\"style=\"width:30%;margin-right:15px;margin-bottom:10px\">");
 						str.append("<a href=\""+link+"\"><img class=\"img-responsive chain\" src=\""+item.getImgUrl()+"\" alt=\" \" /></a>");
 						str.append("<span class=\"star\"> </span>");
 						str.append("<div class=\"grid-chain-bottom\">");
@@ -249,7 +246,7 @@ public class IndexTagController {
 					for(int i=0;i<4;i++){
 						ItemPO item=items.get(i);
 						String link="single.html";
-						str.append("<div class=\"col-md-4 chain-grid grid-top-chain\">");
+						str.append("<div class=\"col-md-4 chain-grid grid-top-chain\" style=\"width:30%;margin-right:15px;margin-bottom:10px\">");
 						str.append("<a href=\""+link+"\"><img class=\"img-responsive chain\" src=\""+item.getImgUrl()+"\" alt=\" \" /></a>");
 						str.append("<span class=\"star\"> </span>");
 						str.append("<div class=\"grid-chain-bottom\">");
@@ -307,7 +304,7 @@ public class IndexTagController {
 					for(int i=0;i<9;i++){
 						ItemPO item=items.get(i);
 						String link="single.html";
-						str.append("<div class=\"col-md-4 chain-grid grid-top-chain\">");
+						str.append("<div class=\"col-md-4 chain-grid grid-top-chain\"style=\"width:30%;margin-right:15px;margin-bottom:10px\">");
 						str.append("<a href=\""+link+"\"><img class=\"img-responsive chain\" src=\""+item.getImgUrl()+"\" alt=\" \" /></a>");
 						str.append("<span class=\"star\"> </span>");
 						str.append("<div class=\"grid-chain-bottom\">");
@@ -368,27 +365,23 @@ public class IndexTagController {
 					for(int i=0;i<limt;i++){
 						UserPO friend=simUsers.get(i);
 						String src="images/user.jpg";
-						String link="single.html";
-						if(i<3){
-							str.append("<div class=\"col-md-4 chain-grid\">");
-						}
-						else {
-							str.append("<div class=\"col-md-4 chain-grid grid-top-chain\">");
-						}
-						str.append("<a href=\""+link+"\"><img class=\"img-responsive chain\" src=\""+src+"\" alt=\" \" /></a>");
-						str.append("<span class=\"star\"> </span>");
-						str.append("<div class=\"grid-chain-bottom\">");
-						str.append("<h6><a href=\""+link+"\">"+friend.getName()+"</a></h6>");
-						str.append("<div class=\"star-price\">");
-						str.append("<div class=\"clearfix\"> </div>");
-						str.append("</div>");
-						str.append("</div>");
-						str.append("</div>");		
+						String link="userInfo.html?userId="+friend.getId();
+						str.append("<div class=\" chain-grid menu-chain\">");		
+						str.append("<a href=\""+link+"\"><img class=\"img-responsive chain\" src=\""+src+"\" alt=\" \"></a>	");	
+						str.append("<div class=\"grid-chain-bottom chain-watch\">");	
+						str.append("<span class=\"actual dolor-left-grid\"></span>");	
+						str.append("<span class=\"reducedfrom\"></span> ");	
+						str.append("<h6><a href=\""+link+"\">"+friend.getName()+"</a></h6>");	
+						str.append("</div>");	
+						str.append("</div>");	
 					}
 					htmlstr=str.toString();
 					rm.setMsg("success");
 					rm.setResult(htmlstr);
 				}
+			}
+			else {
+				
 			}
 		} catch (Exception e) {
 			rm.setMsg("error");
@@ -397,5 +390,18 @@ public class IndexTagController {
 		}
 		return rm;
 	}
-
+	@RequestMapping(value = "/addToShoppingCart/{itemId}}", method = RequestMethod.POST)
+	@ResponseBody
+	public RestMsg<String> addToShoppingCart(HttpServletRequest request, @PathVariable Long itemId){
+		RestMsg<String> rm=new RestMsg<>();
+		try{
+			
+			Long i = itemId;
+			Long l = i ;
+			rm.setMsg("success");
+		} catch (Exception e) {
+			rm.setMsg("error");
+		}
+		return rm;
+	}
 }
