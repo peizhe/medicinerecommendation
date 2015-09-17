@@ -50,7 +50,7 @@ public class IndexTagController {
 	@ResponseBody
 	public RestMsg<List<Map<String, Object>>> getTagInfo(HttpServletRequest request) {
 		RestMsg<List<Map<String, Object>>> rm = new RestMsg<List<Map<String, Object>>>();
-		long[] ids = {1,2,3,4,5,6,7,8,9,10};		
+		long[] ids = {2,3,4,5,6,7,8,9,10,11};		
 		try {
 			List<TagPO> tagPOs = tagService.findSpecial(ids);
 			if(tagPOs==null||tagPOs.size()==0) {

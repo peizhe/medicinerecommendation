@@ -31,6 +31,11 @@ public class TagServiceImpl implements TagService {
 		 return tagDao.findByIds(ids);
 		
 	}
+
+	@Override
+	public TagPO findByTagId(long tagId) {
+		return tagDao.get(tagId);
+	}
 	
 	
 

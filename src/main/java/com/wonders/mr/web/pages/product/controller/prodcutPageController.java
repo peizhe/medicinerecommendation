@@ -9,6 +9,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,8 +17,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.wonders.bud.framework.common.util.RestMsg;
 import com.wonders.mr.service.item.modal.po.ItemPO;
+import com.wonders.mr.service.item.modal.po.TagPO;
 import com.wonders.mr.service.item.service.ItemService;
 import com.wonders.mr.service.item.service.TagItemService;
+import com.wonders.mr.service.item.service.TagService;
 
 
 @Controller
@@ -27,6 +30,9 @@ public class prodcutPageController {
 	
 	@Resource
 	private TagItemService tagItemService;
+	
+	@Autowired
+	TagService tagservice;
 	
 	@Resource
 	private ItemService itemService;
@@ -44,6 +50,7 @@ public class prodcutPageController {
 		Long tagId = Long.parseLong(tagIds);
 		try {
 			List<ItemPO> itemPOs = tagItemService.findById(tagId);
+			TagPO tagPO = tagservice.findByTagId(tagId);
 			if(itemPOs==null||itemPOs.size()==0) {
 				rm.setMsg("nothing");
 				return rm;
@@ -58,6 +65,9 @@ public class prodcutPageController {
 				tag.put("imgUrl", itemPO.getImgUrl());
 				list.add(tag);
 			}
+			Map<String, Object> tagMap = new HashMap<>();
+			tagMap.put("tagName", tagPO.getSymptom());
+			list.add(tagMap);
 			rm.setResult(list);
 			rm.setMsg("success");
 		} catch (Exception exception) {
