@@ -174,6 +174,66 @@ public class IndexTagController {
 		return rm;
 	}
 	
+	@RequestMapping(value = "/getRecTableAllUcf", method = RequestMethod.GET)
+	@ResponseBody
+	public RestMsg<String> getRecTableAllUcf(HttpServletRequest request){
+		RestMsg<String> rm=new RestMsg<>();
+		String htmlstr=new String();
+		try {
+			HttpSession session=request.getSession();
+			Object userId=session.getAttribute("userId");
+			if(userId!=null){
+				List<ItemPO> items=recTableUcfService.findByUserId(Long.parseLong(userId.toString()));
+				if(items!=null&&items.size()>0){					
+					StringBuilder str=new StringBuilder();
+					for(int i=0;i<9;i++){
+						ItemPO item=items.get(i);
+						String link="single.html";
+						str.append("<div class=\"col-md-4 chain-grid grid-top-chain\">");
+						str.append("<a href=\""+link+"\"><img class=\"img-responsive chain\" src=\""+item.getImgUrl()+"\" alt=\" \" /></a>");
+						str.append("<span class=\"star\"> </span>");
+						str.append("<div class=\"grid-chain-bottom\">");
+						str.append("<h6><a href=\""+link+"\">"+item.getItemName()+"</a></h6>");
+						str.append("<div class=\"star-price\">");
+						str.append("<div class=\"dolor-grid\"> ");
+						str.append("<span class=\"actual\">￥"+item.getPrice()+"</span>");
+						str.append("<span class=\"reducedfrom\">￥100</span>");
+						str.append("<span class=\"rating\">");
+						str.append("<input type=\"radio\" class=\"rating-input\" id=\"rating-input-1-5\" name=\"rating-input-1\">");
+						str.append("<label for=\"rating-input-1-5\" class=\"rating-star1\"> </label>");
+						str.append("<input type=\"radio\" class=\"rating-input\" id=\"rating-input-1-4\" name=\"rating-input-1\">");
+						str.append("<label for=\"rating-input-1-4\" class=\"rating-star1\"> </label>");
+						str.append(" <input type=\"radio\" class=\"rating-input\" id=\"rating-input-1-3\" name=\"rating-input-1\">");
+						str.append("<label for=\"rating-input-1-3\" class=\"rating-star\"> </label>");
+						str.append("<input type=\"radio\" class=\"rating-input\" id=\"rating-input-1-2\" name=\"rating-input-1\">");
+						str.append("<label for=\"rating-input-1-2\" class=\"rating-star\"> </label>");
+						str.append("<input type=\"radio\" class=\"rating-input\" id=\"rating-input-1-1\" name=\"rating-input-1\">");
+						str.append("<label for=\"rating-input-1-1\" class=\"rating-star\"> </label>");
+						str.append("</span>");
+						str.append("</div>");
+						str.append("<a class=\"now-get get-cart\" href=\"#\">加入购物车</a> ");
+						str.append("<div class=\"clearfix\"> </div>");
+						str.append("</div>");
+						str.append("</div>");
+						str.append("</div>");
+					}
+					htmlstr=str.toString();
+				}
+			}
+	/*		else {
+				rm.setMsg("您还没登录");
+			}*/
+			rm.setResult(htmlstr);
+			rm.setMsg("success");
+		} catch (Exception e) {
+			rm.setMsg("error");
+			e.printStackTrace();
+			log.error(e.getLocalizedMessage());
+		}
+		return rm;
+	}
+
+	
 	@RequestMapping(value = "/getRecTableIcf", method = RequestMethod.GET)
 	@ResponseBody
 	public RestMsg<String> getRecTableIcf(HttpServletRequest request){
@@ -189,12 +249,65 @@ public class IndexTagController {
 					for(int i=0;i<4;i++){
 						ItemPO item=items.get(i);
 						String link="single.html";
-						if(i<3){
-							str.append("<div class=\"col-md-4 chain-grid\">");
-						}
-						else {
-							str.append("<div class=\"col-md-4 chain-grid grid-top-chain\">");
-						}
+						str.append("<div class=\"col-md-4 chain-grid grid-top-chain\">");
+						str.append("<a href=\""+link+"\"><img class=\"img-responsive chain\" src=\""+item.getImgUrl()+"\" alt=\" \" /></a>");
+						str.append("<span class=\"star\"> </span>");
+						str.append("<div class=\"grid-chain-bottom\">");
+						str.append("<h6><a href=\""+link+"\">"+item.getItemName()+"</a></h6>");
+						str.append("<div class=\"star-price\">");
+						str.append("<div class=\"dolor-grid\"> ");
+						str.append("<span class=\"actual\">￥"+item.getPrice()+"</span>");
+						str.append("<span class=\"reducedfrom\">￥100</span>");
+						str.append("<span class=\"rating\">");
+						str.append("<input type=\"radio\" class=\"rating-input\" id=\"rating-input-1-5\" name=\"rating-input-1\">");
+						str.append("<label for=\"rating-input-1-5\" class=\"rating-star1\"> </label>");
+						str.append("<input type=\"radio\" class=\"rating-input\" id=\"rating-input-1-4\" name=\"rating-input-1\">");
+						str.append("<label for=\"rating-input-1-4\" class=\"rating-star1\"> </label>");
+						str.append(" <input type=\"radio\" class=\"rating-input\" id=\"rating-input-1-3\" name=\"rating-input-1\">");
+						str.append("<label for=\"rating-input-1-3\" class=\"rating-star\"> </label>");
+						str.append("<input type=\"radio\" class=\"rating-input\" id=\"rating-input-1-2\" name=\"rating-input-1\">");
+						str.append("<label for=\"rating-input-1-2\" class=\"rating-star\"> </label>");
+						str.append("<input type=\"radio\" class=\"rating-input\" id=\"rating-input-1-1\" name=\"rating-input-1\">");
+						str.append("<label for=\"rating-input-1-1\" class=\"rating-star\"> </label>");
+						str.append("</span>");
+						str.append("</div>");
+						str.append("<a class=\"now-get get-cart\" href=\"#\">加入购物车</a> ");
+						str.append("<div class=\"clearfix\"> </div>");
+						str.append("</div>");
+						str.append("</div>");
+						str.append("</div>");
+					}
+					htmlstr=str.toString();
+				}
+			}
+	/*		else {
+				rm.setMsg("您还没登录");
+			}*/
+			rm.setResult(htmlstr);
+			rm.setMsg("success");
+		} catch (Exception e) {
+			rm.setMsg("error");
+			e.printStackTrace();
+			log.error(e.getLocalizedMessage());
+		}
+		return rm;
+	}
+	@RequestMapping(value = "/getRecTableAllIcf", method = RequestMethod.GET)
+	@ResponseBody
+	public RestMsg<String> getRecTableAllIcf(HttpServletRequest request){
+		RestMsg<String> rm=new RestMsg<>();
+		String htmlstr=new String();
+		try {
+			HttpSession session=request.getSession();
+			Object userId=session.getAttribute("userId");
+			if(userId!=null){
+				List<ItemPO> items=recTableIcfService.findByUserId(Long.parseLong(userId.toString()));
+				if(items!=null&&items.size()>0){					
+					StringBuilder str=new StringBuilder();
+					for(int i=0;i<9;i++){
+						ItemPO item=items.get(i);
+						String link="single.html";
+						str.append("<div class=\"col-md-4 chain-grid grid-top-chain\">");
 						str.append("<a href=\""+link+"\"><img class=\"img-responsive chain\" src=\""+item.getImgUrl()+"\" alt=\" \" /></a>");
 						str.append("<span class=\"star\"> </span>");
 						str.append("<div class=\"grid-chain-bottom\">");
