@@ -92,10 +92,10 @@
 			</div>
 		</div>
 
-	<!---->
-	<div class="container">
-		<div class="shoes-grid">
-			<a href="single.html">
+		<!---->
+		<div class="container" id="search-med">
+				<div class="shoes-grid">
+				<a href="single.html">
 				<div class="wrap-in">
 					<div class="wmuSlider example1 slide-grid">		 
 					   <div class="wmuSliderWrapper">		  
@@ -185,7 +185,7 @@
 						<h3 class="cate">分类</h3>
 						 <ul class="menu">
 						 <li>
-							<ul class="kid-menu">
+							<ul class="kid-menu" id="tag-menu">
 							</ul>
 						 </li>
 						 </ul>
@@ -235,7 +235,7 @@
 										
 										$.post(
 											"api/common/user/logout",
-											{},
+											{}, 
 											function(data) {
 												window.location.href = "index.html";
 											}
@@ -288,35 +288,79 @@
 				});
 			}
 
-			//页面左侧tag标签分类显示
-			function initTag() {
-				$('.kid-menu').html("");//清空防止影响
 
-				$.ajax({
-					url : "pages/index/controller/getTagInfo",
-					type : "POST",
-					success : function(data) {
-						if (data.msg == "success") {
-							var tagList = data.result;
-							var str = new Array();
-							for (i = 0; i < 10; i++) {
-								if (tagList[i] == null) {
-									break;
+				//页面左侧tag标签分类显示
+				function initTag() {
+					$('#tag-menu').html("");//清空防止影响
+					
+					$.ajax({
+						url: "pages/index/controller/getTagInfo",
+						type: "POST",
+						success: function(data) {
+							if(data.msg == "success") {
+								var tagList = data.result;
+								var str = new Array();
+								for (i=0;i<10;i++) {
+									if(tagList[i]==null) {
+										break;
+									}
+									creatTagView(tagList[i].tagId,tagList[i].symptom,str);
 								}
-								creatTagView(tagList[i].tagId,tagList[i].symptom, str);
+								$('#tag-menu').html(str.join(""));
+							}else if(data.msg == "nothing") {
+								alert("抱歉，还没有进行分类！");
+							}else if(data.msg == "error") {
+								alert("获取分类内容出错，请重新登陆！");
 							}
-							$('.kid-menu').html(str.join(""));
-						} else if (data.msg == "nothing") {
-							alert("抱歉，还没有进行分类！");
-						} else if (data.msg == "error") {
-							alert("获取分类内容出错，请重新登陆！");
-						}
 					  }
 					});
 			}
 					
 				function creatTagView(tagId,symptom,str) {
 					str.push('<li><a href="product.html?tagId='+tagId+'">'+symptom+'</a></li>');
+				}
+				
+				//搜索框按钮处理事件
+				function medRsearch() {
+					var content = $("#med-search").val();
+					$('#search-med').html("");//清空防止影响
+					$.ajax({
+						url: "pages/index/controller/getSearchInfo",
+						type: "POST",
+						data:{"content":content},
+						success: function(data) {
+							if(data.msg == "success") {
+								var searchList = data.result;
+								var str = new Array();
+								$.each(searchList,function(i,search) {
+									creatSearchView(search.itemId,search.itemName,search.company,search.price,search.imgUrl,str);
+								});
+								$('#search-med').html(str.join(""));
+							}else if(data.msg == "nothing") {
+								alert("抱歉，没有找到您要查询的药品！");
+							}else if(data.msg == "error") {
+								alert("获取查询内容出错，请重新登陆！");
+							}
+						}
+					});
+				}
+				
+				function creatSearchView(itemId,itemName,company,price,imgUrl,str) {
+					str.push('<div class="product-grid" style="padding-left:111px">');
+					str.push('<div class="content-box">');
+					str.push('<a href="single.html?itemId='+itemId+'">');
+					str.push('<div class="left-grid-view grid-view-left">');
+					str.push('<img src="'+imgUrl+'" class="img-responsive watch-right" alt="" />');
+					//str.push('<div class="mask">');
+					//str.push('<div class="info">Quick View</div>');
+					//str.push('</div>');
+					str.push('</div>');
+					str.push('</a>');
+					str.push('</div>');
+					str.push('<h4><a href="#">'+itemName+'</a></h4>');
+					str.push('<p>'+company+'</p>');
+					str.push('<p>￥'+price+'</p>');
+					str.push('</div>');
 				}
 			</script>
 						

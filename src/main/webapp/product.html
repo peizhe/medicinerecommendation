@@ -18,7 +18,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1">
 <script type="application/x-javascript">
+	
+	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
 
 </script>
 <!--fonts-->
@@ -32,6 +35,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	rel="stylesheet" type="text/css" />
 <link href="static/bootstrap3.3.5/css/bootstrap-theme.min.css"
 	rel="stylesheet" type="text/css" />
+
 <script src="static/js/jquery-v1.11.3.js"></script>
 <script src="static/bootstrap3.3.5/js/bootstrap.min.js"></script>
 <!-- bootstrap 引入end -->
@@ -50,18 +54,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="top-header-left">
 					<ul class="support">
 						<li><a href="#"><label> </label></a></li>
-
 						<li><a href="#">24小时<span class="live">热线支持</span></a></li>
 					</ul>
 					<ul class="support">
 						<li class="van"><a href="#"><label> </label></a></li>
 						<li><a href="#">单笔交易满200元<span class="live">2公里免费送货</span></a></li>
-
 					</ul>
 					<div class="clearfix"></div>
 				</div>
 				<div class="top-header-right">
-
 					<!--语言 价格单位  
 					<div class="down-top">		
 						  <select class="in-drop">
@@ -85,7 +86,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							id="loginName" />
 					</div>
 					<!---->
-
 					<div class="clearfix"></div>
 				</div>
 				<div class="clearfix"></div>
@@ -96,12 +96,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="header-bottom-left">
 					<div class="logo">
 						<a href="index.html"><img src="images/logo.png" alt=" " /></a>
-
 					</div>
 					<div class="search">
 						<input type="text" value="" onfocus="this.value = '';"
 							onblur="if (this.value == '') {this.value = '';}"> <input
 							type="submit" value="搜索">
+
 					</div>
 					<div class="clearfix"></div>
 				</div>
@@ -118,7 +118,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<!---->
 	<!-- start content -->
 	<div class="container">
-
 		<div class="women-product">
 			<div class=" w_content">
 				<div class="women">
@@ -137,72 +136,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				</div>
 			</div>
 		</div>
-		<h4>
-			<a href="#"> Duis autem</a>
-		</h4>
-		<p>It is a long established fact that a reader</p>
-		Rs. 499
-	</div>
-	</div>
-	<div class="  product-grid">
-		<div class="content_box">
-			<a href="single.html">
-				<div class="left-grid-view grid-view-left">
-					<img src="images/pic8.jpg" class="img-responsive watch-right"
-						alt="" />
-					<div class="mask">
-						<div class="info">Quick View</div>
-					</div>
-			</a>
-		</div>
-		<h4>
-			<a href="#"> Duis autem</a>
-		</h4>
-		<p>It is a long established fact that a reader</p>
-		Rs. 499
-	</div>
-	</div>
-	<div class="  product-grid">
-		<div class="content_box">
-			<a href="single.html">
-				<div class="left-grid-view grid-view-left">
-					<img src="images/pic11.jpg" class="img-responsive watch-right"
-						alt="" />
-					<div class="mask">
-						<div class="info">Quick View</div>
-					</div>
-			</a>
-		</div>
-		<h4>
-			<a href="#"> Duis autem</a>
-		</h4>
-		<p>It is a long established fact that a reader</p>
-		Rs. 499
-	</div>
-	</div>
-	<div class=" product-grid">
-		<div class="content_box">
-			<a href="single.html">
-				<div class="left-grid-view grid-view-left">
-					<img src="images/pic12.jpg" class="img-responsive watch-right"
-						alt="" />
-					<div class="mask">
-						<div class="info">Quick View</div>
-					</div>
-			</a>
-		</div>
-		<h4>
-			<a href="#"> Duis autem</a>
-		</h4>
-		<p>It is a long established fact that a reader</p>
-		Rs. 499
-	</div>
-	</div>
-	<div class="clearfix"></div>
-	</div>
 	</div>
 	<!-- grids_of_4 -->
-	<div class="grid-product">
+	<div class="grid-product" id="tagMed-product">
 		<div class="product-grid">
 			<div class="content_box">
 				<a href="single.html">
@@ -465,7 +401,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	</div>
 	<script type="text/javascript">
 		$(document).ready(function() {
-			alert(GetQueryString("tagId"));
 			initMedSet();
 		});
 		
@@ -478,7 +413,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		
 		//初始化product.html页面的药品集
 		function initMedSet() {
-			$('.grid-product').html("");//清空防止影响
+			$('#tagMed-product').html("");//清空防止影响
 			var tagId = GetQueryString("tagId");
 			$.ajax({
 				url:"pages/product/controller/getMedSet",
@@ -491,7 +426,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						$.each(medList,function(i,med) {
 							creatMedSetView(med.itemId,med.itemName,med.company,med.price,med.imgUrl,str);
 						});
-						$('.grid-product').html(str.join(""));
+						$('#tagMed-product').html(str.join(""));
 					}else if(data.msg == "nothing") {
 						alert("抱歉，此分类下暂时没有任何药品！");
 					}else if(data.msg == "error") {
@@ -504,15 +439,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		function creatMedSetView(itemId,itemName,company,price,imgUrl,str) {
 			str.push('<div class="product-grid">');
 			str.push('<div class="content-box">');
-			str.push('<a href="single.html?itemId='+itemId+'"');
+			str.push('<a href="single.html?itemId='+itemId+'">');
 			str.push('<div class="left-grid-view grid-view-left">');
 			str.push('<img src="'+imgUrl+'" class="img-responsive watch-right" alt="" />');
-			str.push('<div class="mask">');
-			str.push('<div class="info">Quick View</div>');
-			str.push('</div></div></a></div>');
+			//str.push('<div class="mask">');
+			//str.push('<div class="info">Quick View</div>');
+			//str.push('</div>');
+			str.push('</div>');
+			str.push('</a>');
+			str.push('</div>');
 			str.push('<h4><a href="#">'+itemName+'</a></h4>');
 			str.push('<p>'+company+'</p>');
-			str.push('￥'+price+'</div>');
+			str.push('<p>￥'+price+'</p>');
+			str.push('</div>');
 		}
 		
 	</script>
