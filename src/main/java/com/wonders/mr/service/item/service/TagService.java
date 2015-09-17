@@ -18,6 +18,8 @@ public interface TagService {
 	 * @param long[] ids 是获取有限个数tag记录的一组数组
 	 * @return
 	 */
-	public List<TagPO> findSpecial(long[] ids);		
+	public List<TagPO> findSpecial(long[] ids);
+	
+	public TagPO findByTagId(long tagId);
 	
 }

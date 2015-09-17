@@ -7,7 +7,6 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.wonders.bud.framework.common.util.QueryParam;
 import com.wonders.mr.service.action.dao.ActionDao;
 import com.wonders.mr.service.action.modal.ActionPO;
@@ -40,6 +39,12 @@ public class ActionServiceImpl implements ActionService {
 		}
 		return items;
 
+	}
+
+	@Override
+	public ActionPO saveAction(ActionPO actionpo) {
+		// TODO Auto-generated method stub
+		return actionDao.save(actionpo);
 	}
 
 }

@@ -16,8 +16,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import com.wonders.bud.framework.common.util.RestMsg;
 import com.wonders.mr.service.item.modal.po.ItemPO;
+import com.wonders.mr.service.item.modal.po.TagPO;
 import com.wonders.mr.service.item.service.ItemService;
 import com.wonders.mr.service.item.service.TagItemService;
+import com.wonders.mr.service.item.service.TagService;
 import com.wonders.mr.service.recitemcfsim.service.RecItemCfSimService;
 import com.wonders.mr.service.recitemtagsim.service.RecItemTagSimService;
 
@@ -38,6 +40,9 @@ public class prodcutPageController {
 	
 	@Autowired
 	private RecItemTagSimService recItemTagSimService;
+	
+	@Autowired
+	private TagService tagservice;
 	/**
 	 * 通过tagId查找适用于治疗本病症的药品集
 	 * @param tagId
@@ -52,6 +57,7 @@ public class prodcutPageController {
 		Long tagId = Long.parseLong(tagIds);
 		try {
 			List<ItemPO> itemPOs = tagItemService.findById(tagId);
+			TagPO tagPO = tagservice.findByTagId(tagId);
 			if(itemPOs==null||itemPOs.size()==0) {
 				rm.setMsg("nothing");
 				return rm;
@@ -66,6 +72,9 @@ public class prodcutPageController {
 				tag.put("imgUrl", itemPO.getImgUrl());
 				list.add(tag);
 			}
+			Map<String, Object> tagMap = new HashMap<>();
+			tagMap.put("tagName", tagPO.getSymptom());
+			list.add(tagMap);
 			rm.setResult(list);
 			rm.setMsg("success");
 		} catch (Exception exception) {
