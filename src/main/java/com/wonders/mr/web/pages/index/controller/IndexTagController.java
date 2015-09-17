@@ -82,13 +82,8 @@ public class IndexTagController {
 					StringBuilder str=new StringBuilder();
 					for(int i=0;i<4;i++){
 						ItemPO item=items.get(i);
-						String link="single.html";
-						if(i<3){
-							str.append("<div class=\"col-md-4 chain-grid\">");
-						}
-						else {
-							str.append("<div class=\"col-md-4 chain-grid grid-top-chain\">");
-						}
+						String link="single2.html?itemId="+item.getItemId();
+						str.append("<div class=\"col-md-4 chain-grid grid-top-chain\">");
 						str.append("<a href=\""+link+"\"><img class=\"img-responsive chain\" src=\""+item.getImgUrl()+"\" alt=\" \" /></a>");
 						str.append("<span class=\"star\"> </span>");
 						str.append("<div class=\"grid-chain-bottom\">");
@@ -148,27 +143,23 @@ public class IndexTagController {
 					for(int i=0;i<limt;i++){
 						UserPO friend=simUsers.get(i);
 						String src="images/user.jpg";
-						String link="single.html";
-						if(i<3){
-							str.append("<div class=\"col-md-4 chain-grid\">");
-						}
-						else {
-							str.append("<div class=\"col-md-4 chain-grid grid-top-chain\">");
-						}
-						str.append("<a href=\""+link+"\"><img class=\"img-responsive chain\" src=\""+src+"\" alt=\" \" /></a>");
-						str.append("<span class=\"star\"> </span>");
-						str.append("<div class=\"grid-chain-bottom\">");
-						str.append("<h6><a href=\""+link+"\">"+friend.getName()+"</a></h6>");
-						str.append("<div class=\"star-price\">");
-						str.append("<div class=\"clearfix\"> </div>");
-						str.append("</div>");
-						str.append("</div>");
-						str.append("</div>");		
+						String link="userInfo.html?userId="+friend.getId();
+						str.append("<div class=\" chain-grid menu-chain\">");		
+						str.append("<a href=\""+link+"\"><img class=\"img-responsive chain\" src=\""+src+"\" alt=\" \"></a>	");	
+						str.append("<div class=\"grid-chain-bottom chain-watch\">");	
+						str.append("<span class=\"actual dolor-left-grid\"></span>");	
+						str.append("<span class=\"reducedfrom\"></span> ");	
+						str.append("<h6><a href=\""+link+"\">"+friend.getName()+"</a></h6>");	
+						str.append("</div>");	
+						str.append("</div>");	
 					}
 					htmlstr=str.toString();
 					rm.setMsg("success");
 					rm.setResult(htmlstr);
 				}
+			}
+			else {
+				
 			}
 		} catch (Exception e) {
 			rm.setMsg("error");
