@@ -27,21 +27,21 @@
 </head>
 <body>
 	<!--header-->
-	<div class="header">
-		<div class="top-header">
-			<div class="container">
-				<div class="top-header-left">
-					<ul class="support">
-						<li><a href="#"><label> </label></a></li>
-						<li><a href="#">24小时<span class="live">热线支持</span></a></li>
-					</ul>
-					<ul class="support">
-						<li class="van"><a href="#"><label> </label></a></li>
-						<li><a href="#">单笔交易满200元<span class="live">2公里免费送货</span></a></li>
-					</ul>
-					<div class="clearfix"></div>
-				</div>
-				<div class="top-header-right">
+<div class="header">
+			<div class="top-header">
+				<div class="container">
+					<div class="top-header-left">
+						<ul class="support">
+							<li><a href="#"><label> </label></a>
+							<li><a href="#">24小时<span class="live">热线支持</span></a>
+						</ul>
+						<ul class="support">
+							<li class="van"><a href="#"><label> </label></a>
+							<li><a href="#">单笔交易满200元<span class="live">2公里免费送货</span></a>
+						</ul>
+						<div class="clearfix"> </div>
+					</div>
+					<div class="top-header-right">
 					<!--语言 价格单位  
 					<div class="down-top">		
 							  <select class="in-drop">
@@ -49,7 +49,7 @@
 								  <option value="Japanese" class="in-of">Japanese</option>
 								  <option value="French" class="in-of">French</option>
 								  <option value="German" class="in-of">German</option>
-								</select>
+								<lect>
 						 </div>
 						<div class="down-top top-down">
 							  <select class="in-drop">
@@ -57,229 +57,224 @@
 							  <option value="Dollar" class="in-of">Dollar</option>
 							  <option value="Yen" class="in-of">Yen</option>
 							  <option value="Euro" class="in-of">Euro</option>
-								</select>
+								<lect>
 						 </div>
 						 //语言 价格单位   -->
-					<div class="down-top">
-						<label class="in-of currentUser"></label> <input type="hidden"
-							id="loginName" />
+						<div class="down-top">		
+							<label class="in-of currentUser" ></label>
+							<input type="hidden" id="loginName" />
+					 	</div>
+						 <!---->
+						<div class="clearfix"> </div>	
 					</div>
-					<!---->
-					<div class="clearfix"></div>
+					<div class="clearfix"> </div>		
 				</div>
-				<div class="clearfix"></div>
 			</div>
-		</div>
-		<div class="bottom-header">
-			<div class="container">
-				<div class="header-bottom-left">
-					<div class="logo">
-						<a href="index.html"><img src="images/logo.png" alt=" " /></a>
+			<div class="bottom-header">
+				<div class="container">
+					<div class="header-bottom-left">
+						<div class="logo">
+							<a href="index.html"><img src="images/logo.png" alt=" " /></a>
+						</div>
+						<div class="search">
+							<input id="med-search" type="text" placeholder="药名、症状、药品生产商" >
+							<input id="search-btn" type="button" style="width: 89px;height: 35px;" onclick="medRsearch()"  value="搜索">
+						</div>
+						<div class="clearfix"> </div>
 					</div>
-					<div class="search">
-						<input type="text" placeholder="药名、症状、药品生产商" /> <input
-							type="submit" value="SEARCH">
-
-					</div>
-					<div class="clearfix"></div>
-				</div>
-				<!-- 购物车 -->
-				<!-- <div class="header-bottom-right cart" style="margin-left:200px">
+					<!-- 购物车 -->
+					<!-- <div class="header-bottom-right cart" style="margin-left:200px">
 						<a href="#"><span> </span>CART</a>
 					</div> -->
-				<!-- //购物车 -->
-				<div class="clearfix"></div>
+					<!-- //购物车 -->
+					<div class="clearfix"> </div>	
+				</div>
 			</div>
 		</div>
-	</div>
+
 	<!---->
 	<div class="container">
 		<div class="shoes-grid">
 			<a href="single.html">
 				<div class="wrap-in">
-					<div class="wmuSlider example1 slide-grid">
-						<div class="wmuSliderWrapper">
-							<article style="position: absolute; width: 100%; opacity: 0;">
-								<div class="banner-matter">
-									<div class="col-md-5 banner-bag">
-										<img class="img-responsive " src="images/bag.jpg" alt=" " />
-									</div>
-									<div class="col-md-7 banner-off">
-										<h2>FLAT 50% 0FF</h2>
-										<label>FOR ALL PURCHASE <b>VALUE</b></label>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing
-											elit, sed do eiusmod tempor incididunt ut labore et</p>
-										<span class="on-get">GET NOW</span>
-									</div>
-
-									<div class="clearfix"></div>
+					<div class="wmuSlider example1 slide-grid">		 
+					   <div class="wmuSliderWrapper">		  
+						   <article style="position: absolute; width: 100%; opacity: 0;">					
+							<div class="banner-matter">
+							<div class="col-md-5 banner-bag">
+								<img class="img-responsive " src="images/bag.jpg" alt=" " />
 								</div>
-
-							</article>
-							<article style="position: absolute; width: 100%; opacity: 0;">
-								<div class="banner-matter">
-									<div class="col-md-5 banner-bag">
-										<img class="img-responsive " src="images/bag1.jpg" alt=" " />
-									</div>
-									<div class="col-md-7 banner-off">
-										<h2>FLAT 50% 0FF</h2>
-										<label>FOR ALL PURCHASE <b>VALUE</b></label>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing
-											elit, sed do eiusmod tempor incididunt ut labore et</p>
-										<span class="on-get">GET NOW</span>
-									</div>
-
-									<div class="clearfix"></div>
+								<div class="col-md-7 banner-off">							
+									<h2>FLAT 50% 0FF</h2>
+									<label>FOR ALL PURCHASE <b>VALUE</b></label>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et </p>					
+									<span class="on-get">GET NOW</span>
 								</div>
-
-							</article>
-							<article style="position: absolute; width: 100%; opacity: 0;">
-								<div class="banner-matter">
-									<div class="col-md-5 banner-bag">
-										<img class="img-responsive " src="images/bag.jpg" alt=" " />
-									</div>
-									<div class="col-md-7 banner-off">
-										<h2>FLAT 50% 0FF</h2>
-										<label>FOR ALL PURCHASE <b>VALUE</b></label>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing
-											elit, sed do eiusmod tempor incididunt ut labore et</p>
-										<span class="on-get">GET NOW</span>
-									</div>
-
-									<div class="clearfix"></div>
+								
+								<div class="clearfix"> </div>
+							</div>
+							
+						 	</article>
+						 	<article style="position: absolute; width: 100%; opacity: 0;">					
+							<div class="banner-matter">
+							<div class="col-md-5 banner-bag">
+								<img class="img-responsive " src="images/bag1.jpg" alt=" " />
 								</div>
+								<div class="col-md-7 banner-off">							
+									<h2>FLAT 50% 0FF</h2>
+									<label>FOR ALL PURCHASE <b>VALUE</b></label>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et </p>					
+									<span class="on-get">GET NOW</span>
+								</div>
+								
+								<div class="clearfix"> </div>
+							</div>
+							
+						 	</article>
+						 	<article style="position: absolute; width: 100%; opacity: 0;">					
+							<div class="banner-matter">
+							<div class="col-md-5 banner-bag">
+								<img class="img-responsive " src="images/bag.jpg" alt=" " />
+								</div>
+								<div class="col-md-7 banner-off">							
+									<h2>FLAT 50% 0FF</h2>
+									<label>FOR ALL PURCHASE <b>VALUE</b></label>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et </p>					
+									<span class="on-get">GET NOW</span>
+								</div>
+								
+								<div class="clearfix"> </div>
+							</div>
+							
+						 	</article>
+							
+						 </div>
+						 </a>
+		                <ul class="wmuSliderPagination">
+		                	<li><a href="#" class="">0</a></li>
+		                	<li><a href="#" class="">1</a></li>
+		                	<li><a href="#" class="">2</a></li>
+		                </ul>
+						 <script src="static/js/jquery.wmuSlider.js"></script> 
+					  <script>
+		       			$('.example1').wmuSlider();         
+		   		     </script> 
+		            </div>
+		          </div>
+		           	</a>
+		   		      <!---->
 
-							</article>
-
-						</div>
-			</a>
-			<ul class="wmuSliderPagination">
-				<li><a href="#" class="">0</a></li>
-				<li><a href="#" class="">1</a></li>
-				<li><a href="#" class="">2</a></li>
-			</ul>
-			<script src="static/js/jquery.wmuSlider.js"></script>
-			<script>
-				$('.example1').wmuSlider();
-			</script>
-		</div>
-	</div>
-	</a>
 	<div class="products">
-		<h5 class="latest-product">和您用药相似的用户还用过了以下药物</h5>
-		<a class="view-all" href="product.html">查看全部<span> </span></a>
-	</div>
-	<div class="product-left" id="rec_table_ucf">
-		<div class="clearfix"></div>
-	</div>
-	<div class="products">
-		<h5 class="latest-product">您可能对以下药物感兴趣</h5>
-		<a class="view-all" href="product.html">查看全部<span> </span></a>
-	</div>
-	<div class="product-left">
-
-		<div class="clearfix"></div>
-	</div>
-	<div class="clearfix"></div>
-	</div>
-	<div class="sub-cate">
-		<div class=" top-nav rsidebar span_1_of_left">
-			<h3 class="cate">分类</h3>
-			<ul class="menu">
-				<li>
-					<ul class="kid-menu">
-					</ul>
-				</li>
-			</ul>
-		</div>
+		   		     	<h5 class="latest-product">和您用药相似的用户还用过了以下药物</h5>	
+		   		     	  <a class="view-all" href="rectableallucf.html">查看全部<span> </span></a> 		     
+		   		     </div>
+		   		     <div class="product-left" id="rec_table_ucf">
+		   		     	 <div class="clearfix"> </div>
+		   		     </div>
+		   		     <div class="products">
+		   		     	<h5 class="latest-product">您可能对以下药物感兴趣</h5>	
+		   		     	  <a class="view-all" href="rectableallicf.html">查看全部<span> </span></a> 		     
+		   		     </div>
+		   		     <div class="product-left" id="rec_table_icf">
+		   		     	<div class="clearfix"> </div>	
+		   		     </div>
+		   		     <div class="clearfix"> </div>
+		   		   </div>   
+				   <div class="sub-cate">
+					<div class=" top-nav rsidebar span_1_of_left">
+						<h3 class="cate">分类</h3>
+						 <ul class="menu">
+						 <li>
+							<ul class="kid-menu">
+							</ul>
+						 </li>
+						 </ul>
+					</div>
 		<!--initiate accordion-->
-		<script type="text/javascript">
-			$(function() {
-				var menu_ul = $('.menu > li > ul'), menu_a = $('.menu > li > a');
-				menu_ul.hide();
-				menu_a.click(function(e) {
-					e.preventDefault();
-					if (!$(this).hasClass('active')) {
-						menu_a.removeClass('active');
-						menu_ul.filter(':visible').slideUp('normal');
-						$(this).addClass('active').next().stop(true, true)
-								.slideDown('normal');
-					} else {
-						$(this).removeClass('active');
-						$(this).next().stop(true, true).slideUp('normal');
-					}
+			<script type="text/javascript">
+				$(function() {
+				    var menu_ul = $('.menu > li > ul'), menu_a  = $('.menu > li > a');
+				    menu_ul.hide();
+				    menu_a.click(function(e) {
+				        e.preventDefault();
+				        if(!$(this).hasClass('active')) {
+				            menu_a.removeClass('active');
+				            menu_ul.filter(':visible').slideUp('normal');
+				            $(this).addClass('active').next().stop(true,true).slideDown('normal');
+				        } else {
+				            $(this).removeClass('active');
+				            $(this).next().stop(true,true).slideUp('normal');
+				        }
+				    });
+				
 				});
-
-			});
-
-			$(document).ready(function() {
-				initTag();
-				displayCurrentUser();
-				getRecTableUcf();
-				getRecUserSim();
-			});
-
-			//获取登录用户信息
-			function displayCurrentUser() {
-				$
-						.post(
-								"api/common/user/isLogin",
-								{},
-								function(data) {
-									//用户已经登录
-									if ("no" != data.msg) {
-										var array = data.msg.split("!");
-										var userName = array[0]
-										var loginName = array[1];
-
-										$(".currentUser")
-												.html(
-														"欢迎您 : "
-																+ userName
-																+ "&nbsp;&nbsp;&nbsp;<a href='javascript:;' class='glyphicon glyphicon-log-out' title='退出'></a>");
-										$("#loginName").val(loginName);
-										//绑定登出按钮单击事件(用户登出操作)
-										$(".glyphicon.glyphicon-log-out")
-												.bind(
-														"click",
-														function() {
-
-															$
-																	.post(
-																			"api/common/user/logout",
-																			{},
-																			function(
-																					data) {
-																				window.location.href = "index.html";
-																			});
-														});
-									} else {
-										$(".currentUser")
-												.html(
-														'<a href="login.html">登录</a> 后, 我们将为您提供个性化推荐');
-									}
-								});
-			}
-
-			function getQueryString(name) {
-				var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
-				var r = window.location.search.substr(1).match(reg);
-				if (r != null)
-					return unescape(r[2]);
-				return null;
-			}
-
-			function getRecTableUcf() {
-				$.ajax({
-					url : "pages/index/controller/getRecTableUcf",
-					type : "GET",
-					dataType : "json",
-					success : function(data) {
-						var htmlstr = data.result;
-						$("#rec_table_ucf").prepend(htmlstr);
-					}
+				
+				$(document).ready(function(){
+					initTag();
+					displayCurrentUser();
+					getRecTableUcf();
+					getRecUserSim();
+					getRecTableIcf();
 				});
-			}
+				
+				//获取登录用户信息
+				function displayCurrentUser(){
+					$.post("api/common/user/isLogin",
+							{},
+							function (data) {
+								//用户已经登录
+								if("no" != data.msg) {
+									var array = data.msg.split("!");
+									var userName = array[0]
+									var loginName = array[1];
+									
+									$(".currentUser").html("欢迎您 : " + userName + "&nbsp;&nbsp;&nbsp;<a href='javascript:;' class='glyphicon glyphicon-log-out' title='退出'></a>");
+									$("#loginName").val(loginName);
+									//绑定登出按钮单击事件(用户登出操作)
+									$(".glyphicon.glyphicon-log-out").bind("click", function() {
+										
+										$.post(
+											"api/common/user/logout",
+											{},
+											function(data) {
+												window.location.href = "index.html";
+											}
+										);
+									});
+								}else {
+									$(".currentUser").html('<a href="login.html">登录</a> 后, 我们将为您提供个性化推荐');
+								}
+							});
+				}
+				
+				function getQueryString(name) { 
+					var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i"); 
+					var r = window.location.search.substr(1).match(reg); 
+					if (r != null) return unescape(r[2]); return null; 
+				}
+				
+				function getRecTableUcf(){
+					$.ajax({
+						url:"pages/index/controller/getRecTableUcf",
+						type:"GET",
+						dataType:"json",
+						success:function(data){
+							var htmlstr=data.result;
+							$("#rec_table_ucf").prepend(htmlstr);
+						}
+					});
+				}
+				function getRecTableIcf(){
+					$.ajax({
+						url:"pages/index/controller/getRecTableIcf",
+						type:"GET",
+						dataType:"json",
+						success:function(data){
+							var htmlstr=data.result;
+							$("#rec_table_icf").prepend(htmlstr);
+						}
+					});
+				}
 			function getRecUserSim() {
 				$.ajax({
 					url : "pages/index/controller/getRecUserSim",
@@ -308,8 +303,7 @@
 								if (tagList[i] == null) {
 									break;
 								}
-								creatTagView(tagList[i].tagId,
-										tagList[i].symptom, str);
+								creatTagView(tagList[i].tagId,tagList[i].symptom, str);
 							}
 							$('.kid-menu').html(str.join(""));
 						} else if (data.msg == "nothing") {
@@ -317,38 +311,35 @@
 						} else if (data.msg == "error") {
 							alert("获取分类内容出错，请重新登陆！");
 						}
-					}
-				});
+					  }
+					});
 			}
-
-			function creatTagView(tagId, symptom, str) {
-				str.push('<li><a href="product.html" onclick="showTag(' + tagId
-						+ ')">' + symptom + '</a></li>');
-				//str.push('<a href="#tableEx-div"  data-toggle="modal" data-backdrop="static" onclick="getTableEx(' + cataTableId + ',\'' + cataTableName + '\')" title="查看样例数据"><span class="fa fa-table" style="color: #fff"></span></a></p>')
-			}
-		</script>
-
-		<!--  <a class="view-all all-product" href="product.html">VIEW ALL PRODUCTS<span> </span></a> -->
-	</div>
-	<div class="clearfix"></div>
-	</div>
-
-	<!---->
-	<div class="footer">
-		<div class="footer-top">
-			<div class="container">
-				<div class="latter">
-					<h6>NEWS-LETTER</h6>
-					<div class="sub-left-right">
-						<form>
-							<input type="text" value="Enter email here"
-								onfocus="this.value = '';"
-								onblur="if (this.value == '') {this.value = 'Enter email here';}" />
-							<input type="submit" value="SUBSCRIBE" />
-						</form>
-					</div>
-					<div class="clearfix"></div>
+					
+				function creatTagView(tagId,symptom,str) {
+					str.push('<li><a href="product.html?tagId='+tagId+'">'+symptom+'</a></li>');
+				}
+			</script>
+						
+		   		     	 <a class="view-all all-product" href="product.html">VIEW ALL PRODUCTS<span> </span></a> 	
 				</div>
+		   		    <div class="clearfix"> </div>        	         
+			</div>
+		
+		<!---->
+		<div class="footer">
+			<div class="footer-top">
+				<div class="container">
+					<div class="latter">
+						<h6>NEWS-LETTER</h6>
+						<div class="sub-left-right">
+							<form>
+								<input type="text" value="Enter email here"onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter email here';}" />
+								<input type="submit" value="SUBSCRIBE" />
+							</form>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					
 				<div class="latter-right">
 					<p>FOLLOW US</p>
 					<ul class="face-in-to">
