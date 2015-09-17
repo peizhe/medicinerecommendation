@@ -80,9 +80,9 @@
 			</div>
 			
 			<div class="products">
-		   		 <h5 class="latest-product">您可能对以下药物感兴趣</h5>	     
+		   		 <h5 class="latest-product">和您用药相似的用户还用过了以下药物</h5>		     
 		   	</div>
-		   		  <div class="product-left" id="rec_table_icf">
+		   		  <div class="product-left" id="rec_table_ucf">
 		   		     	<div class="clearfix"> </div>	
 		   		  </div>
 		   	<div class="clearfix"> </div>			
@@ -199,7 +199,7 @@
 				$(document).ready(function(){
 					displayCurrentUser();
 					getRecUserSim();
-					getRecTableIcf();
+					getRecTableUcf();
 				});
 				
 				//获取登录用户信息
@@ -238,14 +238,14 @@
 					if (r != null) return unescape(r[2]); return null; 
 				}
 				
-				function getRecTableIcf(){
+				function getRecTableUcf(){
 					$.ajax({
-						url:"pages/index/controller/getRecTableAllIcf",
+						url:"pages/index/controller/getRecTableAllUcf",
 						type:"GET",
 						dataType:"json",
 						success:function(data){
 							var htmlstr=data.result;
-							$("#rec_table_icf").prepend(htmlstr);
+							$("#rec_table_ucf").prepend(htmlstr);
 						}
 					});
 				}
