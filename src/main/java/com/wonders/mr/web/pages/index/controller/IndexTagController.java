@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.wonders.bud.framework.common.util.RestMsg;
+import com.wonders.mr.service.action.modal.ActionPO;
+import com.wonders.mr.service.action.service.ActionService;
 import com.wonders.mr.service.item.modal.po.ItemPO;
 import com.wonders.mr.service.item.modal.po.TagPO;
 import com.wonders.mr.service.item.service.ItemService;
@@ -42,7 +44,8 @@ public class IndexTagController {
 	private RecTableIcfService recTableIcfService;
 	@Resource
 	private ItemService itemService;
-	
+	@Resource
+	private ActionService actionService;
 	/**
 	 * 获取tag标签分类
 	 * @param request
@@ -208,7 +211,7 @@ public class IndexTagController {
 						str.append("<label for=\"rating-input-1-1\" class=\"rating-star\"> </label>");
 						str.append("</span>");
 						str.append("</div>");
-						str.append("<a class=\"now-get get-cart\" href=\"#\">加入购物车</a> ");
+						str.append("<a class=\"now-get get-cart\" onclick=\"addToShoppingCart("+item.getItemId()+")\">加入购物车</a> ");
 						str.append("<div class=\"clearfix\"> </div>");
 						str.append("</div>");
 						str.append("</div>");
@@ -268,7 +271,7 @@ public class IndexTagController {
 						str.append("<label for=\"rating-input-1-1\" class=\"rating-star\"> </label>");
 						str.append("</span>");
 						str.append("</div>");
-						str.append("<a class=\"now-get get-cart\" href=\"#\">加入购物车</a> ");
+						str.append("<a class=\"now-get get-cart\" onclick=\"addToShoppingCart("+item.getItemId()+")\">加入购物车</a> ");
 						str.append("<div class=\"clearfix\"> </div>");
 						str.append("</div>");
 						str.append("</div>");
@@ -326,7 +329,7 @@ public class IndexTagController {
 						str.append("<label for=\"rating-input-1-1\" class=\"rating-star\"> </label>");
 						str.append("</span>");
 						str.append("</div>");
-						str.append("<a class=\"now-get get-cart\" href=\"#\">加入购物车</a> ");
+						str.append("<a class=\"now-get get-cart\" onclick=\"addToShoppingCart("+item.getItemId()+")\">加入购物车</a> ");
 						str.append("<div class=\"clearfix\"> </div>");
 						str.append("</div>");
 						str.append("</div>");
@@ -390,14 +393,24 @@ public class IndexTagController {
 		}
 		return rm;
 	}
-	@RequestMapping(value = "/addToShoppingCart/{itemId}}", method = RequestMethod.POST)
+	/**
+	 * 加入购物车
+	 * @param request
+	 * @param itemId
+	 * @return
+	 */
+	//TODO
+	@RequestMapping(value = "/addToShoppingCart/{itemId}", method = RequestMethod.POST)
 	@ResponseBody
 	public RestMsg<String> addToShoppingCart(HttpServletRequest request, @PathVariable Long itemId){
 		RestMsg<String> rm=new RestMsg<>();
 		try{
-			
-			Long i = itemId;
-			Long l = i ;
+			HttpSession session=request.getSession();
+			Object userId=session.getAttribute("userId");
+			ActionPO actionpo = new ActionPO();
+			actionpo.setItemId(itemId);
+			actionpo.setUserId((Long) userId);
+			actionService.saveAction(actionpo);
 			rm.setMsg("success");
 		} catch (Exception e) {
 			rm.setMsg("error");
