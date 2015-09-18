@@ -338,24 +338,6 @@ m-guess-you-like .s-item-list .s-item .s-pic .s-pic-link {
 						<div class="clearfix"> </div>
 					</div>
 					<div class="top-header-right">
-					<!--语言 价格单位  
-					<div class="down-top">		
-							  <select class="in-drop">
-								  <option value="English" class="in-of">English</option>
-								  <option value="Japanese" class="in-of">Japanese</option>
-								  <option value="French" class="in-of">French</option>
-								  <option value="German" class="in-of">German</option>
-								<lect>
-						 </div>
-						<div class="down-top top-down">
-							  <select class="in-drop">
-							  
-							  <option value="Dollar" class="in-of">Dollar</option>
-							  <option value="Yen" class="in-of">Yen</option>
-							  <option value="Euro" class="in-of">Euro</option>
-								<lect>
-						 </div>
-						 //语言 价格单位   -->
 						<div class="down-top">		
 							<label class="in-of currentUser" ></label>
 							<input type="hidden" id="loginName" />
@@ -372,16 +354,8 @@ m-guess-you-like .s-item-list .s-item .s-pic .s-pic-link {
 						<div class="logo">
 							<a href="index.html"><img src="images/logo.png" alt=" " /></a>
 						</div>
-						<div class="search">
-							<input id="med-search" type="text" placeholder="药名、症状、药品生产商" >
-							<input id="search-btn" type="button" style="width: 89px;height: 35px;" onclick="medRsearch()"  value="搜索">
-						</div>
 						<div class="clearfix"> </div>
 					</div>
-					<!-- 购物车 -->
-					<!-- <div class="header-bottom-right cart" style="margin-left:200px">
-						<a href="#"><span> </span>CART</a>
-					</div> -->
 					<!-- //购物车 -->
 					<div class="clearfix"> </div>	
 				</div>
@@ -441,6 +415,7 @@ m-guess-you-like .s-item-list .s-item .s-pic .s-pic-link {
 				});
 				$(document).ready(function() {
 					getUser();
+					displayCurrentUser();
 				});
 				function getQueryString(name) {
 					var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
@@ -492,6 +467,35 @@ m-guess-you-like .s-item-list .s-item .s-pic .s-pic-link {
 					else{
 						alert("没有更多相似药品了");
 					}
+				
+				//获取登录用户信息
+				function displayCurrentUser(){
+					$.post("api/common/user/isLogin",
+							{},
+							function (data) {
+								//用户已经登录
+								if("no" != data.msg) {
+									var array = data.msg.split("!");
+									var userName = array[0]
+									var loginName = array[1];
+									
+									$(".currentUser").html("欢迎您 : " + userName + "&nbsp;&nbsp;&nbsp;<a href='javascript:;' class='glyphicon glyphicon-log-out' title='退出'></a>");
+									$("#loginName").val(loginName);
+									//绑定登出按钮单击事件(用户登出操作)
+									$(".glyphicon.glyphicon-log-out").bind("click", function() {
+										
+										$.post(
+											"api/common/user/logout",
+											{},
+											function(data) {
+												window.location.href = "index.html";
+											}
+										);
+									});
+								}else {
+									$(".currentUser").html('<a href="login.html">登录</a> 后, 我们将为您提供个性化推荐');
+								}
+							});
 				}
 			</script>
 		<!---->
