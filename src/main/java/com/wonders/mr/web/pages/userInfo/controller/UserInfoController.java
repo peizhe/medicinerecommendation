@@ -38,36 +38,54 @@ public class UserInfoController {
 		RestMsg<String> rm=new RestMsg<>();
 		String htmlStr="";
 		try {
+			
 			String userId=request.getParameter("userId");
-			List<ItemPO> items=actionService.findByUserId(Long.parseLong(userId));
-			if(items!=null&&items.size()>0){
-				int limit=items.size();
-				StringBuilder str=new StringBuilder();
-				for(int i=0;i<limit;i++){
-					ItemPO item=items.get(i);
-					String link="single2.html?itemId="+item.getItemId();				
-					str.append("<div class=\"  product-grid\">");
-					str.append("<div class=\"content_box\">");
-					str.append("<a href=\""+link+"\">");
-					str.append("</a><div class=\"left-grid-view grid-view-left\"><a href=\""+link+"\">");
-					str.append("<img src=\""+item.getImgUrl()+"\" class=\"img-responsive watch-right\" alt=\"\">");
-					str.append("<div class=\"mask\">");
-					str.append("<div class=\"info\">Quick View</div>");
-					str.append("</div>");
-					str.append("</a>");
-					str.append("</div>");
-					str.append("<h4>");
-					str.append("<a href=\""+link+"\"> "+item.getItemName()+"</a>");
-					str.append("</h4>");
-					str.append("<p>"+item.getCategory()+"</p>");
-					str.append("<div style=\"margin-left: 30px;float: left;padding-left:196px;\"><a class=\"now-get get-cart\" href=\""+link+"\">加入购物车</a></div>");
-					str.append("</div>");
-					str.append("</div>");					
-				}	
-				htmlStr=str.toString();
-				rm.setMsg("success");
-				rm.setResult(htmlStr);
+			String page=request.getParameter("batch");
+			if(userId!=null&&page!=null){
+				
+				int batch=Integer.parseInt(page);
+				List<ItemPO> items=actionService.findByUserId(Long.parseLong(userId));
+				
+				if(items!=null&&items.size()>0){
+					
+					int count=10;
+					int total=items.size();
+					int totalPage=total%count==0?total/count:(total/count+1);
+					int start=count*(batch-1);
+					int end=count*batch<total?count*batch:total;
+					StringBuilder str=new StringBuilder();
+					for(int i=start;i<end;i++){
+						ItemPO item=items.get(i);
+						String link="single2.html?itemId="+item.getItemId();				
+						str.append("<div class=\"s-item-wrap\">");	
+						str.append("<div class=\"s-item\">");	
+						str.append("<div class=\"s-top-hover\">");	
+						str.append("<a target=\"_blank\" data-spm=\"d4920134\" href=\"\" class=\"i-goto-similar\">找相似</a>");	
+						str.append("</div>");	
+						str.append("<div class=\"s-pic\">");	
+						str.append("<a href=\""+link+"\" target=\"_blank\" class=\"s-pic-link\" data-spm=\"d4919530\"> ");	
+						str.append("<img src=\""+item.getImgUrl()+"\" alt=\""+item.getsymptomDesc()+"\" title=\""+item.getItemName()+"\" class=\"s-pic-img s-guess-item-img\">");	
+						str.append("</a>");	
+						str.append("</div>");	
+						str.append("<div class=\"s-price-box\">");	
+						str.append("<span class=\"s-price\"><em class=\"s-price-sign\">¥</em><em class=\"s-value\">"+item.getPrice()+"</em></span> <span class=\"s-history-price\"><em class=\"s-price-sign\">¥</em><em class=\"s-value\">119.00</em></span>");	
+						str.append("</div>");	
+						str.append("<div class=\"s-title\">");	
+						str.append("<a href=\"\" title=\""+item.getItemName()+"\" target=\"_blank\" data-spm=\"d4919530\">"+item.getItemName()+"</a>");	
+						str.append("</div>");	
+						str.append("<div class=\"s-extra-box\">");	
+						str.append("<span class=\"s-comment\"></span> <span class=\"s-sales mouseOvers\"><button style=\"color: black;font-weight: bold;\" onclick=\"addToShoppingCart("+item.getItemId()+")\">加入购物车</button></span>");	
+						str.append("</div>");	
+						str.append("</div>");	
+						str.append("</div>");		
+					}	
+					htmlStr=str.toString();
+					rm.setMsg("success");
+					rm.setResult(htmlStr);
+					rm.setCode(totalPage);
+				}
 			}
+			
 		} catch (Exception e) {
 			rm.setMsg("error");
 			e.printStackTrace();
@@ -92,7 +110,6 @@ public class UserInfoController {
 				String ImgUrl="images/user.jpg";
 				StringBuilder str=new StringBuilder();
 				String sex=user.getOccupation()=="F"?"女":"男";
-				str.append("<div style=\" background-color:#F97E76;padding:3px;color: white;padding-left: 48px; margin-top:10px;\"><h3>用户个人详情</h3></div>");
 				str.append("<div>");
 				str.append("<div style=\"float: left; width: 300px\"><img alt=\"\" src=\""+ImgUrl+"\" style=\"min-width: 300px;\"></div>");
 				str.append("<div style=\"float: left; margin-left: 100px; padding-top: 45px; width: 500px;\">");				
@@ -100,11 +117,6 @@ public class UserInfoController {
 				str.append("<div class=\"itemInfo\"><lable class=\"intag\">年龄：</lable>"+user.getAge()+"</div>");
 				str.append("<div class=\"itemInfo\"><lable class=\"intag\">性别：</lable>"+sex+"</div>");
 				str.append("<div class=\"itemInfo\"><lable class=\"intag\">职业：</lable>"+user.getOccupation()+"</div>");
-				str.append("</div>");
-				str.append("</div>");
-				str.append("<div class=\"women-product\">");
-				str.append("<div class=\"products\">");
-				str.append("<h5 class=\"latest-product\">该用户还用过以下药物</h5>");
 				str.append("</div>");
 				str.append("</div>");
 				str.append("<div class=\"clearfix\"></div>");

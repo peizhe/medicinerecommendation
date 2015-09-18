@@ -357,6 +357,7 @@ public class IndexTagController {
 		RestMsg<String> rm=new RestMsg<>();
 		List<UserPO> simUsers=new ArrayList<>();
 		try {
+			
 			HttpSession session=request.getSession();
 			Object userId=session.getAttribute("userId");
 			String page=request.getParameter("page");		

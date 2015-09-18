@@ -40,37 +40,281 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 <script src="static/js/jquery-v1.11.3.js"></script>
 <script src="static/bootstrap3.3.5/js/bootstrap.min.js"></script>
-<style>
+<style type="text/css">
+.mouseOvers:hover{
+color:red
+}
 .women-product {
 	width: 100%;
 }
 
+.content_box {
+	width: 300px
+}
 /* .container {
 	background-color: white;
 } */
-p { word-wrap:break-word; word-break:normal; } 
-.mask{
+p {
+	word-wrap: break-word;
+	word-break: normal;
+}
+
+.mask {
 	padding-left: 62px;
 }
-.product-grid p{
-        padding-left: 114px;
+
+.product-grid p {
+	padding-left: 114px;
 }
-.product-grid h4{
-padding-left: 130px;
+
+.product-grid h4 {
+	padding-left: 130px;
 }
-.product{
-background-color: rgba(249, 60, 60, 0.14);
+
+.product {
+	background-color: rgba(249, 60, 60, 0.14);
 }
-.itemInfo{
-font-family: Georgia;
-        margin-top: 10px;
+
+.itemInfo {
+	font-family: Georgia;
+	margin-top: 10px;
 }
-.intag{
- font-weight:bold
+
+.intag {
+	font-weight: bold
 }
-  .product-grid{
-  
-  }
+
+.product-grid {
+	
+}
+
+.m-guess-you-like {
+	font-size: 14px;
+	color: #4b4b4b;
+	padding: 0 80px 20px 80px;
+}
+.m-guess-you-like {
+        font-size: 14px;
+        color: #4b4b4b;
+}
+
+.m-guess-you-like .s-bar {
+        font-family: tahoma,arial,'Hiragino Sans GB','Microsoft YaHei',\5b8b\4f53,sans-serif;
+        color: #fff;
+        background: #F97E76;
+        border: #a0cdeb;
+        border-top: #e4eaee;
+        font-size: 18px;
+        line-height: 18px;
+        padding: 11px 10px;
+        position: relative;
+        border-top-left-radius:4px;
+        border-top-left-radius:4px;
+}
+.m-guess-you-like .s-content {
+        border: 1px solid #e4eaee;
+        border-top: 0;
+        background-color: #f5f8fa;
+        padding: 26px 0 0;
+}
+.m-guess-you-like .i-load-more-item-shadow {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        padding: 3px 12px;
+        margin-top: -3px;
+        height: 20px;
+        background: #fff;
+        font-size: 14px;
+        line-height: 20px;
+        color: #4b4b4b;
+        -webkit-transition: all .2s linear;
+        -moz-transition: all .2s linear;
+        -ms-transition: all .2s linear;
+        -o-transition: all .2s linear;
+        transition: all .2s linear;
+}
+.m-guess-you-like .i-load-more-item-shadow i {
+        font-family: mytaobao2014;
+        margin-right: 7px;
+        font-size: 13px;
+        position: relative;
+        top: -1px;
+}
+.m-guess-you-like .s-content {
+        border: 1px solid #e4eaee;
+        border-top: 0;
+        background-color: #f5f8fa;
+        padding: 26px 0 0;
+}
+.m-guess-you-like .s-content .s-inner-content {
+        margin: 0 8px;
+}
+.m-guess-you-like {
+        font-size: 14px;
+        color: #4b4b4b;
+}
+.m-guess-you-like .s-item-list .s-item {
+        position: relative;
+        margin: 0 8px 20px;
+        width: 218px;
+        height: 313px;
+        float: left;
+        background: #fff;
+        border: 1px solid #e4eaee;
+        color: #595959;
+}
+.m-guess-you-like .s-item-list .s-item .s-top-hover {
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 3;
+        font-size: 12px;
+}
+.m-guess-you-like .s-item-list .s-item .s-top-hover a {
+        display: block;
+        color: #fff;
+        background: #000;
+        padding: 4px 7px;
+        opacity: .65;
+}
+.m-guess-you-like .s-item-list .s-item .s-pic {
+        width: 218px;
+        height: 218px;
+        overflow: hidden;
+        position: relative;
+}
+m-guess-you-like .s-item-list .s-item .s-pic .s-pic-link {
+        vertical-align: middle;
+        display: table-cell;
+        width: 218px;
+        height: 218px;
+        overflow: hidden;
+        text-align: center;
+}
+.m-guess-you-like .s-item-list .s-item .s-price-box {
+        height: 16px;
+        overflow: hidden;
+        margin: 13px 12px 12px 16px;
+        line-height: 16px;
+}
+.m-guess-you-like .s-item-list .s-item .s-price {
+        font-size: 16px;
+        vertical-align: bottom;
+        float: left;
+        color: #f40;
+}
+.m-guess-you-like .s-item-list .s-item .s-price .s-price-sign {
+        font-family: Arial;
+        margin-right: 4px;
+}
+.m-guess-you-like .s-item-list .s-item .s-price .s-value {
+        font-family: Verdana;
+        font-weight: 700;
+}
+.m-guess-you-like .s-item-list .s-item .s-history-price {
+        font-size: 14px;
+        margin-left: 10px;
+        vertical-align: bottom;
+        float: left;
+        color: #999;
+}
+.m-guess-you-like .s-item-list .s-item .s-history-price .s-value {
+        font-family: Verdana;
+        text-decoration: line-through;
+        font-weight: 400;
+}
+.m-guess-you-like .s-item-list .s-item .s-title {
+        font-size: 12px;
+        overflow: hidden;
+        margin: 0 12px 0 16px;
+        height: 14px;
+        line-height: 1;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+}
+.m-guess-you-like .s-item-list .s-item .s-extra-box {
+        font-size: 12px;
+        margin: 0 16px;
+        height: 16px;
+        line-height: 16px;
+        margin-top: 12px;
+        color: #9c9c9c;
+}
+.m-guess-you-like .s-item-list .s-item .s-comment {
+        float: left;
+}
+.m-guess-you-like .s-item-list .s-item .s-sales {
+        float: right;
+}
+.m-guess-you-like .s-more-btn {
+        color: #595959;
+        border: 1px solid #e4eaee;
+        margin: 10px 7px 38px;
+        text-align: center;
+        cursor: pointer;
+        font-size: 12px;
+        height: 28px;
+        line-height: 28px;
+        background-color: #fff;
+}
+.m-guess-you-like .s-more-btn i {
+        margin-right: 6px;
+        position: relative;
+        top: -1px;
+        font-family: mytaobao2014;
+}
+.m-someone-like-you {
+        margin-bottom: 23px;
+        font-size: 14px;
+        color: #4b4b4b;
+}
+.m-someone-like-you .s-bar {
+        font-family: tahoma,arial,'Hiragino Sans GB','Microsoft YaHei',\5b8b\4f53,sans-serif;
+        color: #fff;
+        background-color: #ff625a;
+        border: #a0cdeb;
+        border-top: #e4eaee;
+        font-size: 18px;
+        line-height: 18px;
+        padding: 11px 10px;
+}
+.m-someone-like-you .s-content {
+        border: 1px solid #e4eaee;
+        border-top: 0;
+        background-color: #f5f8fa;
+        padding: 26px 0 0;
+}
+.m-someone-like-you .s-content .s-inner-content {
+        margin: 0 8px;
+}
+.m-someone-like-you .s-item-list .s-item {
+        position: relative;
+        margin: 0 8px 20px;
+        width: 218px;
+        height: 363px;
+        float: left;
+        background: #fff;
+        border: 1px solid #e4eaee;
+        color: #595959;
+}
+.m-guess-you-like .i-load-more-item-shadow {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        padding: 3px 12px;
+        margin-top: -3px;
+        height: 20px;
+        background: #fff;
+        font-size: 14px;
+        line-height: 20px;
+        color: #4b4b4b;
+        -webkit-transition: all .2s linear;
+        -moz-transition: all .2s linear;
+        -ms-transition: all .2s linear;
+        -o-transition: all .2s linear;
+        transition: all .2s linear;
+}
 </style>
 <!-- bootstrap 引入end -->
 
@@ -146,11 +390,36 @@ font-family: Georgia;
 	<!---->
 	<!-- start content -->
 	
-	<div class="container" id="item_info"></div>
-		
-		<div class="grid-product" style="margin: 5% 0" id="rec_item_cf_sim">
-			<div class="clearfix"></div>
+	
+	<div class="m-guess-you-like" data-spm="1998049143">
+		<div class="s-bar" style=" background:#F97E76; padding:20px; margin-top:15px;">
+			个人主页
 		</div>
+		<div class="s-content" style="padding: 26px 10px; border: 1px solid #a0cdeb;">
+			<div class="s-inner-content">
+				<div class="s-item-list clearfix" id="user_info">
+					<!-- 放药品图主要信息-->
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="m-guess-you-like" data-spm="1998049143">
+		<div class="s-bar">
+			该用户购买过以下药品<button style="float: right;color:black;" onclick="showNext()">换一组</button>
+		</div>
+		<div class="s-content">
+			<div class="s-inner-content">
+				<div class="s-item-list clearfix" id="user_item_action">
+					<!-- 放药品图片 -->
+				</div>
+				<div class="s-more-btn i-load-more-item" data-screen="1" onclick="showNext()">
+					<i></i>换一组
+				</div>
+			</div>
+		</div>
+	</div>
+		
 			<!--initiate accordion-->
 			<script type="text/javascript">
 				$(function() {
@@ -180,6 +449,7 @@ font-family: Georgia;
 						return unescape(r[2]);
 					return null;
 				}
+				//获取该用户的详细信息
 				function getUser() {
 					var userId = getQueryString("userId");
 					$.ajax({
@@ -189,22 +459,39 @@ font-family: Georgia;
 						dataType : "json",
 						success : function(data) {
 							var htmlstr = data.result;
-							$("#item_info").prepend(htmlstr);
+							$("#user_info").prepend(htmlstr);
 							getAllItemsByUserId(userId);
 						}
 					});
 				}
+				
+				///获取该用户用过的药品
+				var batch=1;
+				var totalPage=1;
 				function getAllItemsByUserId(userId){					
 					$.ajax({
 						url : "pages/userInfo/controller/getAllItemsByUserId",
 						type : "POST",
-						data : {'userId' : userId},
+						data : {'userId' : userId,'batch':batch},
 						dataType : "json",
 						success : function(data) {
 							var htmlstr = data.result;
-							$("#rec_item_cf_sim").prepend(htmlstr);
+							$("#user_item_action").html(htmlstr);
+							totalPage=data.code;
 						}
 					});
+				}
+				///显示下下一批功能相似药品
+				function showNext(){
+					
+					if(batch<totalPage){
+						batch=batch+1;
+						var itemId = getQueryString("userId");
+						getAllItemsByUserId(itemId);
+					}
+					else{
+						alert("没有更多相似药品了");
+					}
 				}
 			</script>
 		<!---->

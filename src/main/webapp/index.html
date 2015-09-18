@@ -461,13 +461,13 @@ li {
 								}
 							});
 				}
-				
+				///获取页面Url参数
 				function getQueryString(name) { 
 					var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i"); 
 					var r = window.location.search.substr(1).match(reg); 
 					if (r != null) return unescape(r[2]); return null; 
 				}
-				
+				///和你用药相似的用户还用过了哪些药
 				function getRecTableUcf(){
 					$.ajax({
 						url:"pages/index/controller/getRecTableUcf",
@@ -479,6 +479,7 @@ li {
 						}
 					});
 				}
+				///根据你的历史用药，你还可能选用哪些药
 				function getRecTableIcf(){
 					$.ajax({
 						url:"pages/index/controller/getRecTableIcf",
@@ -490,9 +491,10 @@ li {
 						}
 					});
 				}
-				
+			///初始病友显示页和总的页数	
 			var displayPages=1;
 			var totalPage=1;
+			///点击病友上一页显示
 			function prePage(){
 				if(displayPages>1){
 					displayPages=displayPages-1;
@@ -502,6 +504,7 @@ li {
 					alert("已经是第一页了");
 				}
 			}
+			///点击病友下一页显示
 			function nextPage(){
 				
 				if(displayPages<totalPage){
@@ -513,6 +516,8 @@ li {
 					alert("没有更多病友了");
 				}
 			}
+			
+			///显示病友
 			function getRecUserSim() {
 				$.ajax({
 					url : "pages/index/controller/getRecUserSim",
