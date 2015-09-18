@@ -18,7 +18,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1">
 <script type="application/x-javascript">
+	
+	
+	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
+
+
 </script>
 <!--fonts-->
 <link
@@ -34,253 +40,268 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 <script src="static/js/jquery-v1.11.3.js"></script>
 <script src="static/bootstrap3.3.5/js/bootstrap.min.js"></script>
+<style>
+.women-product {
+	width: 100%;
+}
+
+/* .container {
+	background-color: white;
+} */
+p { word-wrap:break-word; word-break:normal; } 
+.mask{
+	padding-left: 62px;
+}
+.product-grid p{
+        padding-left: 114px;
+}
+.product-grid h4{
+padding-left: 130px;
+}
+.product{
+background-color: rgba(249, 60, 60, 0.14);
+}
+.itemInfo{
+font-family: Georgia;
+        margin-top: 10px;
+}
+.intag{
+ font-weight:bold
+}
+  .product-grid{
+  
+  }
+</style>
 <!-- bootstrap 引入end -->
 
 <!--script-->
 </head>
 <body>
 	<!--header-->
-	<div class="header">
-		<div class="top-header">
-			<div class="container">
-				<div class="top-header-left">
-					<ul class="support">
-						<li><a href="#"><label> </label></a></li>
-						<li><a href="#">24x7 live<span class="live">
-									support</span></a></li>
-					</ul>
-					<ul class="support">
-						<li class="van"><a href="#"><label> </label></a></li>
-						<li><a href="#">Free shipping <span class="live">on
-									order over 500</span></a></li>
-					</ul>
-					<div class="clearfix"></div>
-				</div>
-				<div class="top-header-right">
-					<div class="down-top">
-						<select class="in-drop">
-							<option value="English" class="in-of">English</option>
-							<option value="Japanese" class="in-of">Japanese</option>
-							<option value="French" class="in-of">French</option>
-							<option value="German" class="in-of">German</option>
-						</select>
-					</div>
-					<div class="down-top top-down">
-						<select class="in-drop">
 
-							<option value="Dollar" class="in-of">Dollar</option>
-							<option value="Yen" class="in-of">Yen</option>
-							<option value="Euro" class="in-of">Euro</option>
-						</select>
+<div class="header">
+			<div class="top-header">
+				<div class="container">
+					<div class="top-header-left">
+						<ul class="support">
+							<li><a href="#"><label> </label></a>
+							<li><a href="#">24小时<span class="live">热线支持</span></a>
+						</ul>
+						<ul class="support">
+							<li class="van"><a href="#"><label> </label></a>
+							<li><a href="#">单笔交易满200元<span class="live">2公里免费送货</span></a>
+						</ul>
+						<div class="clearfix"> </div>
 					</div>
-					<div class="clearfix"></div>
+					<div class="top-header-right">
+					<!--语言 价格单位  
+					<div class="down-top">		
+							  <select class="in-drop">
+								  <option value="English" class="in-of">English</option>
+								  <option value="Japanese" class="in-of">Japanese</option>
+								  <option value="French" class="in-of">French</option>
+								  <option value="German" class="in-of">German</option>
+								<lect>
+						 </div>
+						<div class="down-top top-down">
+							  <select class="in-drop">
+							  
+							  <option value="Dollar" class="in-of">Dollar</option>
+							  <option value="Yen" class="in-of">Yen</option>
+							  <option value="Euro" class="in-of">Euro</option>
+								<lect>
+						 </div>
+						 //语言 价格单位   -->
+						<div class="down-top">		
+							<label class="in-of currentUser" ></label>
+							<input type="hidden" id="loginName" />
+					 	</div>
+						 <!---->
+						<div class="clearfix"> </div>	
+					</div>
+					<div class="clearfix"> </div>		
 				</div>
-				<div class="clearfix"></div>
+			</div>
+			<div class="bottom-header">
+				<div class="container">
+					<div class="header-bottom-left">
+						<div class="logo">
+							<a href="index.html"><img src="images/logo.png" alt=" " /></a>
+						</div>
+						<div class="search">
+							<input id="med-search" type="text" placeholder="药名、症状、药品生产商" >
+							<input id="search-btn" type="button" style="width: 89px;height: 35px;" onclick="medRsearch()"  value="搜索">
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<!-- 购物车 -->
+					<!-- <div class="header-bottom-right cart" style="margin-left:200px">
+						<a href="#"><span> </span>CART</a>
+					</div> -->
+					<!-- //购物车 -->
+					<div class="clearfix"> </div>	
+				</div>
 			</div>
 		</div>
-		<div class="bottom-header">
-			<div class="container">
-				<div class="header-bottom-left">
-					<div class="logo">
-						<a href="index.html"><img src="images/logo.png" alt=" " /></a>
-					</div>
-					<div class="search">
-						<input type="text" value="" onfocus="this.value = '';"
-							onblur="if (this.value == '') {this.value = '';}"> <input
-							type="submit" value="搜索">
-
-					</div>
-					<div class="clearfix"></div>
-				</div>
-				<div class="header-bottom-right">
-					<div class="account">
-						<a href="login.html"><span> </span>用户登录</a>
-					</div>
-					<div class="clearfix"></div>
-				</div>
-				<div class="clearfix"></div>
-			</div>
-		</div>
-	</div>
 	<!---->
 	<!-- start content -->
-	<div class="container">
+	
+	<div class="container" id="item_info"></div>
+		
+		<div class="grid-product" style="margin: 5% 0" id="rec_item_cf_sim">
+			<div class="clearfix"></div>
+		</div>
+			<!--initiate accordion-->
+			<script type="text/javascript">
+				$(function() {
+					var menu_ul = $('.menu > li > ul'), menu_a = $('.menu > li > a');
+					menu_ul.hide();
+					menu_a.click(function(e) {
+						e.preventDefault();
+						if (!$(this).hasClass('active')) {
+							menu_a.removeClass('active');
+							menu_ul.filter(':visible').slideUp('normal');
+							$(this).addClass('active').next().stop(true, true)
+									.slideDown('normal');
+						} else {
+							$(this).removeClass('active');
+							$(this).next().stop(true, true).slideUp('normal');
+						}
+					});
 
-		<div class="women-product">
-			<div class=" w_content">
-				<div class="women">
-					<a href="#"><h4>
-							Enthecwear - <span>4449 itemms</span>
-						</h4></a>
-					<ul class="w_nav">
-						<li>Sort :</li>
-						<li><a class="active" href="#">popular</a></li> |
-						<li><a href="#">new </a></li> |
-						<li><a href="#">discount</a></li> |
-						<li><a href="#">price: Low High </a></li>
+				});
+				$(document).ready(function() {
+					getUser();
+				});
+				function getQueryString(name) {
+					var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+					var r = window.location.search.substr(1).match(reg);
+					if (r != null)
+						return unescape(r[2]);
+					return null;
+				}
+				function getUser() {
+					var userId = getQueryString("userId");
+					$.ajax({
+						url : "pages/userInfo/controller/getUser",
+						type : "POST",
+						data : {'userId' : userId},
+						dataType : "json",
+						success : function(data) {
+							var htmlstr = data.result;
+							$("#item_info").prepend(htmlstr);
+							getAllItemsByUserId(userId);
+						}
+					});
+				}
+				function getAllItemsByUserId(userId){					
+					$.ajax({
+						url : "pages/userInfo/controller/getAllItemsByUserId",
+						type : "POST",
+						data : {'userId' : userId},
+						dataType : "json",
+						success : function(data) {
+							var htmlstr = data.result;
+							$("#rec_item_cf_sim").prepend(htmlstr);
+						}
+					});
+				}
+			</script>
+		<!---->
+		<div class="footer">
+			<div class="footer-top">
+				<div class="container">
+					<div class="latter">
+						<h6>NEWS-LETTER</h6>
+						<div class="sub-left-right">
+							<form>
+								<input type="text" value="Enter email here"
+									onfocus="this.value = '';"
+									onblur="if (this.value == '') {this.value = 'Enter email here';}" />
+								<input type="submit" value="SUBSCRIBE" />
+							</form>
+						</div>
 						<div class="clearfix"></div>
-					</ul>
-					<div class="clearfix"></div>
+					</div>
+					<div class="latter-right">
+						<p>FOLLOW US</p>
+						<ul class="face-in-to">
+							<li><a href="#"><span> </span></a></li>
+							<li><a href="#"><span class="facebook-in"> </span></a></li>
+							<div class="clearfix"></div>
+						</ul>
+						<div class="clearfix"></div>
+					</div>
+
 				</div>
 			</div>
-			<!-- grids_of_4 -->
-			<div class="grid-product" id="rec_item_cf_sim">
-				<div class="clearfix"></div>
-			</div>
-
-			<div class="sub-cate">
-		<div class=" top-nav rsidebar span_1_of_left chain-grid menu-chain">
-			<h3 class="cate">用户详情</h3>
-	
-		   		     		<a href="single.html"><img class="img-responsive chain" src="images/user.jpg" alt=" "></a>	   		     		
-		   		     		<div class="grid-chain-bottom chain-watch">
-			   		     		<span class="">用户：</span>
-			   		     		<span class="">admin</span>  
-			   		     		  		     			   		     										
-		   		     		</div>
-		   		     	
-		</div>
-		<!--initiate accordion-->
-		<script type="text/javascript">
-			$(function() {
-				var menu_ul = $('.menu > li > ul'), menu_a = $('.menu > li > a');
-				menu_ul.hide();
-				menu_a.click(function(e) {
-					e.preventDefault();
-					if (!$(this).hasClass('active')) {
-						menu_a.removeClass('active');
-						menu_ul.filter(':visible').slideUp('normal');
-						$(this).addClass('active').next().stop(true, true)
-								.slideDown('normal');
-					} else {
-						$(this).removeClass('active');
-						$(this).next().stop(true, true).slideUp('normal');
-					}
-				});
-
-			});
-			$(document).ready(function(){
-				getRecItemCfSim();
-			});
-			function getQueryString(name) {
-				var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
-				var r = window.location.search.substr(1).match(reg);
-				if (r != null)
-					return unescape(r[2]);
-				return null;
-			}
-			function getRecItemCfSim(){
-				var userId=getQueryString("userId");
-				$.ajax({
-					url:"pages/userInfo/controller/getRecItemCfSim",
-					type:"POST",
-					data:{'userId':userId},
-					dataType:"json",
-					success:function(){
-						
-					}
-				});
-			}
-		</script>
-		
-	</div>
-	<div class="clearfix"></div>
-	</div>
-	<!---->
-	<div class="footer">
-		<div class="footer-top">
-			<div class="container">
-				<div class="latter">
-					<h6>NEWS-LETTER</h6>
-					<div class="sub-left-right">
-						<form>
-							<input type="text" value="Enter email here"
-								onfocus="this.value = '';"
-								onblur="if (this.value == '') {this.value = 'Enter email here';}" />
-							<input type="submit" value="SUBSCRIBE" />
-						</form>
+			<div class="footer-bottom">
+				<div class="container">
+					<div class="footer-bottom-cate">
+						<h6>CATEGORIES</h6>
+						<ul>
+							<li><a href="#">Curabitur sapien</a></li>
+							<li><a href="#">Dignissim purus</a></li>
+							<li><a href="#">Tempus pretium</a></li>
+							<li><a href="#">Dignissim neque</a></li>
+							<li><a href="#">Ornared id aliquet</a></li>
+							<li><a href="#">Ultrices id du</a></li>
+							<li><a href="#">Commodo sit</a></li>
+							<li><a href="#">Urna ac tortor sc</a></li>
+							<li><a href="#">Ornared id aliquet</a></li>
+							<li><a href="#">Urna ac tortor sc</a></li>
+							<li><a href="#">Eget nisi laoreet</a></li>
+							<li><a href="#">Faciisis ornare</a></li>
+						</ul>
+					</div>
+					<div class="footer-bottom-cate bottom-grid-cat">
+						<h6>FEATURE PROJECTS</h6>
+						<ul>
+							<li><a href="#">Curabitur sapien</a></li>
+							<li><a href="#">Dignissim purus</a></li>
+							<li><a href="#">Tempus pretium</a></li>
+							<li><a href="#">Dignissim neque</a></li>
+							<li><a href="#">Ornared id aliquet</a></li>
+							<li><a href="#">Ultrices id du</a></li>
+							<li><a href="#">Commodo sit</a></li>
+						</ul>
+					</div>
+					<div class="footer-bottom-cate">
+						<h6>TOP BRANDS</h6>
+						<ul>
+							<li><a href="#">Curabitur sapien</a></li>
+							<li><a href="#">Dignissim purus</a></li>
+							<li><a href="#">Tempus pretium</a></li>
+							<li><a href="#">Dignissim neque</a></li>
+							<li><a href="#">Ornared id aliquet</a></li>
+							<li><a href="#">Ultrices id du</a></li>
+							<li><a href="#">Commodo sit</a></li>
+							<li><a href="#">Urna ac tortor sc</a></li>
+							<li><a href="#">Ornared id aliquet</a></li>
+							<li><a href="#">Urna ac tortor sc</a></li>
+							<li><a href="#">Eget nisi laoreet</a></li>
+							<li><a href="#">Faciisis ornare</a></li>
+						</ul>
+					</div>
+					<div class="footer-bottom-cate cate-bottom">
+						<h6>OUR ADDERSS</h6>
+						<ul>
+							<li>Aliquam metus dui.</li>
+							<li>orci, ornareidquet</li>
+							<li>ut,DUI.</li>
+							<li>nisi, dignissim</li>
+							<li>gravida at.</li>
+							<li class="phone">PH : 6985792466</li>
+							<li class="temp">
+								<p class="footer-class">
+									Design by <a href="http://w3layouts.com/" target="_blank">W3layouts</a>
+								</p>
+							</li>
+						</ul>
 					</div>
 					<div class="clearfix"></div>
 				</div>
-				<div class="latter-right">
-					<p>FOLLOW US</p>
-					<ul class="face-in-to">
-						<li><a href="#"><span> </span></a></li>
-						<li><a href="#"><span class="facebook-in"> </span></a></li>
-						<div class="clearfix"></div>
-					</ul>
-					<div class="clearfix"></div>
-				</div>
-				<div class="clearfix"></div>
 			</div>
 		</div>
-		<div class="footer-bottom">
-			<div class="container">
-				<div class="footer-bottom-cate">
-					<h6>CATEGORIES</h6>
-					<ul>
-						<li><a href="#">Curabitur sapien</a></li>
-						<li><a href="#">Dignissim purus</a></li>
-						<li><a href="#">Tempus pretium</a></li>
-						<li><a href="#">Dignissim neque</a></li>
-						<li><a href="#">Ornared id aliquet</a></li>
-						<li><a href="#">Ultrices id du</a></li>
-						<li><a href="#">Commodo sit</a></li>
-						<li><a href="#">Urna ac tortor sc</a></li>
-						<li><a href="#">Ornared id aliquet</a></li>
-						<li><a href="#">Urna ac tortor sc</a></li>
-						<li><a href="#">Eget nisi laoreet</a></li>
-						<li><a href="#">Faciisis ornare</a></li>
-					</ul>
-				</div>
-				<div class="footer-bottom-cate bottom-grid-cat">
-					<h6>FEATURE PROJECTS</h6>
-					<ul>
-						<li><a href="#">Curabitur sapien</a></li>
-						<li><a href="#">Dignissim purus</a></li>
-						<li><a href="#">Tempus pretium</a></li>
-						<li><a href="#">Dignissim neque</a></li>
-						<li><a href="#">Ornared id aliquet</a></li>
-						<li><a href="#">Ultrices id du</a></li>
-						<li><a href="#">Commodo sit</a></li>
-					</ul>
-				</div>
-				<div class="footer-bottom-cate">
-					<h6>TOP BRANDS</h6>
-					<ul>
-						<li><a href="#">Curabitur sapien</a></li>
-						<li><a href="#">Dignissim purus</a></li>
-						<li><a href="#">Tempus pretium</a></li>
-						<li><a href="#">Dignissim neque</a></li>
-						<li><a href="#">Ornared id aliquet</a></li>
-						<li><a href="#">Ultrices id du</a></li>
-						<li><a href="#">Commodo sit</a></li>
-						<li><a href="#">Urna ac tortor sc</a></li>
-						<li><a href="#">Ornared id aliquet</a></li>
-						<li><a href="#">Urna ac tortor sc</a></li>
-						<li><a href="#">Eget nisi laoreet</a></li>
-						<li><a href="#">Faciisis ornare</a></li>
-					</ul>
-				</div>
-				<div class="footer-bottom-cate cate-bottom">
-					<h6>OUR ADDERSS</h6>
-					<ul>
-						<li>Aliquam metus dui.</li>
-						<li>orci, ornareidquet</li>
-						<li>ut,DUI.</li>
-						<li>nisi, dignissim</li>
-						<li>gravida at.</li>
-						<li class="phone">PH : 6985792466</li>
-						<li class="temp">
-							<p class="footer-class">
-								Design by <a href="http://w3layouts.com/" target="_blank">W3layouts</a>
-							</p>
-						</li>
-					</ul>
-				</div>
-				<div class="clearfix"></div>
-			</div>
-		</div>
-	</div>
 </body>
 </html>
