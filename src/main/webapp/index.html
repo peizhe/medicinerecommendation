@@ -224,72 +224,60 @@ li {
 </head>
 <body>
 	<!--header-->
-	<div class="header">
-		<div class="top-header">
-			<div class="container">
-				<div class="top-header-left">
-					<ul class="support">
-						<li><a href="#"><label> </label></a>
-						<li><a href="#">24小时<span class="live">热线支持</span></a>
-					</ul>
-					<ul class="support">
-						<li class="van"><a href="#"><label> </label></a>
-						<li><a href="#">单笔交易满200元<span class="live">2公里免费送货</span></a>
-					</ul>
-					<div class="clearfix"></div>
-				</div>
-				<div class="top-header-right">
-					<!--语言 价格单位  
-					<div class="down-top">		
-							  <select class="in-drop">
-								  <option value="English" class="in-of">English</option>
-								  <option value="Japanese" class="in-of">Japanese</option>
-								  <option value="French" class="in-of">French</option>
-								  <option value="German" class="in-of">German</option>
-								<lect>
-						 </div>
-						<div class="down-top top-down">
-							  <select class="in-drop">
-							  
-							  <option value="Dollar" class="in-of">Dollar</option>
-							  <option value="Yen" class="in-of">Yen</option>
-							  <option value="Euro" class="in-of">Euro</option>
-								<lect>
-						 </div>
-						 //语言 价格单位   -->
-					<div class="down-top">
-						<label class="in-of currentUser"></label> <input type="hidden"
-							id="loginName" />
+<div class="header">
+			<div class="top-header">
+				<div class="container">
+					<div class="top-header-left">
+						<ul class="support">
+							<li><a href="#"><label> </label></a>
+							<li><a href="#">24小时<span class="live">热线支持</span></a>
+						</ul>
+						<ul class="support">
+							<li class="van"><a href="#"><label> </label></a>
+							<li><a href="#">单笔交易满200元<span class="live">2公里免费送货</span></a>
+						</ul>
+						<div class="clearfix"> </div>
 					</div>
-					<!---->
-					<div class="clearfix"></div>
+					<div class="top-header-right">
+						<div class="down-top">		
+							<label class="in-of currentUser" ></label>
+							<input type="hidden" id="loginName" />
+					 	</div>
+						 <!---->
+						<div class="clearfix"> </div>	
+					</div>
+					<div class="clearfix"> </div>		
 				</div>
-				<div class="clearfix"></div>
 			</div>
-		</div>
-		<div class="bottom-header">
-			<div class="container">
-				<div class="header-bottom-left">
-					<div class="logo">
-						<a href="index.html"><img src="images/logo.png" alt=" " /></a>
+			<div class="bottom-header">
+				<div class="container">
+					<div class="header-bottom-left">
+						<div class="logo">
+							<a href="index.html"><img src="images/logo.png" alt="" /></a>
+						</div>
+						<!-- 搜索 -->
+						<div class="col-lg-7" style="margin-left:60%;margin-top:-7%">
+						    <div class="input-group">
+						      <input type="text" id="med-search" class="form-control" onkeyup="keydownEvent()"  placeholder="输入药名、症状、生产商试一试 ^_^" />
+						      <span class="input-group-btn">
+						        <button class="btn btn-default" type="button" onclick="medRsearch()">搜索</button>
+						      </span>
+						    </div>
+						</div>
+						<!-- //搜索 -->
+						
+						<div class="clearfix"> </div>
 					</div>
-					<div class="search">
-						<input id="med-search" type="text" placeholder="药名、症状、药品生产商"
-							value="感冒"> <input id="search-btn" type="button"
-							style="width: 89px; height: 35px;" onclick="medRsearch()"
-							value="搜索">
-					</div>
-					<div class="clearfix"></div>
-				</div>
-				<!-- 购物车 -->
-				<!-- <div class="header-bottom-right cart" style="margin-left:200px">
+					<!-- 购物车 -->
+					<!-- <div class="header-bottom-right cart" style="margin-left:200px">
 						<a href="#"><span> </span>CART</a>
 					</div> -->
-				<!-- //购物车 -->
-				<div class="clearfix"></div>
+					<!-- //购物车 -->
+					<div class="clearfix"> </div>	
+				</div>
 			</div>
 		</div>
-	</div>
+
 
 	<!---->
 	<div class="container" id="search-med">
@@ -573,27 +561,29 @@ li {
 				
 				//搜索框按钮处理事件
 				function medRsearch() {
-					var content = $("#med-search").val();
-					$('#search-med').html("");//清空防止影响
-					$.ajax({
-						url: "pages/index/controller/getSearchInfo",
-						type: "POST",
-						data:{"content":content},
-						success: function(data) {
-							if(data.msg == "success") {
-								var searchList = data.result;
-								var str = new Array();
-								$.each(searchList,function(i,search) {
-									creatSearchView(search.itemId,search.itemName,search.company,search.price,search.imgUrl,str);
-								});
-								$('#search-med').html(str.join(""));
-							}else if(data.msg == "nothing") {
-								alert("抱歉，没有找到您要查询的药品！");
-							}else if(data.msg == "error") {
-								alert("获取查询内容出错，请重新登陆！");
+					var content = $.trim($("#med-search").val());
+					if("" != content) {
+						$('#search-med').html("");//清空防止影响
+						$.ajax({
+							url: "pages/index/controller/getSearchInfo",
+							type: "POST",
+							data:{"content":content},
+							success: function(data) {
+								if(data.msg == "success") {
+									var searchList = data.result;
+									var str = new Array();
+									$.each(searchList,function(i,search) {
+										creatSearchView(search.itemId,search.itemName,search.company,search.price,search.imgUrl,str);
+									});
+									$('#search-med').html(str.join(""));
+								}else if(data.msg == "nothing") {
+									alert("抱歉，没有找到您要查询的药品！");
+								}else if(data.msg == "error") {
+									alert("获取查询内容出错，请重新登陆！");
+								}
 							}
-						}
-					});
+						});
+					}
 				}
 				
 				function creatSearchView(itemId,itemName,company,price,imgUrl,str) {
@@ -613,42 +603,55 @@ li {
 					str.push('<p>￥'+price+'</p>');
 					str.push('</div>');
 				}
+				
+				
+				//输入框回车事件
+				function keydownEvent() {
+			         var e = window.event || arguments.callee.caller.arguments[0];
+			         if (e && e.keyCode == 13 ) {
+			        	 medRsearch();
+			         }
+			     }
+				
  				
-/* 				function addToShoppingCart(itemId)
+ 				function addToShoppingCart(itemId)
 				{
-					$.ajax({
-						url:"pages/index/controller/addToShoppingCart",
+					 $.ajax({
+						url:"pages/index/controller/addToShoppingCart/" + itemId,
 						type:"POST",
 						data:{
-							itemId:itemId;
-						},
-						dataType:"json",
-						success:function(rm)
-						{
-							alert(rm.getMsg);
+							itemId:itemId,
+						}, 
+						dataType:"json", 
+						success: function(data) {
+							if(data.msg == "success") {
+								alert("加入购物车成功")
+								$('#search-med').html(str.join(""));
+							}
+							else if(data.msg == "error") {
+								alert("加入购物车失败");
+							}
 						}
 					});
-				} */ 
+					 
+				} 
 			</script>
-
-		
-	</div>
-	<div class="clearfix"></div>
-	</div>
-
-	<!---->
-	<div class="footer">
-		<div class="footer-top">
-			<div class="container">
-				<div class="latter">
-					<h6>NEWS-LETTER</h6>
-					<div class="sub-left-right">
-						<form>
-							<input type="text" value="Enter email here"
-								onfocus="this.value = '';"
-								onblur="if (this.value == '') {this.value = 'Enter email here';}" />
-							<input type="submit" value="SUBSCRIBE" />
-						</form>
+						
+				</div>
+		   		    <div class="clearfix"> </div>        	         
+		<!---->
+		<div class="footer">
+			<div class="footer-top">
+				<div class="container">
+					<div class="latter">
+						<h6>NEWS-LETTER</h6>
+						<div class="sub-left-right">
+							<form>
+								<input type="text" value="Enter email here"onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter email here';}" />
+								<input type="submit" value="SUBSCRIBE" />
+							</form>
+						</div>
+						<div class="clearfix"> </div>
 					</div>
 					<div class="clearfix"></div>
 				</div>
