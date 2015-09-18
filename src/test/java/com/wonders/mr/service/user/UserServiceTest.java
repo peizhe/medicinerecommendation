@@ -42,9 +42,9 @@ public class UserServiceTest extends AbstractTestCase{
 		List<UserPO> userpos = userService.findAll();
 		
 		for(UserPO po : userpos) {
-			String name = genName();
-			po.setName(name);
-			System.out.println("设置姓名:" + name);
+			//String name = genName();
+			po.setPwd("111111");
+			
 			userService.update(po);
 		}
 	}
