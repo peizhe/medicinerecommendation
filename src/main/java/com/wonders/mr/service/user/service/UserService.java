@@ -71,6 +71,4 @@ public interface UserService {
 	public UserPO login(String loginName, String pwd);
 	
 	
-	
-	
 }

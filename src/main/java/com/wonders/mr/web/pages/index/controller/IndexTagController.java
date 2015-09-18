@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.wonders.bud.framework.common.util.RestMsg;
+import com.wonders.mr.service.action.modal.ActionPO;
+import com.wonders.mr.service.action.service.ActionService;
 import com.wonders.mr.service.item.modal.po.ItemPO;
 import com.wonders.mr.service.item.modal.po.TagPO;
 import com.wonders.mr.service.item.service.ItemService;
@@ -42,7 +44,8 @@ public class IndexTagController {
 	private RecTableIcfService recTableIcfService;
 	@Resource
 	private ItemService itemService;
-	
+	@Resource
+	private ActionService actionService;
 	/**
 	 * 获取tag标签分类
 	 * @param request
@@ -208,7 +211,7 @@ public class IndexTagController {
 						str.append("<label for=\"rating-input-1-1\" class=\"rating-star\"> </label>");
 						str.append("</span>");
 						str.append("</div>");
-						str.append("<a class=\"now-get get-cart\" href=\"#\">加入购物车</a> ");
+						str.append("<a class=\"now-get get-cart\" onclick=\"addToShoppingCart("+item.getItemId()+")\">加入购物车</a> ");
 						str.append("<div class=\"clearfix\"> </div>");
 						str.append("</div>");
 						str.append("</div>");
@@ -268,7 +271,7 @@ public class IndexTagController {
 						str.append("<label for=\"rating-input-1-1\" class=\"rating-star\"> </label>");
 						str.append("</span>");
 						str.append("</div>");
-						str.append("<a class=\"now-get get-cart\" href=\"#\">加入购物车</a> ");
+						str.append("<a class=\"now-get get-cart\" onclick=\"addToShoppingCart("+item.getItemId()+")\">加入购物车</a> ");
 						str.append("<div class=\"clearfix\"> </div>");
 						str.append("</div>");
 						str.append("</div>");
@@ -326,7 +329,7 @@ public class IndexTagController {
 						str.append("<label for=\"rating-input-1-1\" class=\"rating-star\"> </label>");
 						str.append("</span>");
 						str.append("</div>");
-						str.append("<a class=\"now-get get-cart\" href=\"#\">加入购物车</a> ");
+						str.append("<a class=\"now-get get-cart\" onclick=\"addToShoppingCart("+item.getItemId()+")\">加入购物车</a> ");
 						str.append("<div class=\"clearfix\"> </div>");
 						str.append("</div>");
 						str.append("</div>");
@@ -348,36 +351,49 @@ public class IndexTagController {
 		return rm;
 	}
 	
-	@RequestMapping(value = "/getRecUserSim", method = RequestMethod.GET)
+	@RequestMapping(value = "/getRecUserSim", method = RequestMethod.POST)
 	@ResponseBody
 	public RestMsg<String> getRecUserSim(HttpServletRequest request){
 		RestMsg<String> rm=new RestMsg<>();
-		String htmlstr=new String();
+		List<UserPO> simUsers=new ArrayList<>();
 		try {
 			HttpSession session=request.getSession();
 			Object userId=session.getAttribute("userId");
-			if(userId!=null){
-				List<UserPO> simUsers=recUserSimService.findByUserId(Long.parseLong(userId.toString()));
+			String page=request.getParameter("page");		
+			if(userId!=null&&page!=null){
+				int currentPage=Integer.parseInt(page);
+				simUsers=recUserSimService.findByUserId(Long.parseLong(userId.toString()));
 				if(simUsers!=null&&simUsers.size()>0){
 					
 					StringBuilder str=new StringBuilder();
-					int limt=4;
-					for(int i=0;i<limt;i++){
-						UserPO friend=simUsers.get(i);
-						String src="images/user.jpg";
-						String link="userInfo.html?userId="+friend.getId();
-						str.append("<div class=\" chain-grid menu-chain\">");		
-						str.append("<a href=\""+link+"\"><img class=\"img-responsive chain\" src=\""+src+"\" alt=\" \"></a>	");	
-						str.append("<div class=\"grid-chain-bottom chain-watch\">");	
-						str.append("<span class=\"actual dolor-left-grid\"></span>");	
-						str.append("<span class=\"reducedfrom\"></span> ");	
-						str.append("<h6><a href=\""+link+"\">"+friend.getName()+"</a></h6>");	
-						str.append("</div>");	
-						str.append("</div>");	
+					int total=simUsers.size();
+					int record=5;
+					int totalPage=total%record==0?total/record:(total/record+1);
+					int start=(currentPage-1)*record;
+					int end=currentPage*record<total?currentPage*record:total;
+					
+					for(int i=start;i<end;i++){
+						UserPO user=simUsers.get(i);
+						String  link="userInfo.html?userId="+user.getId();
+						String imgeUrl="images/user.jpg";
+						str.append("<li><div class=\"user-info\">");
+						str.append("<a href=\""+link+"\" class=\"user-avatar\" target=\"_blank\"><img src=\""+imgeUrl+"\"></a>");
+						str.append("<div class=\"info-details\">");
+						str.append("<p>");
+						str.append("<a href=\""+link+"\" title=\""+user.getLoginName()+"\" target=\"_blank\" class=\"user-name textoverflow\">"+user.getLoginName()+"</a>");
+						str.append("</p>");
+						str.append("<p>");
+						str.append("<span class=\"user-desc c_tx3\">职业："+user.getOccupation()+"</span>");
+						str.append("</p></div>");
+						str.append("<a class=\"close-button\" title=\"3天内不再显示此人\" uin=\"1716009482\" data-hottag=\"ISD.QZONEGIFT.QZONEINFOCENTER.CENTER-closeuin\" href=\"\">×</a>");
+						str.append("</div><a class=\"button bgr2 c_tx_2\" href=\""+link+"\">");
+						str.append("<i class=\"icon-cake\"></i><b class=\"c_tx2\">详情</b>");
+						str.append("</a></li>");
 					}
-					htmlstr=str.toString();
+					
 					rm.setMsg("success");
-					rm.setResult(htmlstr);
+					rm.setCode(totalPage);
+					rm.setResult(str.toString());
 				}
 			}
 			else {
@@ -390,14 +406,24 @@ public class IndexTagController {
 		}
 		return rm;
 	}
-	@RequestMapping(value = "/addToShoppingCart/{itemId}}", method = RequestMethod.POST)
+	/**
+	 * 加入购物车
+	 * @param request
+	 * @param itemId
+	 * @return
+	 */
+	//TODO
+	@RequestMapping(value = "/addToShoppingCart/{itemId}", method = RequestMethod.POST)
 	@ResponseBody
 	public RestMsg<String> addToShoppingCart(HttpServletRequest request, @PathVariable Long itemId){
 		RestMsg<String> rm=new RestMsg<>();
 		try{
-			
-			Long i = itemId;
-			Long l = i ;
+			HttpSession session=request.getSession();
+			Object userId=session.getAttribute("userId");
+			ActionPO actionpo = new ActionPO();
+			actionpo.setItemId(itemId);
+			actionpo.setUserId((Long) userId);
+			actionService.saveAction(actionpo);
 			rm.setMsg("success");
 		} catch (Exception e) {
 			rm.setMsg("error");
