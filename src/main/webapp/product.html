@@ -164,7 +164,38 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 			initMedSet();
+			displayCurrentUser();
 		});
+		
+		//获取登录用户信息
+		function displayCurrentUser(){
+			$.post("api/common/user/isLogin",
+					{},
+					function (data) {
+						//用户已经登录
+						if("no" != data.msg) {
+							var array = data.msg.split("!");
+							var userName = array[0]
+							var loginName = array[1];
+							
+							$(".currentUser").html("欢迎您 : " + userName + "&nbsp;&nbsp;&nbsp;<a href='javascript:;' class='glyphicon glyphicon-log-out' title='退出'></a>");
+							$("#loginName").val(loginName);
+							//绑定登出按钮单击事件(用户登出操作)
+							$(".glyphicon.glyphicon-log-out").bind("click", function() {
+								
+								$.post(
+									"api/common/user/logout",
+									{},
+									function(data) {
+										window.location.href = "index.html";
+									}
+								);
+							});
+						}else {
+							$(".currentUser").html('<a href="login.html">登录</a> 后, 我们将为您提供个性化推荐');
+						}
+					});
+		}
 		
 		//获取index页面传过来的url参数tagId
 		function GetQueryString(name) { 
@@ -218,7 +249,7 @@
 			str.push('</div>');
 			str.push('</a>');
 			str.push('</div>');
-			str.push('<h4><a href="#">'+itemName+'</a></h4>');
+			str.push('<h4><a href="single2.html?itemId='+itemId+'">'+itemName+'</a></h4>');
 			str.push('<p>'+company+'</p>');
 			str.push('<p>￥'+price+'</p>');
 			str.push('</div>');

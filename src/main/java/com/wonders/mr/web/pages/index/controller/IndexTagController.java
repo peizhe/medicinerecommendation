@@ -188,7 +188,7 @@ public class IndexTagController {
 					StringBuilder str=new StringBuilder();
 					for(int i=0;i<9;i++){
 						ItemPO item=items.get(i);
-						String link="single.html";
+						String link="single2.html?itemId="+item.getItemId();
 						str.append("<div class=\"col-md-4 chain-grid grid-top-chain\"style=\"width:30%;margin-right:15px;margin-bottom:10px\">");
 						str.append("<a href=\""+link+"\"><img class=\"img-responsive chain\" src=\""+item.getImgUrl()+"\" alt=\" \" /></a>");
 						str.append("<span class=\"star\"> </span>");
@@ -248,7 +248,7 @@ public class IndexTagController {
 					StringBuilder str=new StringBuilder();
 					for(int i=0;i<4;i++){
 						ItemPO item=items.get(i);
-						String link="single.html";
+						String link="single2.html?itemId="+item.getItemId();
 						str.append("<div class=\"col-md-4 chain-grid grid-top-chain\" style=\"width:30%;margin-right:15px;margin-bottom:10px\">");
 						str.append("<a href=\""+link+"\"><img class=\"img-responsive chain\" src=\""+item.getImgUrl()+"\" alt=\" \" /></a>");
 						str.append("<span class=\"star\"> </span>");
@@ -306,7 +306,7 @@ public class IndexTagController {
 					StringBuilder str=new StringBuilder();
 					for(int i=0;i<9;i++){
 						ItemPO item=items.get(i);
-						String link="single.html";
+						String link="single2.html?itemId="+item.getItemId();
 						str.append("<div class=\"col-md-4 chain-grid grid-top-chain\"style=\"width:30%;margin-right:15px;margin-bottom:10px\">");
 						str.append("<a href=\""+link+"\"><img class=\"img-responsive chain\" src=\""+item.getImgUrl()+"\" alt=\" \" /></a>");
 						str.append("<span class=\"star\"> </span>");

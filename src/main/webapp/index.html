@@ -294,7 +294,6 @@
 											<h2>服务大众</h2>
 											<label>药监局认证药房＋<b>100%正品</b></label>
 											<p>安全!放心!全网低价!全国密保配送，支持货到付款。更有专业医师在线免费问答！</p>
-											<span class="on-get">心动不如行动</span>
 										</div>
 	
 										<div class="clearfix"></div>
@@ -310,7 +309,6 @@
 											<h2>服务大众</h2>
 											<label>药监局认证药房＋<b>100%正品</b></label>
 											<p>安全!放心!全网低价!全国密保配送，支持货到付款。更有专业医师在线免费问答！</p>
-											<span class="on-get">心动不如行动</span>
 										</div>
 	
 										<div class="clearfix"></div>
@@ -326,7 +324,6 @@
 											<h2>服务大众</h2>
 											<label>药监局认证药房＋<b>100%正品</b></label>
 											<p>安全!放心!全网低价!全国密保配送，支持货到付款。更有专业医师在线免费问答！</p>
-											<span class="on-get">心动不如行动</span>
 										</div>
 	
 										<div class="clearfix"></div>
@@ -492,9 +489,6 @@
 			$(document).ready(function(){
 				initTag();
 				displayCurrentUser();
-				getRecTableUcf();
-				getRecUserSim();
-				getRecTableIcf();
 			});
 			
 			$(function() {
@@ -522,6 +516,11 @@
 						function (data) {
 							//用户已经登录
 							if("no" != data.msg) {
+								
+								getRecTableUcf();
+								getRecUserSim();
+								getRecTableIcf();
+								
 								var array = data.msg.split("!");
 								var userName = array[0]
 								var loginName = array[1];
@@ -659,7 +658,7 @@
 				str.push('</div>');
 				str.push('</a>');
 				str.push('</div>');
-				str.push('<h4><a href="#">'+itemName+'</a></h4>');
+				str.push('<h4><a href="single2.html?itemId='+itemId+'">'+itemName+'</a></h4>');
 				str.push('<p>'+company+'</p>');
 				str.push('<p>￥'+price+'</p>');
 				str.push('</div>');
