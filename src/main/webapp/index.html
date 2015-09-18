@@ -530,24 +530,19 @@
 								//绑定登出按钮单击事件(用户登出操作)
 								$(".glyphicon.glyphicon-log-out").bind("click", function() {
 									
-									$(".currentUser").html("欢迎您 : " + userName + "&nbsp;&nbsp;&nbsp;<a href='javascript:;' class='glyphicon glyphicon-log-out' title='退出'></a>");
-									$("#loginName").val(loginName);
-									//绑定登出按钮单击事件(用户登出操作)
-									$(".glyphicon.glyphicon-log-out").bind("click", function() {
-										
-										$.post(
-											"api/common/user/logout",
-											{}, 
-											function(data) {
-												window.location.href = "index.html";
-											}
-										);
-									});
-								}else {
-									$(".currentUser").html('<a href="login.html">登录</a> 后, 我们将为您提供个性化推荐');
-								}
-							});
-				}
+									$.post(
+										"api/common/user/logout",
+										{}, 
+										function(data) {
+											window.location.href = "index.html";
+										}
+									);
+								});
+							}else {
+								$(".currentUser").html('<a href="login.html">登录</a> 后, 我们将为您提供个性化推荐');
+							}
+						});
+			}
 				///获取页面Url参数
 				function getQueryString(name) { 
 					var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i"); 
@@ -596,18 +591,16 @@
 				
 				if(displayPages<totalPage){
 					displayPages=displayPages+1;
-									$.post(
-										"api/common/user/logout",
-										{}, 
-										function(data) {
-											window.location.href = "index.html";
-										}
-									);
-								});
-							}else {
-								$(".currentUser").html('<a href="login.html">登录</a> 后, 我们将为您提供个性化推荐');
-							}
-						});
+					$.post(
+						"api/common/user/logout",
+						{}, 
+						function(data) {
+							window.location.href = "index.html";
+						}
+					);
+				}else {
+					$(".currentUser").html('<a href="login.html">登录</a> 后, 我们将为您提供个性化推荐');
+				}
 			}
 					
 			function getQueryString(name) { 

@@ -323,7 +323,8 @@ m-guess-you-like .s-item-list .s-item .s-pic .s-pic-link {
 <body>
 	<!--header-->
 
-<div class="header">
+<!--header-->
+		<div class="header">
 			<div class="top-header">
 				<div class="container">
 					<div class="top-header-left">
@@ -352,16 +353,31 @@ m-guess-you-like .s-item-list .s-item .s-pic .s-pic-link {
 				<div class="container">
 					<div class="header-bottom-left">
 						<div class="logo">
-							<a href="index.html"><img src="images/logo.png" alt=" " /></a>
+							<a href="index.html"><img src="images/logo.png" alt="" /></a>
 						</div>
+						<!-- 搜索 -->
+						<div class="col-lg-7" style="margin-left:60%;margin-top:-7%">
+						    <div class="input-group">
+						      <input type="text" id="med-search" class="form-control" onkeyup="keydownEvent()"  placeholder="输入药名、症状、生产商试一试 ^_^" />
+						      <span class="input-group-btn">
+						        <button class="btn btn-default" type="button" onclick="medRsearch()">搜索</button>
+						      </span>
+						    </div>
+						</div>
+						<!-- //搜索 -->
+						
 						<div class="clearfix"> </div>
 					</div>
+					<!-- 购物车 -->
+					<!-- <div class="header-bottom-right cart" style="margin-left:200px">
+						<a href="#"><span> </span>CART</a>
+					</div> -->
 					<!-- //购物车 -->
 					<div class="clearfix"> </div>	
 				</div>
 			</div>
 		</div>
-	<!---->
+
 	<!-- start content -->
 	
 	
@@ -467,36 +483,37 @@ m-guess-you-like .s-item-list .s-item .s-pic .s-pic-link {
 					else{
 						alert("没有更多相似药品了");
 					}
-				
-				//获取登录用户信息
-				function displayCurrentUser(){
-					$.post("api/common/user/isLogin",
-							{},
-							function (data) {
-								//用户已经登录
-								if("no" != data.msg) {
-									var array = data.msg.split("!");
-									var userName = array[0]
-									var loginName = array[1];
-									
-									$(".currentUser").html("欢迎您 : " + userName + "&nbsp;&nbsp;&nbsp;<a href='javascript:;' class='glyphicon glyphicon-log-out' title='退出'></a>");
-									$("#loginName").val(loginName);
-									//绑定登出按钮单击事件(用户登出操作)
-									$(".glyphicon.glyphicon-log-out").bind("click", function() {
-										
-										$.post(
-											"api/common/user/logout",
-											{},
-											function(data) {
-												window.location.href = "index.html";
-											}
-										);
-									});
-								}else {
-									$(".currentUser").html('<a href="login.html">登录</a> 后, 我们将为您提供个性化推荐');
-								}
-							});
 				}
+					//获取登录用户信息
+					function displayCurrentUser(){
+						$.post("api/common/user/isLogin",
+								{},
+								function (data) {
+									//用户已经登录
+									if("no" != data.msg) {
+										
+										var array = data.msg.split("!");
+										var userName = array[0]
+										var loginName = array[1];
+										
+										$(".currentUser").html("欢迎您 : " + userName + "&nbsp;&nbsp;&nbsp;<a href='javascript:;' class='glyphicon glyphicon-log-out' title='退出'></a>");
+										$("#loginName").val(loginName);
+										//绑定登出按钮单击事件(用户登出操作)
+										$(".glyphicon.glyphicon-log-out").bind("click", function() {
+											
+											$.post(
+												"api/common/user/logout",
+												{}, 
+												function(data) {
+													window.location.href = "index.html";
+												}
+											);
+										});
+									}else {
+										$(".currentUser").html('<a href="login.html">登录</a> 后, 我们将为您提供个性化推荐');
+									}
+								});
+					}
 			</script>
 		<!---->
 		<div class="footer">
