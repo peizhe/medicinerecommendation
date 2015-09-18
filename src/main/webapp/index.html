@@ -5,17 +5,14 @@
 		<!--theme-style-->
 		<link href="static/css/style.css" rel="stylesheet" type="text/css" />
 		<!--//theme-style-->
-		<meta name="viewport"
-			content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<meta charset="UTF-8" />
 		<script type="application/x-javascript">
 			 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
 		</script>
-		<!--//fonts-->
 		<script src="static/js/jquery.min.js"></script>
-		<!--script-->
 		
-		<!-- bootstrap 引入begin -->
+		<!-- bootstrap -->
 		<link href="static/bootstrap3.3.5/css/bootstrap.min.css"
 			rel="stylesheet" type="text/css" />
 		<link href="static/bootstrap3.3.5/css/bootstrap-theme.min.css"
@@ -23,10 +20,10 @@
 		
 		<script src="static/js/jquery-v1.11.3.js"></script>
 		<script src="static/bootstrap3.3.5/js/bootstrap.min.js"></script>
-		<!-- bootstrap 引入end -->
+		<!-- //bootstrap-->
 	</head>
 	<body>
-	<!--header-->
+		<!--header-->
 		<div class="header">
 			<div class="top-header">
 				<div class="container">
@@ -42,24 +39,6 @@
 						<div class="clearfix"> </div>
 					</div>
 					<div class="top-header-right">
-					<!--语言 价格单位  
-					<div class="down-top">		
-							  <select class="in-drop">
-								  <option value="English" class="in-of">English</option>
-								  <option value="Japanese" class="in-of">Japanese</option>
-								  <option value="French" class="in-of">French</option>
-								  <option value="German" class="in-of">German</option>
-								<lect>
-						 </div>
-						<div class="down-top top-down">
-							  <select class="in-drop">
-							  
-							  <option value="Dollar" class="in-of">Dollar</option>
-							  <option value="Yen" class="in-of">Yen</option>
-							  <option value="Euro" class="in-of">Euro</option>
-								<lect>
-						 </div>
-						 //语言 价格单位   -->
 						<div class="down-top">		
 							<label class="in-of currentUser" ></label>
 							<input type="hidden" id="loginName" />
@@ -198,212 +177,7 @@
 						 </ul>
 					</div>
 			<!--initiate accordion-->
-			<script type="text/javascript">
-				$(function() {
-				    var menu_ul = $('.menu > li > ul'), menu_a  = $('.menu > li > a');
-				    menu_ul.hide();
-				    menu_a.click(function(e) {
-				        e.preventDefault();
-				        if(!$(this).hasClass('active')) {
-				            menu_a.removeClass('active');
-				            menu_ul.filter(':visible').slideUp('normal');
-				            $(this).addClass('active').next().stop(true,true).slideDown('normal');
-				        } else {
-				            $(this).removeClass('active');
-				            $(this).next().stop(true,true).slideUp('normal');
-				        }
-				    });
-				
-				});
-				
-				$(document).ready(function(){
-					initTag();
-					displayCurrentUser();
-					getRecTableUcf();
-					getRecUserSim();
-					getRecTableIcf();
-				});
-				
-				//获取登录用户信息
-				function displayCurrentUser(){
-					$.post("api/common/user/isLogin",
-							{},
-							function (data) {
-								//用户已经登录
-								if("no" != data.msg) {
-									var array = data.msg.split("!");
-									var userName = array[0]
-									var loginName = array[1];
-									
-									$(".currentUser").html("欢迎您 : " + userName + "&nbsp;&nbsp;&nbsp;<a href='javascript:;' class='glyphicon glyphicon-log-out' title='退出'></a>");
-									$("#loginName").val(loginName);
-									//绑定登出按钮单击事件(用户登出操作)
-									$(".glyphicon.glyphicon-log-out").bind("click", function() {
-										
-										$.post(
-											"api/common/user/logout",
-											{}, 
-											function(data) {
-												window.location.href = "index.html";
-											}
-										);
-									});
-								}else {
-									$(".currentUser").html('<a href="login.html">登录</a> 后, 我们将为您提供个性化推荐');
-								}
-							});
-				}
-				
-				function getQueryString(name) { 
-					var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i"); 
-					var r = window.location.search.substr(1).match(reg); 
-					if (r != null) return unescape(r[2]); return null; 
-				}
-				
-				function getRecTableUcf(){
-					$.ajax({
-						url:"pages/index/controller/getRecTableUcf",
-						type:"GET",
-						dataType:"json",
-						success:function(data){
-							var htmlstr=data.result;
-							$("#rec_table_ucf").prepend(htmlstr);
-						}
-					});
-				}
-				function getRecTableIcf(){
-					$.ajax({
-						url:"pages/index/controller/getRecTableIcf",
-						type:"GET",
-						dataType:"json",
-						success:function(data){
-							var htmlstr=data.result;
-							$("#rec_table_icf").prepend(htmlstr);
-						}
-					});
-				}
-			function getRecUserSim() {
-				$.ajax({
-					url : "pages/index/controller/getRecUserSim",
-					type : "GET",
-					dataType : "json",
-					success : function(data) {
-						var htmlstr = data.result;
-						//$("#rec_table_ucf").prepend(htmlstr);
-						$('.span_1_of_left').after(htmlstr);
-					}
-				});
-			}
-
-
-				//页面左侧tag标签分类显示
-				function initTag() {
-					$('#tag-menu').html("");//清空防止影响
-					
-					$.ajax({
-						url: "pages/index/controller/getTagInfo",
-						type: "POST",
-						success: function(data) {
-							if(data.msg == "success") {
-								var tagList = data.result;
-								var str = new Array();
-								for (i=0;i<10;i++) {
-									if(tagList[i]==null) {
-										break;
-									}
-									creatTagView(tagList[i].tagId,tagList[i].symptom,str);
-								}
-								$('#tag-menu').html(str.join(""));
-							}else if(data.msg == "nothing") {
-								alert("抱歉，还没有进行分类！");
-							}else if(data.msg == "error") {
-								alert("获取分类内容出错，请重新登陆！");
-							}
-					  }
-					});
-			}
-					
-				function creatTagView(tagId,symptom,str) {
-					str.push('<li><a href="product.html?tagId='+tagId +　'">'+symptom+'</a></li>');
-				}
-				
-				//搜索框按钮处理事件
-				function medRsearch() {
-					var content = $.trim($("#med-search").val());
-					if("" != content) {
-						$('#search-med').html("");//清空防止影响
-						$.ajax({
-							url: "pages/index/controller/getSearchInfo",
-							type: "POST",
-							data:{"content":content},
-							success: function(data) {
-								if(data.msg == "success") {
-									var searchList = data.result;
-									var str = new Array();
-									$.each(searchList,function(i,search) {
-										creatSearchView(search.itemId,search.itemName,search.company,search.price,search.imgUrl,str);
-									});
-									$('#search-med').html(str.join(""));
-								}else if(data.msg == "nothing") {
-									alert("抱歉，没有找到您要查询的药品！");
-								}else if(data.msg == "error") {
-									alert("获取查询内容出错，请重新登陆！");
-								}
-							}
-						});
-					}
-				}
-				
-				function creatSearchView(itemId,itemName,company,price,imgUrl,str) {
-					str.push('<div class="product-grid" style="padding-left:111px">');
-					str.push('<div class="content-box">');
-					str.push('<a href="single2.html?itemId='+itemId+'">');
-					str.push('<div class="left-grid-view grid-view-left">');
-					str.push('<img src="'+imgUrl+'" class="img-responsive watch-right" alt="" />');
-					//str.push('<div class="mask">');
-					//str.push('<div class="info">Quick View</div>');
-					//str.push('</div>');
-					str.push('</div>');
-					str.push('</a>');
-					str.push('</div>');
-					str.push('<h4><a href="#">'+itemName+'</a></h4>');
-					str.push('<p>'+company+'</p>');
-					str.push('<p>￥'+price+'</p>');
-					str.push('</div>');
-				}
-				
-				
-				//输入框回车事件
-				function keydownEvent() {
-			         var e = window.event || arguments.callee.caller.arguments[0];
-			         if (e && e.keyCode == 13 ) {
-			        	 medRsearch();
-			         }
-			     }
-				
- 				
- 				function addToShoppingCart(itemId)
-				{
-					 $.ajax({
-						url:"pages/index/controller/addToShoppingCart/" + itemId,
-						type:"POST",
-						data:{
-							itemId:itemId,
-						}, 
-						dataType:"json", 
-						success: function(data) {
-							if(data.msg == "success") {
-								alert("加入购物车成功")
-								$('#search-med').html(str.join(""));
-							}
-							else if(data.msg == "error") {
-								alert("加入购物车失败");
-							}
-						}
-					});
-					 
-				} 
-			</script>
+			
 						
 				</div>
 		   		    <div class="clearfix"> </div>        	         
@@ -502,5 +276,215 @@
 			</div>
 		</div>
 	</div>
-</body>
+	
+	
+	
+	
+		<script type="text/javascript">
+		
+			$(document).ready(function(){
+				initTag();
+				displayCurrentUser();
+				getRecTableUcf();
+				getRecUserSim();
+				getRecTableIcf();
+			});
+			
+			$(function() {
+			    var menu_ul = $('.menu > li > ul'), menu_a  = $('.menu > li > a');
+			    menu_ul.hide();
+			    menu_a.click(function(e) {
+			        e.preventDefault();
+			        if(!$(this).hasClass('active')) {
+			            menu_a.removeClass('active');
+			            menu_ul.filter(':visible').slideUp('normal');
+			            $(this).addClass('active').next().stop(true,true).slideDown('normal');
+			        } else {
+			            $(this).removeClass('active');
+			            $(this).next().stop(true,true).slideUp('normal');
+			        }
+			    });
+			
+			});
+					
+				
+			//获取登录用户信息
+			function displayCurrentUser(){
+				$.post("api/common/user/isLogin",
+						{},
+						function (data) {
+							//用户已经登录
+							if("no" != data.msg) {
+								var array = data.msg.split("!");
+								var userName = array[0]
+								var loginName = array[1];
+								
+								$(".currentUser").html("欢迎您 : " + userName + "&nbsp;&nbsp;&nbsp;<a href='javascript:;' class='glyphicon glyphicon-log-out' title='退出'></a>");
+								$("#loginName").val(loginName);
+								//绑定登出按钮单击事件(用户登出操作)
+								$(".glyphicon.glyphicon-log-out").bind("click", function() {
+									
+									$.post(
+										"api/common/user/logout",
+										{}, 
+										function(data) {
+											window.location.href = "index.html";
+										}
+									);
+								});
+							}else {
+								$(".currentUser").html('<a href="login.html">登录</a> 后, 我们将为您提供个性化推荐');
+							}
+						});
+			}
+					
+			function getQueryString(name) { 
+				var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i"); 
+				var r = window.location.search.substr(1).match(reg); 
+				if (r != null) return unescape(r[2]); return null; 
+			}
+					
+			function getRecTableUcf(){
+				$.ajax({
+					url:"pages/index/controller/getRecTableUcf",
+					type:"GET",
+					dataType:"json",
+					success:function(data){
+						var htmlstr=data.result;
+						$("#rec_table_ucf").prepend(htmlstr);
+					}
+				});
+			}
+			
+			function getRecTableIcf(){
+				$.ajax({
+					url:"pages/index/controller/getRecTableIcf",
+					type:"GET",
+					dataType:"json",
+					success:function(data){
+						var htmlstr=data.result;
+						$("#rec_table_icf").prepend(htmlstr);
+					}
+				});
+			}
+			
+			function getRecUserSim() {
+				$.ajax({
+					url : "pages/index/controller/getRecUserSim",
+					type : "GET",
+					dataType : "json",
+					success : function(data) {
+						var htmlstr = data.result;
+						//$("#rec_table_ucf").prepend(htmlstr);
+						$('.span_1_of_left').after(htmlstr);
+					}
+				});
+			}
+	
+	
+			//页面左侧tag标签分类显示
+			function initTag() {
+				$('#tag-menu').html("");//清空防止影响
+				
+				$.ajax({
+					url: "pages/index/controller/getTagInfo",
+					type: "POST",
+					success: function(data) {
+						if(data.msg == "success") {
+							var tagList = data.result;
+							var str = new Array();
+							for (i=0;i<10;i++) {
+								if(tagList[i]==null) {
+									break;
+								}
+								creatTagView(tagList[i].tagId,tagList[i].symptom,str);
+							}
+							$('#tag-menu').html(str.join(""));
+						}else if(data.msg == "nothing") {
+							alert("抱歉，还没有进行分类！");
+						}else if(data.msg == "error") {
+							alert("获取分类内容出错，请重新登陆！");
+						}
+				  }
+				});
+			}
+						
+			function creatTagView(tagId,symptom,str) {
+				str.push('<li><a href="product.html?tagId='+tagId +　'">'+symptom+'</a></li>');
+			}
+					
+			//搜索框按钮处理事件
+			function medRsearch() {
+				var content = $.trim($("#med-search").val());
+				if("" != content) {
+					$('#search-med').html("");//清空防止影响
+					$.ajax({
+						url: "pages/index/controller/getSearchInfo",
+						type: "POST",
+						data:{"content":content},
+						success: function(data) {
+							if(data.msg == "success") {
+								var searchList = data.result;
+								var str = new Array();
+								$.each(searchList,function(i,search) {
+									creatSearchView(search.itemId,search.itemName,search.company,search.price,search.imgUrl,str);
+								});
+								$('#search-med').html(str.join(""));
+							}else if(data.msg == "nothing") {
+								alert("抱歉，没有找到您要查询的药品！");
+							}else if(data.msg == "error") {
+								alert("获取查询内容出错，请重新登陆！");
+							}
+						}
+					});
+				}
+			}
+					
+			function creatSearchView(itemId,itemName,company,price,imgUrl,str) {
+				str.push('<div class="product-grid" style="padding-left:111px">');
+				str.push('<div class="content-box">');
+				str.push('<a href="single2.html?itemId='+itemId+'">');
+				str.push('<div class="left-grid-view grid-view-left">');
+				str.push('<img src="'+imgUrl+'" class="img-responsive watch-right" alt="" />');
+				//str.push('<div class="mask">');
+				//str.push('<div class="info">Quick View</div>');
+				//str.push('</div>');
+				str.push('</div>');
+				str.push('</a>');
+				str.push('</div>');
+				str.push('<h4><a href="#">'+itemName+'</a></h4>');
+				str.push('<p>'+company+'</p>');
+				str.push('<p>￥'+price+'</p>');
+				str.push('</div>');
+			}
+					
+					
+			//输入框回车事件
+			function keydownEvent() {
+		         var e = window.event || arguments.callee.caller.arguments[0];
+		         if (e && e.keyCode == 13 ) {
+		        	 medRsearch();
+		         }
+		     }
+			
+			function addToShoppingCart(itemId){
+				$.ajax({
+					url:"pages/index/controller/addToShoppingCart/" + itemId,
+					type:"POST",
+					data:{
+						itemId:itemId,
+					}, 
+					dataType:"json", 
+					success: function(data) {
+						if(data.msg == "success") {
+							alert("加入购物车成功")
+						}
+						else if(data.msg == "error") {
+							alert("加入购物车失败");
+						}
+					}
+				});
+			} 
+		</script>
+	</body>
 </html>
