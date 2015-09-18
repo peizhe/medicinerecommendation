@@ -167,7 +167,7 @@ public class prodcutPageController {
 					str.append("<a href=\""+link+"\"> "+item.getItemName()+"</a>");
 					str.append("</h4>");
 					str.append("<p>"+item.getCategory()+"</p>");
-					str.append("<div style=\"margin-left: 30px;float: left;padding-left:196px;\"><a class=\"now-get get-cart\" href=\""+link+"\">加入购物车</a></div>");
+					str.append("<div style=\"margin-left: 30px;float: left;padding-left:178px;\"><a class=\"now-get get-cart\" href=\""+link+"\">加入购物车</a></div>");
 					str.append("</div>");
 					str.append("</div>");				
 				}	
@@ -218,7 +218,7 @@ public class prodcutPageController {
 					str.append("<a href=\""+link+"\"> "+item.getItemName()+"</a>");
 					str.append("</h4>");
 					str.append("<p>"+item.getCategory()+"</p>");
-					str.append("<div style=\"margin-left: 30px;float: left;padding-left:196px;\"><a class=\"now-get get-cart\" href=\""+link+"\">加入购物车</a></div>");
+					str.append("<div style=\"margin-left: 30px;float: left;padding-left:178px;\"><a class=\"now-get get-cart\" href=\""+link+"\">加入购物车</a></div>");
 					str.append("</div>");
 					str.append("</div>");					
 				}	
