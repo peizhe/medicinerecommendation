@@ -74,12 +74,19 @@
 				<div class="container">
 					<div class="header-bottom-left">
 						<div class="logo">
-							<a href="index.html"><img src="images/logo.png" alt=" " /></a>
+							<a href="index.html"><img src="images/logo.png" alt="" /></a>
 						</div>
-						<div class="search">
-							<input id="med-search" type="text" placeholder="药名、症状、药品生产商" value="感冒">
-							<input id="search-btn" type="button" style="width: 89px;height: 35px;" onclick="medRsearch()"  value="搜索">
+						<!-- 搜索 -->
+						<div class="col-lg-7" style="margin-left:60%;margin-top:-7%">
+						    <div class="input-group">
+						      <input type="text" id="med-search" class="form-control" onkeyup="keydownEvent()"  placeholder="输入药名、症状、生产商试一试 ^_^" />
+						      <span class="input-group-btn">
+						        <button class="btn btn-default" type="button" onclick="medRsearch()">搜索</button>
+						      </span>
+						    </div>
 						</div>
+						<!-- //搜索 -->
+						
 						<div class="clearfix"> </div>
 					</div>
 					<!-- 购物车 -->
@@ -322,27 +329,29 @@
 				
 				//搜索框按钮处理事件
 				function medRsearch() {
-					var content = $("#med-search").val();
-					$('#search-med').html("");//清空防止影响
-					$.ajax({
-						url: "pages/index/controller/getSearchInfo",
-						type: "POST",
-						data:{"content":content},
-						success: function(data) {
-							if(data.msg == "success") {
-								var searchList = data.result;
-								var str = new Array();
-								$.each(searchList,function(i,search) {
-									creatSearchView(search.itemId,search.itemName,search.company,search.price,search.imgUrl,str);
-								});
-								$('#search-med').html(str.join(""));
-							}else if(data.msg == "nothing") {
-								alert("抱歉，没有找到您要查询的药品！");
-							}else if(data.msg == "error") {
-								alert("获取查询内容出错，请重新登陆！");
+					var content = $.trim($("#med-search").val());
+					if("" != content) {
+						$('#search-med').html("");//清空防止影响
+						$.ajax({
+							url: "pages/index/controller/getSearchInfo",
+							type: "POST",
+							data:{"content":content},
+							success: function(data) {
+								if(data.msg == "success") {
+									var searchList = data.result;
+									var str = new Array();
+									$.each(searchList,function(i,search) {
+										creatSearchView(search.itemId,search.itemName,search.company,search.price,search.imgUrl,str);
+									});
+									$('#search-med').html(str.join(""));
+								}else if(data.msg == "nothing") {
+									alert("抱歉，没有找到您要查询的药品！");
+								}else if(data.msg == "error") {
+									alert("获取查询内容出错，请重新登陆！");
+								}
 							}
-						}
-					});
+						});
+					}
 				}
 				
 				function creatSearchView(itemId,itemName,company,price,imgUrl,str) {
@@ -362,6 +371,16 @@
 					str.push('<p>￥'+price+'</p>');
 					str.push('</div>');
 				}
+				
+				
+				//输入框回车事件
+				function keydownEvent() {
+			         var e = window.event || arguments.callee.caller.arguments[0];
+			         if (e && e.keyCode == 13 ) {
+			        	 medRsearch();
+			         }
+			     }
+				
  				
 /* 				function addToShoppingCart(itemId)
 				{
