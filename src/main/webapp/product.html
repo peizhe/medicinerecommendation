@@ -1,52 +1,34 @@
-<!--A Design by W3layouts 
-Author: W3layout
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
 <!DOCTYPE html>
 <html>
-<head>
-<title>Big shope A Ecommerce Category Flat Bootstarp Resposive
-	Website Template | Product :: w3layouts</title>
-<link href="static/css/bootstrap.css" rel="stylesheet" type="text/css"
-	media="all" />
-<!--theme-style-->
-<link href="static/css/style.css" rel="stylesheet" type="text/css"
-	media="all" />
-<!--//theme-style-->
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, maximum-scale=1">
-<script type="application/x-javascript">
-	
-	
-	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
-
-
-</script>
-<!--fonts-->
-<link
-	href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800'
-	rel='stylesheet' type='text/css'>
-<!--//fonts-->
-<script src="static/js/jquery.min.js"></script>
-<!-- bootstrap 引入begin -->
-<link href="static/bootstrap3.3.5/css/bootstrap.min.css"
-	rel="stylesheet" type="text/css" />
-<link href="static/bootstrap3.3.5/css/bootstrap-theme.min.css"
-	rel="stylesheet" type="text/css" />
-
-<script src="static/js/jquery-v1.11.3.js"></script>
-<script src="static/bootstrap3.3.5/js/bootstrap.min.js"></script>
-<!-- bootstrap 引入end -->
-<!--script-->
-<style type="text/css">
-.product-grid {
-	padding-left: 111px;
-}
-</style>
-</head>
-<body>
+	<head>
+		<title>产品详情</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		
+		<link href="static/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+		
+		<!--theme-style-->
+		<link href="static/css/style.css" rel="stylesheet" type="text/css" media="all" />
+		<!--//theme-style-->
+		
+		<script src="static/js/jquery.min.js"></script>
+		
+		<!-- bootstrap -->
+		<link href="static/bootstrap3.3.5/css/bootstrap.min.css"
+			rel="stylesheet" type="text/css" />
+		<link href="static/bootstrap3.3.5/css/bootstrap-theme.min.css"
+			rel="stylesheet" type="text/css" />
+		
+		<script src="static/js/jquery-v1.11.3.js"></script>
+		<script src="static/bootstrap3.3.5/js/bootstrap.min.js"></script>
+		<!-- //bootstrap -->
+		
+		<style type="text/css">
+			.product-grid {
+				padding-left: 111px;
+			}
+		</style>
+	</head>
+	<body>
 	<!--header-->
 	<div class="header">
 		<div class="top-header">
@@ -63,24 +45,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<div class="clearfix"></div>
 				</div>
 				<div class="top-header-right">
-					<!--语言 价格单位  
-					<div class="down-top">		
-						  <select class="in-drop">
-							  <option value="English" class="in-of">English</option>
-							  <option value="Japanese" class="in-of">Japanese</option>
-							  <option value="French" class="in-of">French</option>
-							  <option value="German" class="in-of">German</option>
-							</select>
-					 </div>
-					<div class="down-top top-down">
-						  <select class="in-drop">
-						  
-						  <option value="Dollar" class="in-of">Dollar</option>
-						  <option value="Yen" class="in-of">Yen</option>
-						  <option value="Euro" class="in-of">Euro</option>
-							</select>
-					 </div>
-					 //语言 价格单位   -->
 					<div class="down-top">
 						<label class="in-of currentUser"></label> <input type="hidden"
 							id="loginName" />
@@ -97,18 +61,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<div class="logo">
 						<a href="index.html"><img src="images/logo.png" alt=" " /></a>
 					</div>
-					<div class="search">
-						<input type="text" value="" onfocus="this.value = '';"
-							onblur="if (this.value == '') {this.value = '';}"> <input
-							type="submit" value="搜索">
-
-					</div>
-					<div class="clearfix"></div>
-				</div>
-				<div class="header-bottom-right">
-					<div class="account">
-						<a href="login.html"><span> </span>用户登录</a>
-					</div>
 					<div class="clearfix"></div>
 				</div>
 				<div class="clearfix"></div>
@@ -121,188 +73,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div class="women-product">
 			<div class=" w_content">
 				<div class="women">
-					<a href="#"><h4>
-							Enth ecwear - <span>4449 itemms</span>
-						</h4></a>
-					<ul class="w_nav">
-						<li>Sort :</li>
-						<li><a class="active" href="#">popular</a></li> |
-						<li><a href="#">new </a></li> |
-						<li><a href="#">discount</a></li> |
-						<li><a href="#">price: Low High </a></li>
-						<div class="clearfix"></div>
-					</ul>
+					<span id="tagName"></span>
 					<div class="clearfix"></div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<!-- grids_of_4 -->
-	<div class="grid-product" id="tagMed-product">
-		<div class="product-grid">
-			<div class="content_box">
-				<a href="single.html">
-					<div class="left-grid-view grid-view-left">
-						<img src="images/pic13.jpg" class="img-responsive watch-right"
-							alt="" />
-						<div class="mask">
-							<div class="info">Quick View</div>
-						</div>
-					</div>
-				</a>
-			</div>
-			<h4>
-				<a href="#"> Duis autem</a>
-			</h4>
-			<p>It is a long established fact that a reader</p>
-			Rs. 499
-		</div>
-		<div class="product-grid">
-			<div class="content_box">
-				<a href="single.html">
-					<div class="left-grid-view grid-view-left">
-						<img src="images/pic2.jpg" class="img-responsive watch-right"
-							alt="" />
-						<div class="mask">
-							<div class="info">Quick View</div>
-						</div>
-					</div>
-				</a>
-			</div>
-			<h4>
-				<a href="#"> Duis autem</a>
-			</h4>
-			<p>It is a long established fact that a reader</p>
-			Rs. 499
-		</div>
-		<div class="product-grid">
-			<div class="content_box">
-				<a href="single.html">
-					<div class="left-grid-view grid-view-left">
-						<img src="images/pic3.jpg" class="img-responsive watch-right"
-							alt="" />
-						<div class="mask">
-							<div class="info">Quick View</div>
-						</div>
-					</div>
-				</a>
-			</div>
-			<h4>
-				<a href="#"> Duis autem</a>
-			</h4>
-			<p>It is a long established fact that a reader</p>
-			Rs. 499
-		</div>
-		<div class="product-grid">
-			<div class="content_box">
-				<a href="single.html">
-					<div class="left-grid-view grid-view-left">
-						<img src="images/pic4.jpg" class="img-responsive watch-right"
-							alt="" />
-						<div class="mask">
-							<div class="info">Quick View</div>
-						</div>
-					</div>
-				</a>
-			</div>
-			<h4>
-				<a href="#"> Duis autem</a>
-			</h4>
-			<p>It is a long established fact that a reader</p>
-			Rs. 499
-		</div>
-		<div class="product-grid">
-			<div class="content_box">
-				<a href="single.html">
-					<div class="left-grid-view grid-view-left">
-						<img src="images/pic6.jpg" class="img-responsive watch-right"
-							alt="" />
-						<div class="mask">
-							<div class="info">Quick View</div>
-						</div>
-					</div>
-				</a>
-			</div>
-			<h4>
-				<a href="#"> Duis autem</a>
-			</h4>
-			<p>It is a long established fact that a reader</p>
-			Rs. 499
-		</div>
-		<div class="product-grid">
-			<div class="content_box">
-				<a href="single.html">
-					<div class="left-grid-view grid-view-left">
-						<img src="images/pic7.jpg" class="img-responsive watch-right"
-							alt="" />
-						<div class="mask">
-							<div class="info">Quick View</div>
-						</div>
-					</div>
-				</a>
-			</div>
-			<h4>
-				<a href="#"> Duis autem</a>
-			</h4>
-			<p>It is a long established fact that a reader</p>
-			Rs. 499
-		</div>
-		<div class="product-grid">
-			<div class="content_box">
-				<a href="single.html">
-					<div class="left-grid-view grid-view-left">
-						<img src="images/pic8.jpg" class="img-responsive watch-right"
-							alt="" />
-						<div class="mask">
-							<div class="info">Quick View</div>
-						</div>
-					</div>
-				</a>
-			</div>
-			<h4>
-				<a href="#"> Duis autem</a>
-			</h4>
-			<p>It is a long established fact that a reader</p>
-			Rs. 499
-		</div>
-		<div class="product-grid">
-			<div class="content_box">
-				<a href="single.html">
-					<div class="left-grid-view grid-view-left">
-						<img src="images/pic11.jpg" class="img-responsive watch-right"
-							alt="" />
-						<div class="mask">
-							<div class="info">Quick View</div>
-						</div>
-					</div>
-				</a>
-			</div>
-			<h4>
-				<a href="#"> Duis autem</a>
-			</h4>
-			<p>It is a long established fact that a reader</p>
-			Rs. 499
-		</div>
-		<div class="product-grid">
-			<div class="content_box">
-				<a href="single.html">
-					<div class="left-grid-view grid-view-left">
-						<img src="images/pic12.jpg" class="img-responsive watch-right"
-							alt="" />
-						<div class="mask">
-							<div class="info">Quick View</div>
-						</div>
-					</div>
-				</a>
-			</div>
-			<h4>
-				<a href="#"> Duis autem</a>
-			</h4>
-			<p>It is a long established fact that a reader</p>
-			Rs. 499
-		</div>
-		<div class="clearfix"></div>
-	</div>
+	<!-- 药品展示 -->
+	<div class="container" id="tagMed-product"></div>
 	<!---->
 	<div class="footer">
 		<div class="footer-top">
@@ -423,9 +201,17 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					if(data.msg == "success") {
 						var medList = data.result;
 						var str = new Array();
+						var len = medList.length - 2;
 						$.each(medList,function(i,med) {
-							creatMedSetView(med.itemId,med.itemName,med.company,med.price,med.imgUrl,str);
+							if( i < len) {
+								creatMedSetView(med.itemId,med.itemName,med.company,med.price,med.imgUrl,str);
+							}
 						});
+						
+						var tagName = medList[len +1];
+						$("#tagName").html("类别:  <b>" +　tagName.tagName +"</b>");
+						
+						
 						$('#tagMed-product').html(str.join(""));
 					}else if(data.msg == "nothing") {
 						alert("抱歉，此分类下暂时没有任何药品！");
@@ -439,7 +225,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		function creatMedSetView(itemId,itemName,company,price,imgUrl,str) {
 			str.push('<div class="product-grid">');
 			str.push('<div class="content-box">');
-			str.push('<a href="single.html?itemId='+itemId+'">');
+			str.push('<a href="single2.html?itemId='+itemId+'">');
 			str.push('<div class="left-grid-view grid-view-left">');
 			str.push('<img src="'+imgUrl+'" class="img-responsive watch-right" alt="" />');
 			//str.push('<div class="mask">');

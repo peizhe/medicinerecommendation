@@ -1,11 +1,14 @@
 package com.wonders.mr.service.recusersim.service.impl;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.wonders.bud.framework.common.util.QueryParam;
 import com.wonders.mr.service.recusersim.dao.RecUserSimDao;
 import com.wonders.mr.service.recusersim.modal.RecUserSimPO;
 import com.wonders.mr.service.recusersim.service.RecUserSimService;
@@ -29,7 +32,14 @@ public class RecUserSimServiceImpl implements RecUserSimService {
 	
 	@Override
 	public List<UserPO> findByUserId(long id) {
-		RecUserSimPO recUserSimPO = recUserSimDao.get(id);
+		
+		
+		QueryParam param = new QueryParam();
+		Map<String, Object> eq = new HashMap<String, Object>();
+		eq.put("userId", id);
+		param.setEq(eq);
+		
+		RecUserSimPO recUserSimPO = recUserSimDao.findByAnd(param).get(0);
 		
 		String userIdList = recUserSimPO.getUserIdList();
 		String[] ids = userIdList.split(",");

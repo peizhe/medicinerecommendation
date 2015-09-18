@@ -55,7 +55,7 @@ public class IndexTagController {
 	@ResponseBody
 	public RestMsg<List<Map<String, Object>>> getTagInfo(HttpServletRequest request) {
 		RestMsg<List<Map<String, Object>>> rm = new RestMsg<List<Map<String, Object>>>();
-		long[] ids = {1,2,3,4,5,6,7,8,9,10};		
+		long[] ids = {2,3,4,5,6,7,8,9,10,11};		
 		try {
 			List<TagPO> tagPOs = tagService.findSpecial(ids);
 			if(tagPOs==null||tagPOs.size()==0) {
@@ -127,7 +127,7 @@ public class IndexTagController {
 				List<ItemPO> items=recTableUcfService.findByUserId(Long.parseLong(userId.toString()));
 				if(items!=null&&items.size()>0){					
 					StringBuilder str=new StringBuilder();
-					for(int i=0;i<4;i++){
+					for(int i=0;i<3;i++){
 						ItemPO item=items.get(i);
 						String link="single2.html?itemId="+item.getItemId();
 						str.append("<div class=\"col-md-4 chain-grid grid-top-chain\" style=\"width:30%;margin-right:15px;margin-bottom:10px\">");
