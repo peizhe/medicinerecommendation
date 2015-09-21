@@ -81,6 +81,19 @@
 	</div>
 	<!-- 药品展示 -->
 	<div class="container" id="tagMed-product"></div>
+	<!-- 分页div -->
+	<div>
+		<ul class="pagination" style="padding-left:450px;">
+		  <li><a href="#" onclick="firstPage()">首页</a></li>
+		  <li><a href="#" onclick="upPage()">上一页</a></li>
+		  <li><a><input type="text" id="current-page" style="height:20px;width:58px;" readonly></a></li>
+		  <li><a href="#" onclick="nextPage()">下一页</a></li>
+		  <li><a href="#" onclick="lastPage()">尾页</a></li>
+		  <li><a>共<input type="text" id="all-pageNum" style="height:20px;width:58px;" readonly>页</a></li>
+		  <li><a>跳到<input type="text" id="set-page" style="height:20px;width:58px;"></a></li>
+		  <li><a href="#" onclick="determine()">确定</a></li>
+		</ul>
+	</div>   
 	<!---->
 	<div class="footer">
 		<div class="footer-top">
@@ -163,6 +176,8 @@
 	</div>
 	<script type="text/javascript">
 		$(document).ready(function() {
+			$("#current-page").val(1);
+			getAllPage();
 			initMedSet();
 			displayCurrentUser();
 		});
@@ -204,21 +219,86 @@
 			if (r!=null) return unescape(r[2]); return null; 
 		}
 		
+		// 首页按钮触发事件
+		function firstPage() {
+			$("#current-page").val(1);
+			initMedSet();
+		}
+		
+		//上一页按钮触发事件
+		function upPage() {
+			var currentPages = $("#current-page").val();
+			if(currentPages>1) {
+				var currentPage = currentPages-1;
+				$("#current-page").val(currentPage);
+				initMedSet();
+			}else {
+				alert("已经到第一页了！");
+			}
+		}
+		
+		//下一页按钮触发事件
+		function nextPage() {
+			var currentPages = $("#current-page").val();
+			var allPage = $("#all-pageNum").val();
+			if(currentPages<allPage) {
+				var currentPage = ++currentPages;
+				$("#current-page").val(currentPage);
+				initMedSet();
+			}else {
+				alert("已经到最后一页了！");
+			}
+		}
+		
+		//尾页按钮触发事件
+		function lastPage() {
+			var allPage = $("#all-pageNum").val();
+			$("#current-page").val(allPage);
+			initMedSet();
+		}
+		
+		//选择某一页确定按钮触发事件
+		function determine() {
+			var allPage = $("#all-pageNum").val();
+			var setPage = $("#set-page").val();
+			if(setPage > allPage) {
+				alert("请输入小于"+allPage+"的值");
+			}else {
+				$("#current-page").val(setPage);
+				initMedSet();
+			}
+		}
+		
+		//获得所有记录的页数
+		function getAllPage() {
+			var tagId = GetQueryString("tagId");
+			$.ajax({
+				url:"pages/product/controller/getAllPage",
+				type:"GET",
+				data:{"tagId":tagId},
+				success:function(data) {
+					var allPageNum = data.msg;
+					$("#all-pageNum").val(allPageNum);
+				}
+			});
+		}
+		
 		//初始化product.html页面的药品集
 		function initMedSet() {
 			$('#tagMed-product').html("");//清空防止影响
+			var currentPage = $("#current-page").val();
 			var tagId = GetQueryString("tagId");
 			$.ajax({
 				url:"pages/product/controller/getMedSet",
 				type:"GET",
-				data:{"tagId":tagId},
+				data:{"tagId":tagId,"currentPage":currentPage},
 				success:function(data) {
 					if(data.msg == "success") {
 						var medList = data.result;
 						var str = new Array();
 						var len = medList.length - 2;
 						$.each(medList,function(i,med) {
-							if( i < len) {
+							if( i <= len) {
 								creatMedSetView(med.itemId,med.itemName,med.company,med.price,med.imgUrl,str);
 							}
 						});
@@ -232,6 +312,8 @@
 						alert("抱歉，此分类下暂时没有任何药品！");
 					}else if(data.msg == "error") {
 						alert("加载药品集出错，请重新加载！");
+					}else if(data.msg == "noTagId") {
+						alert("没有此分类！")
 					}
 				}
 			});

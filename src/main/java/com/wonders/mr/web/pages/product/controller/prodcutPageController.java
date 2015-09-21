@@ -54,7 +54,14 @@ public class prodcutPageController {
 	public RestMsg<List<Map<String, Object>>> getMedSet(HttpServletRequest request) {
 		RestMsg<List<Map<String, Object>>> rm = new RestMsg<List<Map<String, Object>>>();
 		String tagIds = request.getParameter("tagId");
+		if(tagIds==null||tagIds.trim().equals("")) {
+			rm.setMsg("noTagId");
+			return rm;
+		}
 		Long tagId = Long.parseLong(tagIds);
+		String currentPages = request.getParameter("currentPage");
+		int currentPage = Integer.parseInt(currentPages);
+		int currentList = (currentPage-1)*9;
 		try {
 			List<ItemPO> itemPOs = tagItemService.findById(tagId);
 			TagPO tagPO = tagservice.findByTagId(tagId);
@@ -63,13 +70,19 @@ public class prodcutPageController {
 				return rm;
 			}
 			List<Map<String, Object>> list = new ArrayList<>();
-			for(ItemPO itemPO:itemPOs) {
+			int lastList;
+			if(itemPOs.size()<(9+currentList)) {
+				lastList = itemPOs.size();
+			}else {
+				lastList = 9+currentList;
+			}
+			for(int i=currentList;i<lastList;i++) {
 				Map<String, Object> tag = new HashMap<>();
-				tag.put("itemId",itemPO.getItemId());
-				tag.put("itemName", itemPO.getItemName());
-				tag.put("company", itemPO.getCompany());
-				tag.put("price", itemPO.getPrice());
-				tag.put("imgUrl", itemPO.getImgUrl());
+				tag.put("itemId",itemPOs.get(i).getItemId());
+				tag.put("itemName", itemPOs.get(i).getItemName());
+				tag.put("company", itemPOs.get(i).getCompany());
+				tag.put("price", itemPOs.get(i).getPrice());
+				tag.put("imgUrl", itemPOs.get(i).getImgUrl());
 				list.add(tag);
 			}
 			Map<String, Object> tagMap = new HashMap<>();
@@ -86,6 +99,31 @@ public class prodcutPageController {
 		
 	}
 
+	/**
+	 * 获得tagId下治疗本病症的药品总数的页数
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping(value = "/getAllPage", method = RequestMethod.GET)
+	@ResponseBody
+	public RestMsg<String> getAllPage(HttpServletRequest request) {
+		RestMsg<String> rm = new RestMsg<String>();
+		String tagIds = request.getParameter("tagId");
+		Long tagId = Long.parseLong(tagIds);
+		List<ItemPO> itemPOs = tagItemService.findById(tagId);
+		int allNums = itemPOs.size();
+		int allPageNums;
+		if(allNums%9==0) {
+			allPageNums = allNums/9;
+		}else {
+			allPageNums = allNums/9+1;
+		}
+		
+		String allPageNum = allPageNums+"";
+		rm.setMsg(allPageNum);
+		return rm;
+	}
+	
 	/*
 	 * 
 	 * 用过该药的用户还用过哪些药
