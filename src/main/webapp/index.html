@@ -687,6 +687,7 @@
 							if(data.msg == "success") {
 								var searchList = data.result;
 								var str = new Array();
+								str.push('<lable><h2>搜索结果：</h2></lable>');
 								$.each(searchList,function(i,search) {
 									creatSearchView(search.itemId,search.itemName,search.company,search.price,search.imgUrl,str);
 								});
