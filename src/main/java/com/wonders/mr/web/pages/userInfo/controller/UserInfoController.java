@@ -1,19 +1,27 @@
 package com.wonders.mr.web.pages.userInfo.controller;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
+import org.apache.xmlbeans.impl.xb.xsdschema.TotalDigitsDocument.TotalDigits;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.wonders.bud.framework.common.page.Page;
+import com.wonders.bud.framework.common.util.QueryParam;
 import com.wonders.bud.framework.common.util.RestMsg;
+import com.wonders.mr.service.action.modal.ActionPO;
 import com.wonders.mr.service.action.service.ActionService;
 import com.wonders.mr.service.item.modal.po.ItemPO;
+import com.wonders.mr.service.item.service.ItemService;
 import com.wonders.mr.service.recitemcfsim.service.RecItemCfSimService;
 import com.wonders.mr.service.user.modal.UserPO;
 import com.wonders.mr.service.user.service.UserService;
@@ -32,57 +40,48 @@ public class UserInfoController {
 	@Autowired
 	private ActionService actionService;
 	
+	@Autowired
+	private ItemService itemService;
+	
 	@RequestMapping(value = "/getAllItemsByUserId", method = RequestMethod.POST)
 	@ResponseBody
-	public RestMsg<String> getAllItemsByUserId(HttpServletRequest request){
-		RestMsg<String> rm=new RestMsg<>();
-		String htmlStr="";
+	public RestMsg<List<Map<String, String>>> getAllItemsByUserId(HttpServletRequest request){
+		RestMsg<List<Map<String, String>>> rm=new RestMsg<>();
 		try {
 			
 			String userId=request.getParameter("userId");
-			String page=request.getParameter("batch");
-			if(userId!=null&&page!=null){
+			String cpage=request.getParameter("batch");
+			if(userId!=null&&cpage!=null){
 				
-				int batch=Integer.parseInt(page);
-				List<ItemPO> items=actionService.findByUserId(Long.parseLong(userId));
-				
-				if(items!=null&&items.size()>0){
-					
-					int count=10;
-					int total=items.size();
-					int totalPage=total%count==0?total/count:(total/count+1);
-					int start=count*(batch-1);
-					int end=count*batch<total?count*batch:total;
-					StringBuilder str=new StringBuilder();
-					for(int i=start;i<end;i++){
+				int size=10;
+				int start=(Integer.parseInt(cpage)-1)*size;
+				Page<ActionPO> actions=actionService.findItems(Long.parseLong(userId), start, size);			
+				List<ActionPO> actionPOs=actions.getResult();//获取items		
+				int total=actions.getTotal()%size==0?actions.getTotal()/size:actions.getTotal()/size+1;
+				List<ItemPO> items = new ArrayList<>();
+				for (ActionPO actionPO : actionPOs) {// 遍历，查找所有药品
+					ItemPO itemPO = itemService.findById(actionPO.getItemId());
+					items.add(itemPO);
+				}
+				if(items!=null&&items.size()>0){					
+
+					List<Map<String, String>> jsonList=new ArrayList<>();
+					for(int i=0;i<items.size();i++){
 						ItemPO item=items.get(i);
-						String link="single2.html?itemId="+item.getItemId();				
-						str.append("<div class=\"s-item-wrap\">");	
-						str.append("<div class=\"s-item\">");	
-						str.append("<div class=\"s-top-hover\">");	
-						str.append("<a target=\"_blank\" data-spm=\"d4920134\" href=\"\" class=\"i-goto-similar\">找相似</a>");	
-						str.append("</div>");	
-						str.append("<div class=\"s-pic\">");	
-						str.append("<a href=\""+link+"\" target=\"_blank\" class=\"s-pic-link\" data-spm=\"d4919530\"> ");	
-						str.append("<img src=\""+item.getImgUrl()+"\" alt=\""+item.getsymptomDesc()+"\" title=\""+item.getItemName()+"\" class=\"s-pic-img s-guess-item-img\">");	
-						str.append("</a>");	
-						str.append("</div>");	
-						str.append("<div class=\"s-price-box\">");	
-						str.append("<span class=\"s-price\"><em class=\"s-price-sign\">¥</em><em class=\"s-value\">"+item.getPrice()+"</em></span> <span class=\"s-history-price\"><em class=\"s-price-sign\"></em><em class=\"s-value\"></em></span>");	
-						str.append("</div>");	
-						str.append("<div class=\"s-title\">");	
-						str.append("<a href=\"\" title=\""+item.getItemName()+"\" target=\"_blank\" data-spm=\"d4919530\">"+item.getItemName()+"</a>");	
-						str.append("</div>");	
-						str.append("<div class=\"s-extra-box\">");	
-						str.append("<span class=\"s-comment\"></span> <span class=\"s-sales mouseOvers\"><button style=\"color: black;font-weight: bold;\" onclick=\"addToShoppingCart("+item.getItemId()+")\">加入购物车</button></span>");	
-						str.append("</div>");	
-						str.append("</div>");	
-						str.append("</div>");		
+						Map<String, String>	map=new HashMap<>();
+						map.put("id", item.getItemId().toString());
+						map.put("image", item.getImgUrl());
+						map.put("symptomDesc", item.getsymptomDesc());
+						map.put("name", item.getItemName());
+						map.put("price", item.getPrice().toString());
+						map.put("image", item.getImgUrl());
+						map.put("image", item.getImgUrl());
+						jsonList.add(map);
+						
 					}	
-					htmlStr=str.toString();
 					rm.setMsg("success");
-					rm.setResult(htmlStr);
-					rm.setCode(totalPage);
+					rm.setResult(jsonList);
+					rm.setCode(total);
 				}
 			}
 			
