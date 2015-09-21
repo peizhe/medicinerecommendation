@@ -14,6 +14,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.wonders.bud.framework.common.page.Page;
 import com.wonders.bud.framework.common.util.RestMsg;
 import com.wonders.mr.service.item.modal.po.ItemPO;
 import com.wonders.mr.service.item.modal.po.TagPO;
@@ -26,8 +28,8 @@ import com.wonders.mr.service.recitemtagsim.service.RecItemTagSimService;
 
 @Controller
 @RequestMapping("pages/product/controller")
-public class prodcutPageController {
-	protected Logger log = Logger.getLogger(prodcutPageController.class);
+public class ProdcutPageController {
+	protected Logger log = Logger.getLogger(ProdcutPageController.class);
 	
 	@Resource
 	private TagItemService tagItemService;
@@ -60,23 +62,18 @@ public class prodcutPageController {
 		}
 		Long tagId = Long.parseLong(tagIds);
 		String currentPages = request.getParameter("currentPage");
+		int pageNum=9;
 		int currentPage = Integer.parseInt(currentPages);
-		int currentList = (currentPage-1)*9;
+		int currentList = (currentPage-1)*pageNum;
 		try {
-			List<ItemPO> itemPOs = tagItemService.findById(tagId);
-			TagPO tagPO = tagservice.findByTagId(tagId);
-			if(itemPOs==null||itemPOs.size()==0) {
-				rm.setMsg("nothing");
-				return rm;
-			}
+			Page<ItemPO> itemPages= tagItemService.findById(tagId,currentList,pageNum);
+			List<ItemPO> itemPOs=itemPages.getResult();
+			TagPO tagPO= tagservice.findByTagId(tagId);
+			int total=itemPages.getTotal();
+			int totalPage=total%pageNum==0? total/9+1:total/9;
 			List<Map<String, Object>> list = new ArrayList<>();
-			int lastList;
-			if(itemPOs.size()<(9+currentList)) {
-				lastList = itemPOs.size();
-			}else {
-				lastList = 9+currentList;
-			}
-			for(int i=currentList;i<lastList;i++) {
+			
+			for(int i=0;i<pageNum;i++) {
 				Map<String, Object> tag = new HashMap<>();
 				tag.put("itemId",itemPOs.get(i).getItemId());
 				tag.put("itemName", itemPOs.get(i).getItemName());
@@ -90,6 +87,7 @@ public class prodcutPageController {
 			list.add(tagMap);
 			rm.setResult(list);
 			rm.setMsg("success");
+			rm.setCode(totalPage);
 		} catch (Exception exception) {
 			rm.setMsg("error");
 			exception.printStackTrace();
@@ -103,7 +101,7 @@ public class prodcutPageController {
 	 * 获得tagId下治疗本病症的药品总数的页数
 	 * @param request
 	 * @return
-	 */
+	 *//*
 	@RequestMapping(value = "/getAllPage", method = RequestMethod.GET)
 	@ResponseBody
 	public RestMsg<String> getAllPage(HttpServletRequest request) {
@@ -122,7 +120,7 @@ public class prodcutPageController {
 		String allPageNum = allPageNums+"";
 		rm.setMsg(allPageNum);
 		return rm;
-	}
+	}*/
 	
 	/*
 	 * 
