@@ -141,7 +141,8 @@ public class IndexTagController {
 						str.append("<div class=\"star-price\">");
 						str.append("<div class=\"dolor-grid\"> ");
 						str.append("<span class=\"actual\">￥"+item.getPrice()+"</span>");
-						str.append("<span class=\"reducedfrom\">￥100</span>");
+						str.append("<span class=\"reducedfrom\">"
+								+ "</span>");
 						str.append("<span class=\"rating\">");
 						str.append("<input type=\"radio\" class=\"rating-input\" id=\"rating-input-1-5\" name=\"rating-input-1\">");
 						str.append("<label for=\"rating-input-1-5\" class=\"rating-star1\"> </label>");
@@ -200,7 +201,7 @@ public class IndexTagController {
 						str.append("<div class=\"star-price\">");
 						str.append("<div class=\"dolor-grid\"> ");
 						str.append("<span class=\"actual\">￥"+item.getPrice()+"</span>");
-						str.append("<span class=\"reducedfrom\">￥100</span>");
+						str.append("<span class=\"reducedfrom\"></span>");
 						str.append("<span class=\"rating\">");
 						str.append("<input type=\"radio\" class=\"rating-input\" id=\"rating-input-1-5\" name=\"rating-input-1\">");
 						str.append("<label for=\"rating-input-1-5\" class=\"rating-star1\"> </label>");
