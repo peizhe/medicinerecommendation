@@ -29,6 +29,7 @@ import com.wonders.mr.service.item.service.RecTableUcfService;
 import com.wonders.mr.service.item.service.TagService;
 import com.wonders.mr.service.recusersim.service.RecUserSimService;
 import com.wonders.mr.service.user.modal.UserPO;
+import com.wonders.mr.web.pages.userInfo.controller.UserInfoController;
 
 @Controller
 @RequestMapping("pages/index/controller")
@@ -46,6 +47,8 @@ public class IndexTagController {
 	private ItemService itemService;
 	@Resource
 	private ActionService actionService;
+	@Autowired
+	private UserInfoController userInfoController;
 	/**
 	 * 获取tag标签分类
 	 * @param request
@@ -384,7 +387,7 @@ public class IndexTagController {
 						str.append("<a href=\""+link+"\" title=\""+user.getLoginName()+"\" target=\"_blank\" class=\"user-name textoverflow\">"+user.getLoginName()+"</a>");
 						str.append("</p>");
 						str.append("<p>");
-						str.append("<span class=\"user-desc c_tx3\">职业："+user.getOccupation()+"</span>");
+						str.append("<span class=\"user-desc c_tx3\">职业："+userInfoController.getUserOccupation(user.getOccupation())+"</span>");
 						str.append("</p></div>");
 						str.append("<a class=\"close-button\" title=\"3天内不再显示此人\" uin=\"1716009482\" data-hottag=\"ISD.QZONEGIFT.QZONEINFOCENTER.CENTER-closeuin\" href=\"\">×</a>");
 						str.append("</div><a class=\"button bgr2 c_tx_2\" href=\""+link+"\">");
