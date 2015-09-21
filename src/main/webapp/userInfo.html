@@ -21,7 +21,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	
 	
 	
+	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
 
 
 
@@ -41,9 +43,52 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <script src="static/js/jquery-v1.11.3.js"></script>
 <script src="static/bootstrap3.3.5/js/bootstrap.min.js"></script>
 <style type="text/css">
-.mouseOvers:hover{
-color:red
+.f-pager {
+	float: right;
 }
+
+.f-pager .fp-text {
+	line-height: 23px;
+	margin-right: 10px;
+	font-family: verdana;
+}
+
+.f-pager .fp-text b {
+	color: #e4393c;
+	font-weight: 700;
+}
+
+.f-pager .fp-next.disabled, .f-pager .fp-prev.disabled {
+	padding: 0;
+	background: #F1F1F1;
+	color: #CCC;
+	cursor: default;
+}
+
+.f-pager .fp-prev {
+	margin-right: -1px;
+}
+
+.f-pager .fp-next, .f-pager .fp-prev {
+	width: 46px;
+	height: 23px;
+	border: 1px solid #DDD;
+	background: #FFF;
+	line-height: 23px;
+	font-family: "\5b8b\4f53";
+	text-align: center;
+	font-size: 16px;
+	color: #AAA;
+}
+
+.f-pager .fp-next, .f-pager .fp-prev, .f-pager .fp-text {
+	float: left;
+}
+
+.mouseOvers:hover {
+	color: red
+}
+
 .women-product {
 	width: 100%;
 }
@@ -93,227 +138,259 @@ p {
 	color: #4b4b4b;
 	padding: 0 80px 20px 80px;
 }
+
 .m-guess-you-like {
-        font-size: 14px;
-        color: #4b4b4b;
+	font-size: 14px;
+	color: #4b4b4b;
 }
 
 .m-guess-you-like .s-bar {
-        font-family: tahoma,arial,'Hiragino Sans GB','Microsoft YaHei',\5b8b\4f53,sans-serif;
-        color: #fff;
-        background: #F97E76;
-        border: #a0cdeb;
-        border-top: #e4eaee;
-        font-size: 18px;
-        line-height: 18px;
-        padding: 11px 10px;
-        position: relative;
-        border-top-left-radius:4px;
-        border-top-left-radius:4px;
+	font-family: tahoma, arial, 'Hiragino Sans GB', 'Microsoft YaHei',
+		\5b8b\4f53, sans-serif;
+	color: #fff;
+	background: #F97E76;
+	border: #a0cdeb;
+	border-top: #e4eaee;
+	font-size: 18px;
+	line-height: 18px;
+	padding: 11px 10px;
+	position: relative;
+	border-top-left-radius: 4px;
+	border-top-left-radius: 4px;
 }
+
 .m-guess-you-like .s-content {
-        border: 1px solid #e4eaee;
-        border-top: 0;
-        background-color: #f5f8fa;
-        padding: 26px 0 0;
+	border: 1px solid #e4eaee;
+	border-top: 0;
+	background-color: #f5f8fa;
+	padding: 26px 0 0;
 }
+
 .m-guess-you-like .i-load-more-item-shadow {
-        position: absolute;
-        right: 10px;
-        top: 10px;
-        padding: 3px 12px;
-        margin-top: -3px;
-        height: 20px;
-        background: #fff;
-        font-size: 14px;
-        line-height: 20px;
-        color: #4b4b4b;
-        -webkit-transition: all .2s linear;
-        -moz-transition: all .2s linear;
-        -ms-transition: all .2s linear;
-        -o-transition: all .2s linear;
-        transition: all .2s linear;
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	padding: 3px 12px;
+	margin-top: -3px;
+	height: 20px;
+	background: #fff;
+	font-size: 14px;
+	line-height: 20px;
+	color: #4b4b4b;
+	-webkit-transition: all .2s linear;
+	-moz-transition: all .2s linear;
+	-ms-transition: all .2s linear;
+	-o-transition: all .2s linear;
+	transition: all .2s linear;
 }
+
 .m-guess-you-like .i-load-more-item-shadow i {
-        font-family: mytaobao2014;
-        margin-right: 7px;
-        font-size: 13px;
-        position: relative;
-        top: -1px;
+	font-family: mytaobao2014;
+	margin-right: 7px;
+	font-size: 13px;
+	position: relative;
+	top: -1px;
 }
+
 .m-guess-you-like .s-content {
-        border: 1px solid #e4eaee;
-        border-top: 0;
-        background-color: #f5f8fa;
-        padding: 26px 0 0;
+	border: 1px solid #e4eaee;
+	border-top: 0;
+	background-color: #f5f8fa;
+	padding: 26px 0 0;
 }
+
 .m-guess-you-like .s-content .s-inner-content {
-        margin: 0 8px;
+	margin: 0 8px;
 }
+
 .m-guess-you-like {
-        font-size: 14px;
-        color: #4b4b4b;
+	font-size: 14px;
+	color: #4b4b4b;
 }
+
 .m-guess-you-like .s-item-list .s-item {
-        position: relative;
-        margin: 0 8px 20px;
-        width: 218px;
-        height: 313px;
-        float: left;
-        background: #fff;
-        border: 1px solid #e4eaee;
-        color: #595959;
+	position: relative;
+	margin: 0 8px 20px;
+	width: 218px;
+	height: 313px;
+	float: left;
+	background: #fff;
+	border: 1px solid #e4eaee;
+	color: #595959;
 }
+
 .m-guess-you-like .s-item-list .s-item .s-top-hover {
-        position: absolute;
-        right: 0;
-        top: 0;
-        z-index: 3;
-        font-size: 12px;
+	position: absolute;
+	right: 0;
+	top: 0;
+	z-index: 3;
+	font-size: 12px;
 }
+
 .m-guess-you-like .s-item-list .s-item .s-top-hover a {
-        display: block;
-        color: #fff;
-        background: #000;
-        padding: 4px 7px;
-        opacity: .65;
+	display: block;
+	color: #fff;
+	background: #000;
+	padding: 4px 7px;
+	opacity: .65;
 }
+
 .m-guess-you-like .s-item-list .s-item .s-pic {
-        width: 218px;
-        height: 218px;
-        overflow: hidden;
-        position: relative;
+	width: 218px;
+	height: 218px;
+	overflow: hidden;
+	position: relative;
 }
+
 m-guess-you-like .s-item-list .s-item .s-pic .s-pic-link {
-        vertical-align: middle;
-        display: table-cell;
-        width: 218px;
-        height: 218px;
-        overflow: hidden;
-        text-align: center;
+	vertical-align: middle;
+	display: table-cell;
+	width: 218px;
+	height: 218px;
+	overflow: hidden;
+	text-align: center;
 }
+
 .m-guess-you-like .s-item-list .s-item .s-price-box {
-        height: 16px;
-        overflow: hidden;
-        margin: 13px 12px 12px 16px;
-        line-height: 16px;
+	height: 16px;
+	overflow: hidden;
+	margin: 13px 12px 12px 16px;
+	line-height: 16px;
 }
+
 .m-guess-you-like .s-item-list .s-item .s-price {
-        font-size: 16px;
-        vertical-align: bottom;
-        float: left;
-        color: #f40;
+	font-size: 16px;
+	vertical-align: bottom;
+	float: left;
+	color: #f40;
 }
+
 .m-guess-you-like .s-item-list .s-item .s-price .s-price-sign {
-        font-family: Arial;
-        margin-right: 4px;
+	font-family: Arial;
+	margin-right: 4px;
 }
+
 .m-guess-you-like .s-item-list .s-item .s-price .s-value {
-        font-family: Verdana;
-        font-weight: 700;
+	font-family: Verdana;
+	font-weight: 700;
 }
+
 .m-guess-you-like .s-item-list .s-item .s-history-price {
-        font-size: 14px;
-        margin-left: 10px;
-        vertical-align: bottom;
-        float: left;
-        color: #999;
+	font-size: 14px;
+	margin-left: 10px;
+	vertical-align: bottom;
+	float: left;
+	color: #999;
 }
+
 .m-guess-you-like .s-item-list .s-item .s-history-price .s-value {
-        font-family: Verdana;
-        text-decoration: line-through;
-        font-weight: 400;
+	font-family: Verdana;
+	text-decoration: line-through;
+	font-weight: 400;
 }
+
 .m-guess-you-like .s-item-list .s-item .s-title {
-        font-size: 12px;
-        overflow: hidden;
-        margin: 0 12px 0 16px;
-        height: 14px;
-        line-height: 1;
-        text-overflow: ellipsis;
-        white-space: nowrap;
+	font-size: 12px;
+	overflow: hidden;
+	margin: 0 12px 0 16px;
+	height: 14px;
+	line-height: 1;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
+
 .m-guess-you-like .s-item-list .s-item .s-extra-box {
-        font-size: 12px;
-        margin: 0 16px;
-        height: 16px;
-        line-height: 16px;
-        margin-top: 12px;
-        color: #9c9c9c;
+	font-size: 12px;
+	margin: 0 16px;
+	height: 16px;
+	line-height: 16px;
+	margin-top: 12px;
+	color: #9c9c9c;
 }
+
 .m-guess-you-like .s-item-list .s-item .s-comment {
-        float: left;
+	float: left;
 }
+
 .m-guess-you-like .s-item-list .s-item .s-sales {
-        float: right;
+	float: right;
 }
+
 .m-guess-you-like .s-more-btn {
-        color: #595959;
-        border: 1px solid #e4eaee;
-        margin: 10px 7px 38px;
-        text-align: center;
-        cursor: pointer;
-        font-size: 12px;
-        height: 28px;
-        line-height: 28px;
-        background-color: #fff;
+	color: #595959;
+	border: 1px solid #e4eaee;
+	margin: 10px 7px 38px;
+	text-align: center;
+	cursor: pointer;
+	font-size: 12px;
+	height: 28px;
+	line-height: 28px;
+	background-color: #fff;
 }
+
 .m-guess-you-like .s-more-btn i {
-        margin-right: 6px;
-        position: relative;
-        top: -1px;
-        font-family: mytaobao2014;
+	margin-right: 6px;
+	position: relative;
+	top: -1px;
+	font-family: mytaobao2014;
 }
+
 .m-someone-like-you {
-        margin-bottom: 23px;
-        font-size: 14px;
-        color: #4b4b4b;
+	margin-bottom: 23px;
+	font-size: 14px;
+	color: #4b4b4b;
 }
+
 .m-someone-like-you .s-bar {
-        font-family: tahoma,arial,'Hiragino Sans GB','Microsoft YaHei',\5b8b\4f53,sans-serif;
-        color: #fff;
-        background-color: #ff625a;
-        border: #a0cdeb;
-        border-top: #e4eaee;
-        font-size: 18px;
-        line-height: 18px;
-        padding: 11px 10px;
+	font-family: tahoma, arial, 'Hiragino Sans GB', 'Microsoft YaHei',
+		\5b8b\4f53, sans-serif;
+	color: #fff;
+	background-color: #ff625a;
+	border: #a0cdeb;
+	border-top: #e4eaee;
+	font-size: 18px;
+	line-height: 18px;
+	padding: 11px 10px;
 }
+
 .m-someone-like-you .s-content {
-        border: 1px solid #e4eaee;
-        border-top: 0;
-        background-color: #f5f8fa;
-        padding: 26px 0 0;
+	border: 1px solid #e4eaee;
+	border-top: 0;
+	background-color: #f5f8fa;
+	padding: 26px 0 0;
 }
+
 .m-someone-like-you .s-content .s-inner-content {
-        margin: 0 8px;
+	margin: 0 8px;
 }
+
 .m-someone-like-you .s-item-list .s-item {
-        position: relative;
-        margin: 0 8px 20px;
-        width: 218px;
-        height: 363px;
-        float: left;
-        background: #fff;
-        border: 1px solid #e4eaee;
-        color: #595959;
+	position: relative;
+	margin: 0 8px 20px;
+	width: 218px;
+	height: 363px;
+	float: left;
+	background: #fff;
+	border: 1px solid #e4eaee;
+	color: #595959;
 }
+
 .m-guess-you-like .i-load-more-item-shadow {
-        position: absolute;
-        right: 10px;
-        top: 10px;
-        padding: 3px 12px;
-        margin-top: -3px;
-        height: 20px;
-        background: #fff;
-        font-size: 14px;
-        line-height: 20px;
-        color: #4b4b4b;
-        -webkit-transition: all .2s linear;
-        -moz-transition: all .2s linear;
-        -ms-transition: all .2s linear;
-        -o-transition: all .2s linear;
-        transition: all .2s linear;
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	padding: 3px 12px;
+	margin-top: -3px;
+	height: 20px;
+	background: #fff;
+	font-size: 14px;
+	line-height: 20px;
+	color: #4b4b4b;
+	-webkit-transition: all .2s linear;
+	-moz-transition: all .2s linear;
+	-ms-transition: all .2s linear;
+	-o-transition: all .2s linear;
+	transition: all .2s linear;
 }
 </style>
 <!-- bootstrap 引入end -->
@@ -323,69 +400,72 @@ m-guess-you-like .s-item-list .s-item .s-pic .s-pic-link {
 <body>
 	<!--header-->
 
-<!--header-->
-		<div class="header">
-			<div class="top-header">
-				<div class="container">
-					<div class="top-header-left">
-						<ul class="support">
-							<li><a href="#"><label> </label></a>
-							<li><a href="#">24小时<span class="live">热线支持</span></a>
-						</ul>
-						<ul class="support">
-							<li class="van"><a href="#"><label> </label></a>
-							<li><a href="#">单笔交易满200元<span class="live">2公里免费送货</span></a>
-						</ul>
-						<div class="clearfix"> </div>
-					</div>
-					<div class="top-header-right">
-						<div class="down-top">		
-							<label class="in-of currentUser" ></label>
-							<input type="hidden" id="loginName" />
-					 	</div>
-						 <!---->
-						<div class="clearfix"> </div>	
-					</div>
-					<div class="clearfix"> </div>		
+	<!--header-->
+	<div class="header">
+		<div class="top-header">
+			<div class="container">
+				<div class="top-header-left">
+					<ul class="support">
+						<li><a href="#"><label> </label></a>
+						<li><a href="#">24小时<span class="live">热线支持</span></a>
+					</ul>
+					<ul class="support">
+						<li class="van"><a href="#"><label> </label></a>
+						<li><a href="#">单笔交易满200元<span class="live">2公里免费送货</span></a>
+					</ul>
+					<div class="clearfix"></div>
 				</div>
-			</div>
-			<div class="bottom-header">
-				<div class="container">
-					<div class="header-bottom-left">
-						<div class="logo">
-							<a href="index.html"><img src="images/logo.png" alt="" /></a>
-						</div>
-						<!-- 搜索 -->
-						<div class="col-lg-7" style="margin-left:60%;margin-top:-7%">
-						    <div class="input-group">
-						      <input type="text" id="med-search" class="form-control" onkeyup="keydownEvent()"  placeholder="输入药名、症状、生产商试一试 ^_^" />
-						      <span class="input-group-btn">
-						        <button class="btn btn-default" type="button" onclick="medRsearch()">搜索</button>
-						      </span>
-						    </div>
-						</div>
-						<!-- //搜索 -->
-						
-						<div class="clearfix"> </div>
+				<div class="top-header-right">
+					<div class="down-top">
+						<label class="in-of currentUser"></label> <input type="hidden"
+							id="loginName" />
 					</div>
-					<!-- 购物车 -->
-					<!-- <div class="header-bottom-right cart" style="margin-left:200px">
+					<!---->
+					<div class="clearfix"></div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+		<div class="bottom-header">
+			<div class="container">
+				<div class="header-bottom-left">
+					<div class="logo">
+						<a href="index.html"><img src="images/logo.png" alt="" /></a>
+					</div>
+					<!-- 
+					<div class="col-lg-7" style="margin-left: 60%; margin-top: -7%">
+						<div class="input-group">
+							<input type="text" id="med-search" class="form-control"
+								onkeyup="keydownEvent()" placeholder="输入药名、症状、生产商试一试 ^_^" /> <span
+								class="input-group-btn">
+								<button class="btn btn-default" type="button"
+									onclick="medRsearch()">搜索</button>
+							</span>
+						</div>
+					</div>
+					//搜索 -->
+
+					<div class="clearfix"></div>
+				</div>
+				<!-- 购物车 -->
+				<!-- <div class="header-bottom-right cart" style="margin-left:200px">
 						<a href="#"><span> </span>CART</a>
 					</div> -->
-					<!-- //购物车 -->
-					<div class="clearfix"> </div>	
-				</div>
+				<!-- //购物车 -->
+				<div class="clearfix"></div>
 			</div>
 		</div>
+	</div>
 
 	<!-- start content -->
-	
-	
+
+
 	<div class="m-guess-you-like" data-spm="1998049143">
-		<div class="s-bar" style=" background:#F97E76; padding:20px; margin-top:15px;">
-			个人主页
-		</div>
-		<div class="s-content" style="padding: 26px 10px; border: 1px solid #a0cdeb;">
+		<div class="s-bar"
+			style="background: #F97E76; padding: 20px; margin-top: 15px;">
+			个人主页</div>
+		<div class="s-content"
+			style="padding: 26px 10px; border: 1px solid #a0cdeb;">
 			<div class="s-inner-content">
 				<div class="s-item-list clearfix" id="user_info">
 					<!-- 放药品图主要信息-->
@@ -393,223 +473,268 @@ m-guess-you-like .s-item-list .s-item .s-pic .s-pic-link {
 			</div>
 		</div>
 	</div>
-	
+
 	<div class="m-guess-you-like" data-spm="1998049143">
 		<div class="s-bar">
-			该用户购买过以下药品<button style="float: right;color:black;" onclick="showNext()">换一组</button>
+			该用户购买过以下药品
+			<!-- <button style="float: right;color:black;" onclick="showNext()">换一组</button> -->
+			<div id="J_topPage" class="f-pager" style="">
+				<span class="fp-text"><b><label id="currentPage"></label></b><em>/</em><i><label
+						id="totalPages"></label></i> </span>
+						<label class="fp-prev disabled" onclick="prePage()" id="preBtn">&lt;</label>
+						<label  class="fp-next" onclick="nextPage()" id="nextBtn">&gt;</label>
+			</div>
 		</div>
 		<div class="s-content">
 			<div class="s-inner-content">
 				<div class="s-item-list clearfix" id="user_item_action">
 					<!-- 放药品图片 -->
 				</div>
-				<div class="s-more-btn i-load-more-item" data-screen="1" onclick="showNext()">
+				<div class="s-more-btn i-load-more-item" data-screen="1"
+					onclick="showNext()">
 					<i></i>换一组
 				</div>
 			</div>
 		</div>
 	</div>
-		
-			<!--initiate accordion-->
-			<script type="text/javascript">
-				$(function() {
-					var menu_ul = $('.menu > li > ul'), menu_a = $('.menu > li > a');
-					menu_ul.hide();
-					menu_a.click(function(e) {
-						e.preventDefault();
-						if (!$(this).hasClass('active')) {
-							menu_a.removeClass('active');
-							menu_ul.filter(':visible').slideUp('normal');
-							$(this).addClass('active').next().stop(true, true)
-									.slideDown('normal');
-						} else {
-							$(this).removeClass('active');
-							$(this).next().stop(true, true).slideUp('normal');
-						}
-					});
 
-				});
-				$(document).ready(function() {
-					getUser();
-					displayCurrentUser();
-				});
-				function getQueryString(name) {
-					var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
-					var r = window.location.search.substr(1).match(reg);
-					if (r != null)
-						return unescape(r[2]);
-					return null;
+	<!--initiate accordion-->
+	<script type="text/javascript">
+		$(function() {
+			var menu_ul = $('.menu > li > ul'), menu_a = $('.menu > li > a');
+			menu_ul.hide();
+			menu_a.click(function(e) {
+				e.preventDefault();
+				if (!$(this).hasClass('active')) {
+					menu_a.removeClass('active');
+					menu_ul.filter(':visible').slideUp('normal');
+					$(this).addClass('active').next().stop(true, true)
+							.slideDown('normal');
+				} else {
+					$(this).removeClass('active');
+					$(this).next().stop(true, true).slideUp('normal');
 				}
-				//获取该用户的详细信息
-				function getUser() {
-					var userId = getQueryString("userId");
-					$.ajax({
-						url : "pages/userInfo/controller/getUser",
-						type : "POST",
-						data : {'userId' : userId},
-						dataType : "json",
-						success : function(data) {
-							var htmlstr = data.result;
-							$("#user_info").prepend(htmlstr);
-							getAllItemsByUserId(userId);
-						}
-					});
-				}
-				
-				///获取该用户用过的药品
-				var batch=1;
-				var totalPage=1;
-				function getAllItemsByUserId(userId){					
-					$.ajax({
-						url : "pages/userInfo/controller/getAllItemsByUserId",
-						type : "POST",
-						data : {'userId' : userId,'batch':batch},
-						dataType : "json",
-						success : function(data) {
-							var htmlstr = data.result;
-							$("#user_item_action").html(htmlstr);
-							totalPage=data.code;
-						}
-					});
-				}
-				///显示下下一批功能相似药品
-				function showNext(){
-					
-					if(batch<totalPage){
-						batch=batch+1;
-						var itemId = getQueryString("userId");
-						getAllItemsByUserId(itemId);
-					}
-					else{
-						alert("没有更多相似药品了");
-					}
-				}
-					//获取登录用户信息
-					function displayCurrentUser(){
-						$.post("api/common/user/isLogin",
-								{},
-								function (data) {
-									//用户已经登录
-									if("no" != data.msg) {
-										
-										var array = data.msg.split("!");
-										var userName = array[0]
-										var loginName = array[1];
-										
-										$(".currentUser").html("欢迎您 : " + userName + "&nbsp;&nbsp;&nbsp;<a href='javascript:;' class='glyphicon glyphicon-log-out' title='退出'></a>");
-										$("#loginName").val(loginName);
-										//绑定登出按钮单击事件(用户登出操作)
-										$(".glyphicon.glyphicon-log-out").bind("click", function() {
-											
-											$.post(
-												"api/common/user/logout",
-												{}, 
-												function(data) {
-													window.location.href = "index.html";
-												}
-											);
-										});
-									}else {
-										$(".currentUser").html('<a href="login.html">登录</a> 后, 我们将为您提供个性化推荐');
-									}
-								});
-					}
-			</script>
-		<!---->
-		<div class="footer">
-			<div class="footer-top">
-				<div class="container">
-					<div class="latter">
-						<h6>NEWS-LETTER</h6>
-						<div class="sub-left-right">
-							<form>
-								<input type="text" value="Enter email here"
-									onfocus="this.value = '';"
-									onblur="if (this.value == '') {this.value = 'Enter email here';}" />
-								<input type="submit" value="SUBSCRIBE" />
-							</form>
-						</div>
-						<div class="clearfix"></div>
-					</div>
-					<div class="latter-right">
-						<p>FOLLOW US</p>
-						<ul class="face-in-to">
-							<li><a href="#"><span> </span></a></li>
-							<li><a href="#"><span class="facebook-in"> </span></a></li>
-							<div class="clearfix"></div>
-						</ul>
-						<div class="clearfix"></div>
-					</div>
+			});
 
-				</div>
-			</div>
-			<div class="footer-bottom">
-				<div class="container">
-					<div class="footer-bottom-cate">
-						<h6>CATEGORIES</h6>
-						<ul>
-							<li><a href="#">Curabitur sapien</a></li>
-							<li><a href="#">Dignissim purus</a></li>
-							<li><a href="#">Tempus pretium</a></li>
-							<li><a href="#">Dignissim neque</a></li>
-							<li><a href="#">Ornared id aliquet</a></li>
-							<li><a href="#">Ultrices id du</a></li>
-							<li><a href="#">Commodo sit</a></li>
-							<li><a href="#">Urna ac tortor sc</a></li>
-							<li><a href="#">Ornared id aliquet</a></li>
-							<li><a href="#">Urna ac tortor sc</a></li>
-							<li><a href="#">Eget nisi laoreet</a></li>
-							<li><a href="#">Faciisis ornare</a></li>
-						</ul>
-					</div>
-					<div class="footer-bottom-cate bottom-grid-cat">
-						<h6>FEATURE PROJECTS</h6>
-						<ul>
-							<li><a href="#">Curabitur sapien</a></li>
-							<li><a href="#">Dignissim purus</a></li>
-							<li><a href="#">Tempus pretium</a></li>
-							<li><a href="#">Dignissim neque</a></li>
-							<li><a href="#">Ornared id aliquet</a></li>
-							<li><a href="#">Ultrices id du</a></li>
-							<li><a href="#">Commodo sit</a></li>
-						</ul>
-					</div>
-					<div class="footer-bottom-cate">
-						<h6>TOP BRANDS</h6>
-						<ul>
-							<li><a href="#">Curabitur sapien</a></li>
-							<li><a href="#">Dignissim purus</a></li>
-							<li><a href="#">Tempus pretium</a></li>
-							<li><a href="#">Dignissim neque</a></li>
-							<li><a href="#">Ornared id aliquet</a></li>
-							<li><a href="#">Ultrices id du</a></li>
-							<li><a href="#">Commodo sit</a></li>
-							<li><a href="#">Urna ac tortor sc</a></li>
-							<li><a href="#">Ornared id aliquet</a></li>
-							<li><a href="#">Urna ac tortor sc</a></li>
-							<li><a href="#">Eget nisi laoreet</a></li>
-							<li><a href="#">Faciisis ornare</a></li>
-						</ul>
-					</div>
-					<div class="footer-bottom-cate cate-bottom">
-						<h6>OUR ADDERSS</h6>
-						<ul>
-							<li>Aliquam metus dui.</li>
-							<li>orci, ornareidquet</li>
-							<li>ut,DUI.</li>
-							<li>nisi, dignissim</li>
-							<li>gravida at.</li>
-							<li class="phone">PH : 6985792466</li>
-							<li class="temp">
-								<p class="footer-class">
-									Design by <a href="http://w3layouts.com/" target="_blank">W3layouts</a>
-								</p>
-							</li>
-						</ul>
+		});
+		$(document).ready(function() {
+			getUser();
+			displayCurrentUser();
+		});
+		function getQueryString(name) {
+			var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+			var r = window.location.search.substr(1).match(reg);
+			if (r != null)
+				return unescape(r[2]);
+			return null;
+		}
+		//获取该用户的详细信息
+		function getUser() {
+			var userId = getQueryString("userId");
+			$.ajax({
+				url : "pages/userInfo/controller/getUser",
+				type : "POST",
+				data : {
+					'userId' : userId
+				},
+				dataType : "json",
+				success : function(data) {
+					var htmlstr = data.result;
+					$("#user_info").prepend(htmlstr);
+					getAllItemsByUserId(userId);
+				}
+			});
+		}
+
+		///获取该用户用过的药品
+		var batch = 1;//当前批次/页数
+		var totalPage = 1;
+		function getAllItemsByUserId(userId) {
+			$.ajax({
+				url : "pages/userInfo/controller/getAllItemsByUserId",
+				type : "POST",
+				data : {
+					'userId' : userId,
+					'batch' : batch
+				},
+				dataType : "json",
+				success : function(data) {
+					var htmlstr = data.result;
+					$("#user_item_action").html(htmlstr);
+					totalPage = data.code;
+					$("#currentPage").html(batch);//显示当前页
+					$("#totalPages").html(totalPage);//显示总的页数
+				}
+			});
+		}
+		///点击病友上一页显示
+		function prePage(){
+			if(batch>1){
+				batch=batch-1;
+				var userId = getQueryString("userId");
+				getAllItemsByUserId(userId);
+				if(batch==1){
+					$("#preBtn").addClass("disabled");
+				}
+				$("#nextBtn").removeClass("disabled");
+			}
+		}
+		///点击病友下一页显示
+		function nextPage(){
+			
+			if(batch<totalPage){
+				batch=batch+1;
+				var userId = getQueryString("userId");
+				getAllItemsByUserId(userId);
+				$("#preBtn").removeClass("disabled");
+				if(batch==totalPage){
+					$("#nextBtn").addClass("disabled");
+				}
+			}
+		}
+		//获取登录用户信息
+		function displayCurrentUser() {
+			$
+					.post(
+							"api/common/user/isLogin",
+							{},
+							function(data) {
+								//用户已经登录
+								if ("no" != data.msg) {
+
+									var array = data.msg.split("!");
+									var userName = array[0]
+									var loginName = array[1];
+
+									$(".currentUser")
+											.html(
+													"欢迎您 : "
+															+ userName
+															+ "&nbsp;&nbsp;&nbsp;<a href='javascript:;' class='glyphicon glyphicon-log-out' title='退出'></a>");
+									$("#loginName").val(loginName);
+									//绑定登出按钮单击事件(用户登出操作)
+									$(".glyphicon.glyphicon-log-out")
+											.bind(
+													"click",
+													function() {
+
+														$
+																.post(
+																		"api/common/user/logout",
+																		{},
+																		function(
+																				data) {
+																			window.location.href = "index.html";
+																		});
+													});
+								} else {
+									$(".currentUser")
+											.html(
+													'<a href="login.html">登录</a> 后, 我们将为您提供个性化推荐');
+								}
+							});
+		}
+
+		///加入购物车事件
+		function addToShoppingCart(itemId) {
+			$.ajax({
+				url : "pages/index/controller/addToShoppingCart/" + itemId,
+				type : "POST",
+				data : {
+					itemId : itemId,
+				},
+				dataType : "json",
+				success : function(data) {
+					if (data.msg == "success") {
+						alert("加入购物车成功")
+						$('#search-med').html(str.join(""));
+					} else if (data.msg == "error") {
+						alert("加入购物车失败");
+					}
+				}
+			});
+
+		}
+	</script>
+	<!---->
+	<div class="footer">
+		<div class="footer-top">
+			<div class="container">
+				<div class="latter">
+					<div class="sub-left-right">
 					</div>
 					<div class="clearfix"></div>
 				</div>
+				<div class="clearfix"></div>
 			</div>
 		</div>
+		<div class="footer-bottom">
+			<div class="container">
+				<div class="footer-bottom-cate">
+					<h6>CATEGORIES</h6>
+					<ul>
+						<li><a href="#">Curabitur sapien</a></li>
+						<li><a href="#">Dignissim purus</a></li>
+						<li><a href="#">Tempus pretium</a></li>
+						<li><a href="#">Dignissim neque</a></li>
+						<li><a href="#">Ornared id aliquet</a></li>
+						<li><a href="#">Ultrices id du</a></li>
+						<li><a href="#">Commodo sit</a></li>
+						<li><a href="#">Urna ac tortor sc</a></li>
+						<li><a href="#">Ornared id aliquet</a></li>
+						<li><a href="#">Urna ac tortor sc</a></li>
+						<li><a href="#">Eget nisi laoreet</a></li>
+						<li><a href="#">Faciisis ornare</a></li>
+					</ul>
+				</div>
+				<div class="footer-bottom-cate bottom-grid-cat">
+					<h6>FEATURE PROJECTS</h6>
+					<ul>
+						<li><a href="#">Curabitur sapien</a></li>
+						<li><a href="#">Dignissim purus</a></li>
+						<li><a href="#">Tempus pretium</a></li>
+						<li><a href="#">Dignissim neque</a></li>
+						<li><a href="#">Ornared id aliquet</a></li>
+						<li><a href="#">Ultrices id du</a></li>
+						<li><a href="#">Commodo sit</a></li>
+					</ul>
+				</div>
+				<div class="footer-bottom-cate">
+					<h6>TOP BRANDS</h6>
+					<ul>
+						<li><a href="#">Curabitur sapien</a></li>
+						<li><a href="#">Dignissim purus</a></li>
+						<li><a href="#">Tempus pretium</a></li>
+						<li><a href="#">Dignissim neque</a></li>
+						<li><a href="#">Ornared id aliquet</a></li>
+						<li><a href="#">Ultrices id du</a></li>
+						<li><a href="#">Commodo sit</a></li>
+						<li><a href="#">Urna ac tortor sc</a></li>
+						<li><a href="#">Ornared id aliquet</a></li>
+						<li><a href="#">Urna ac tortor sc</a></li>
+						<li><a href="#">Eget nisi laoreet</a></li>
+						<li><a href="#">Faciisis ornare</a></li>
+					</ul>
+				</div>
+				<div class="footer-bottom-cate cate-bottom">
+					<h6>地址</h6>
+					<ul>
+						<li>上海市</li>
+						<li>闵行区</li>
+						<li>浦江镇</li>
+						<li>联航路1518号</li>
+						<li>万达信息股份有限公司</li>
+						<li class="phone">联系我们 : 6985792466</li>
+						<li class="temp">
+							<p class="footer-class">
+								Design by <a href="#" target="_blank">bigdataTeam</a>
+							</p>
+						</li>
+					</ul>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

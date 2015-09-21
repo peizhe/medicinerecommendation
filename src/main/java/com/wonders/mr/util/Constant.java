@@ -20,8 +20,7 @@ public class Constant {
 	/**
 	 * 数据库连接url
 	 */
-	public final static String JDBC_URL = "jdbc:mysql://10.1.30.25:3306/medicinerecomendation";
-	
+	public final static String JDBC_URL = "jdbc:mysql://10.10.14.115:3306/medicinerecomendation";
 	/**
 	 * 数据库连接用户名
 	 */

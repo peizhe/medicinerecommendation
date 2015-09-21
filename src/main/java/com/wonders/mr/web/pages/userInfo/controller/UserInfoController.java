@@ -113,10 +113,10 @@ public class UserInfoController {
 				str.append("<div>");
 				str.append("<div style=\"float: left; width: 300px\"><img alt=\"\" src=\""+ImgUrl+"\" style=\"min-width: 300px;\"></div>");
 				str.append("<div style=\"float: left; margin-left: 100px; padding-top: 45px; width: 500px;\">");				
-				str.append("<div class=\"itemInfo\"><lable class=\"intag\">用户：</lable>"+user.getName()+"</div>");
+				str.append("<div class=\"itemInfo\"><lable class=\"intag\">用户：</lable>"+user.getLoginName()+"</div>");
 				str.append("<div class=\"itemInfo\"><lable class=\"intag\">年龄：</lable>"+user.getAge()+"</div>");
 				str.append("<div class=\"itemInfo\"><lable class=\"intag\">性别：</lable>"+sex+"</div>");
-				str.append("<div class=\"itemInfo\"><lable class=\"intag\">职业：</lable>"+user.getOccupation()+"</div>");
+				str.append("<div class=\"itemInfo\"><lable class=\"intag\">职业：</lable>"+getUserOccupation(user.getOccupation())+"</div>");
 				str.append("</div>");
 				str.append("</div>");
 				str.append("<div class=\"clearfix\"></div>");
@@ -133,5 +133,78 @@ public class UserInfoController {
 		return rm;
 	}
 	
+	public String getUserOccupation(String number){
+		
+		String occupation="unknown";
+		switch (number) {
+		case "0":
+			occupation="other";
+			break;
+		case "1":
+			occupation="academic/educator";
+			break;
+
+		case "2":
+			occupation="artist";
+			break;
+		case "3":
+			occupation="clerical/admin";		
+			break;
+		case "4":
+			occupation="college/grad student";
+			break;
+		case "5":
+			occupation="customer service";
+			break;
+		case "6":
+			occupation="doctor/health care";
+			break;
+		case "7":
+			occupation="executive/managerial";
+			break;
+		case "8":
+			occupation="farmer";
+			break;
+		case "9":
+			occupation="homemaker";
+			break;
+		case "10":
+			occupation="K-12 student";
+			break;
+		case "11":
+			occupation="lawyer";
+			break;
+		case "12":
+			occupation="programmer";
+			break;
+		case "13":
+			occupation="retired";
+			break;
+		case "14":
+			occupation="sales/marketing";
+			break;
+		case "15":
+			occupation="scientist";
+			break;
+		case "16":
+			occupation="self-employed";
+			break;
+		case "17":
+			occupation="technician/engineer";
+			break;
+		case "18":
+			occupation="tradesman/craftsman";
+			break;
+		case "19":
+			occupation="unemployed";
+			break;
+		case "20":
+			occupation="writer";
+			break;
+		default:
+			break;
+		}
+		return occupation;
+	}
 
 }
