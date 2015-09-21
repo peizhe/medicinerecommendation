@@ -7,6 +7,8 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.wonders.bud.framework.common.page.Page;
 import com.wonders.bud.framework.common.util.QueryParam;
 import com.wonders.mr.service.action.dao.ActionDao;
 import com.wonders.mr.service.action.modal.ActionPO;
@@ -46,5 +48,21 @@ public class ActionServiceImpl implements ActionService {
 		// TODO Auto-generated method stub
 		return actionDao.save(actionpo);
 	}
-
+    @Override
+    public Page<ActionPO> findByPage(Page<ActionPO> page){
+    	return actionDao.findByPage(page);
+    }
+    @Override
+    public Page<ActionPO> findItems(long userId,int start,int size){
+    	Page<ActionPO> page=new Page<>();
+		QueryParam query = new QueryParam();
+		Map<String, Object> eq = new HashMap<String, Object>();				
+		eq.put("userId", userId);
+		query.setEq(eq);		
+		page.setStart(start);
+		page.setPagesize(size);
+		page.setParam(query);
+		page=actionDao.findByPage(page);//分页获取
+		return page;
+    }
 }
