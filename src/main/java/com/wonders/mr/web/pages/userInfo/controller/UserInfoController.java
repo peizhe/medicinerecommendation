@@ -68,7 +68,7 @@ public class UserInfoController {
 						str.append("</a>");	
 						str.append("</div>");	
 						str.append("<div class=\"s-price-box\">");	
-						str.append("<span class=\"s-price\"><em class=\"s-price-sign\">¥</em><em class=\"s-value\">"+item.getPrice()+"</em></span> <span class=\"s-history-price\"><em class=\"s-price-sign\">¥</em><em class=\"s-value\">119.00</em></span>");	
+						str.append("<span class=\"s-price\"><em class=\"s-price-sign\">¥</em><em class=\"s-value\">"+item.getPrice()+"</em></span> <span class=\"s-history-price\"><em class=\"s-price-sign\"></em><em class=\"s-value\"></em></span>");	
 						str.append("</div>");	
 						str.append("<div class=\"s-title\">");	
 						str.append("<a href=\"\" title=\""+item.getItemName()+"\" target=\"_blank\" data-spm=\"d4919530\">"+item.getItemName()+"</a>");	
@@ -135,71 +135,71 @@ public class UserInfoController {
 	
 	public String getUserOccupation(String number){
 		
-		String occupation="unknown";
+		String occupation="未知";
 		switch (number) {
 		case "0":
-			occupation="other";
+			occupation="其他";
 			break;
 		case "1":
-			occupation="academic/educator";
+			occupation="学者/教育家";
 			break;
 
 		case "2":
-			occupation="artist";
+			occupation="艺术家";
 			break;
 		case "3":
-			occupation="clerical/admin";		
+			occupation="文秘/管理";		
 			break;
 		case "4":
-			occupation="college/grad student";
+			occupation="大学生";
 			break;
 		case "5":
-			occupation="customer service";
+			occupation="客户服务";
 			break;
 		case "6":
-			occupation="doctor/health care";
+			occupation="医生/医疗保健";
 			break;
 		case "7":
-			occupation="executive/managerial";
+			occupation="行政/管理";
 			break;
 		case "8":
-			occupation="farmer";
+			occupation="农民";
 			break;
 		case "9":
-			occupation="homemaker";
+			occupation="家庭主妇";
 			break;
 		case "10":
-			occupation="K-12 student";
+			occupation="中小学学生";
 			break;
 		case "11":
-			occupation="lawyer";
+			occupation="律师";
 			break;
 		case "12":
-			occupation="programmer";
+			occupation="程序员";
 			break;
 		case "13":
-			occupation="retired";
+			occupation="退休";
 			break;
 		case "14":
-			occupation="sales/marketing";
+			occupation="销售/市场营销";
 			break;
 		case "15":
-			occupation="scientist";
+			occupation="科学家";
 			break;
 		case "16":
-			occupation="self-employed";
+			occupation="个体经营";
 			break;
 		case "17":
-			occupation="technician/engineer";
+			occupation="技术员/工程师";
 			break;
 		case "18":
-			occupation="tradesman/craftsman";
+			occupation="商人/工匠";
 			break;
 		case "19":
-			occupation="unemployed";
+			occupation="失业";
 			break;
 		case "20":
-			occupation="writer";
+			occupation="作家";
 			break;
 		default:
 			break;
