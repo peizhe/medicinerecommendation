@@ -372,7 +372,7 @@
 			</div>
 		
 			<!-- 病友列表Start -->
-			<div id="QM_Container_333" class="icenter-right-mod">
+			<div id="QM_Container_333" class="icenter-right-mod" style="display:none">
 				<div id="QM_333_Title" class="hd">
 					<h3>病友</h3>
 				</div>
@@ -516,7 +516,7 @@
 						function (data) {
 							//用户已经登录
 							if("no" != data.msg) {
-								
+								$(".icenter-right-mod").show();//显示病友模块
 								getRecTableUcf();
 								getRecUserSim();
 								getRecTableIcf();
@@ -591,15 +591,9 @@
 				
 				if(displayPages<totalPage){
 					displayPages=displayPages+1;
-					$.post(
-						"api/common/user/logout",
-						{}, 
-						function(data) {
-							window.location.href = "index.html";
-						}
-					);
+					getRecUserSim();
 				}else {
-					$(".currentUser").html('<a href="login.html">登录</a> 后, 我们将为您提供个性化推荐');
+					alert("已经没有更多病友了");
 				}
 			}
 					
