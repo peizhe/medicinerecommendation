@@ -261,8 +261,8 @@
 		function determine() {
 			var allPage = $("#all-pageNum").val();
 			var setPage = $("#set-page").val();
-			if(setPage > allPage) {
-				alert("请输入小于"+allPage+"的值");
+			if((setPage<=0)||(setPage > allPage)) {
+				alert("请输入大于0小于"+allPage+"的值");
 			}else {
 				$("#current-page").val(setPage);
 				initMedSet();
