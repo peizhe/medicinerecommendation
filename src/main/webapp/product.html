@@ -90,7 +90,7 @@
 		  <li><a href="#" onclick="nextPage()">下一页</a></li>
 		  <li><a href="#" onclick="lastPage()">尾页</a></li>
 		  <li><a>共<input type="text" id="all-pageNum" style="height:20px;width:58px;" readonly>页</a></li>
-		  <li><a>跳到<input type="text" id="set-page" style="height:20px;width:58px;"></a></li>
+		  <li><a>跳到<input type="text" id="set-page" style="height:20px;width:58px;">页</a></li>
 		  <li><a href="#" onclick="determine()">确定</a></li>
 		</ul>
 	</div>  
@@ -147,9 +147,9 @@
 		
 		//上一页按钮触发事件
 		function upPage() {
-			var currentPages = $("#current-page").val();
-			if(currentPages>1) {
-				var currentPage = currentPages-1;
+			var currentPage =new Number( $("#current-page").val() );
+			if(currentPage>1) {
+				currentPage = currentPage-1;
 				$("#current-page").val(currentPage);
 				initMedSet();
 			}else {
@@ -159,38 +159,29 @@
 		
 		//下一页按钮触发事件
 		function nextPage() {
-			var currentPages = $("#current-page").val();
-			var allPage = $("#all-pageNum").val();
-			
-			
-			
-			if(currentPages<allPage) {
-				var currentPage = ++currentPages;
+			var currentPage = new Number( $("#current-page").val() );
+			var allPage = new Number( $("#all-pageNum").val() );
+
+			if(currentPage<allPage) {
+				currentPage = ++currentPage;
 				$("#current-page").val(currentPage);
 				initMedSet();
-				
-				console.debug("if currentPage=" +currentPage);
-				console.debug("if allPage=" +allPage);
-				
 			}else {
-				console.debug("else currentPage=" +currentPage);
-				console.debug("else allPage=" +allPage);
 				alert("已经到最后一页了！");
-				
 			}
 		}
 		
 		//尾页按钮触发事件
 		function lastPage() {
-			var allPage = $("#all-pageNum").val();
+			var allPage =new Number( $("#all-pageNum").val() );
 			$("#current-page").val(allPage);
 			initMedSet();
 		}
 		
 		//选择某一页确定按钮触发事件
 		function determine() {
-			var allPage = $("#all-pageNum").val();
-			var setPage = $("#set-page").val();
+			var allPage =new Number( $("#all-pageNum").val() );
+			var setPage =new Number( $("#set-page").val() );
 			if((setPage <= 0)||(setPage > allPage)) {
 				alert("请输入大于0小于"+allPage+"的值");
 			}else {
