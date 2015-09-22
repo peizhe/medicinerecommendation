@@ -97,7 +97,8 @@ public class ProdcutPageController {
 		
 	}
 
-	/**
+/*
+	*//**
 	 * 获得tagId下治疗本病症的药品总数的页数
 	 * @param request
 	 * @return
@@ -120,8 +121,8 @@ public class ProdcutPageController {
 		String allPageNum = allPageNums+"";
 		rm.setMsg(allPageNum);
 		return rm;
-	}*/
-	
+	}
+	*/
 	/*
 	 * 
 	 * 用过该药的用户还用过哪些药
