@@ -19,4 +19,5 @@ public interface RecItemCfSimService {
 	 * @return
 	 */
 	public List<ItemPO> findByItemId(long id);
+	
 }
