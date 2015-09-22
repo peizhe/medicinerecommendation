@@ -93,91 +93,11 @@
 		  <li><a>跳到<input type="text" id="set-page" style="height:20px;width:58px;"></a></li>
 		  <li><a href="#" onclick="determine()">确定</a></li>
 		</ul>
-	</div>   
-	<!---->
-	<div class="footer">
-		<div class="footer-top">
-			<div class="container">
-				<div class="latter">
-					<div class="sub-left-right">
-					</div>
-					<div class="clearfix"></div>
-				</div>
-				<div class="clearfix"></div>
-			</div>
-		</div>
-		<div class="footer-bottom">
-			<div class="container">
-				<div class="footer-bottom-cate">
-					<h6>CATEGORIES</h6>
-					<ul>
-						<li><a href="#">Curabitur sapien</a></li>
-						<li><a href="#">Dignissim purus</a></li>
-						<li><a href="#">Tempus pretium</a></li>
-						<li><a href="#">Dignissim neque</a></li>
-						<li><a href="#">Ornared id aliquet</a></li>
-						<li><a href="#">Ultrices id du</a></li>
-						<li><a href="#">Commodo sit</a></li>
-						<li><a href="#">Urna ac tortor sc</a></li>
-						<li><a href="#">Ornared id aliquet</a></li>
-						<li><a href="#">Urna ac tortor sc</a></li>
-						<li><a href="#">Eget nisi laoreet</a></li>
-						<li><a href="#">Faciisis ornare</a></li>
-					</ul>
-				</div>
-				<div class="footer-bottom-cate bottom-grid-cat">
-					<h6>FEATURE PROJECTS</h6>
-					<ul>
-						<li><a href="#">Curabitur sapien</a></li>
-						<li><a href="#">Dignissim purus</a></li>
-						<li><a href="#">Tempus pretium</a></li>
-						<li><a href="#">Dignissim neque</a></li>
-						<li><a href="#">Ornared id aliquet</a></li>
-						<li><a href="#">Ultrices id du</a></li>
-						<li><a href="#">Commodo sit</a></li>
-					</ul>
-				</div>
-				<div class="footer-bottom-cate">
-					<h6>TOP BRANDS</h6>
-					<ul>
-						<li><a href="#">Curabitur sapien</a></li>
-						<li><a href="#">Dignissim purus</a></li>
-						<li><a href="#">Tempus pretium</a></li>
-						<li><a href="#">Dignissim neque</a></li>
-						<li><a href="#">Ornared id aliquet</a></li>
-						<li><a href="#">Ultrices id du</a></li>
-						<li><a href="#">Commodo sit</a></li>
-						<li><a href="#">Urna ac tortor sc</a></li>
-						<li><a href="#">Ornared id aliquet</a></li>
-						<li><a href="#">Urna ac tortor sc</a></li>
-						<li><a href="#">Eget nisi laoreet</a></li>
-						<li><a href="#">Faciisis ornare</a></li>
-					</ul>
-				</div>
-				<div class="footer-bottom-cate cate-bottom">
-					<h6>地址</h6>
-					<ul>
-						<li>上海市</li>
-						<li>闵行区</li>
-						<li>浦江镇</li>
-						<li>联航路1518号</li>
-						<li>万达信息股份有限公司</li>
-						<li class="phone">联系我们 : 6985792466</li>
-						<li class="temp">
-							<p class="footer-class">
-								Design by <a href="#" target="_blank">bigdataTeam</a>
-							</p>
-						</li>
-					</ul>
-				</div>
-				<div class="clearfix"></div>
-			</div>
-		</div>
-	</div>
+	</div>  
+	 
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$("#current-page").val(1);
-			getAllPage();
 			initMedSet();
 			displayCurrentUser();
 		});
@@ -241,12 +161,22 @@
 		function nextPage() {
 			var currentPages = $("#current-page").val();
 			var allPage = $("#all-pageNum").val();
+			
+			
+			
 			if(currentPages<allPage) {
 				var currentPage = ++currentPages;
 				$("#current-page").val(currentPage);
 				initMedSet();
+				
+				console.debug("if currentPage=" +currentPage);
+				console.debug("if allPage=" +allPage);
+				
 			}else {
+				console.debug("else currentPage=" +currentPage);
+				console.debug("else allPage=" +allPage);
 				alert("已经到最后一页了！");
+				
 			}
 		}
 		
@@ -261,7 +191,7 @@
 		function determine() {
 			var allPage = $("#all-pageNum").val();
 			var setPage = $("#set-page").val();
-			if((setPage<=0)||(setPage > allPage)) {
+			if((setPage <= 0)||(setPage > allPage)) {
 				alert("请输入大于0小于"+allPage+"的值");
 			}else {
 				$("#current-page").val(setPage);
@@ -269,7 +199,7 @@
 			}
 		}
 		
-		//获得所有记录的页数
+		/* //获得所有记录的页数
 		function getAllPage() {
 			var tagId = GetQueryString("tagId");
 			$.ajax({
@@ -281,7 +211,7 @@
 					$("#all-pageNum").val(allPageNum);
 				}
 			});
-		}
+		} */
 		
 		//初始化product.html页面的药品集
 		function initMedSet() {
@@ -295,6 +225,8 @@
 				success:function(data) {
 					if(data.msg == "success") {
 						var medList = data.result;
+						var allPageNum = data.code;//获得总页数
+						$("#all-pageNum").val(allPageNum);
 						var str = new Array();
 						var len = medList.length - 2;
 						$.each(medList,function(i,med) {
