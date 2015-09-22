@@ -576,7 +576,7 @@ m-guess-you-like .s-item-list .s-item .s-pic .s-pic-link {
 				str.push('<div class="s-item-wrap">');
 				str.push('<div class="s-item">');
 				str.push('<div class="s-top-hover">');
-				str.push('<a target="_blank" data-spm="d4920134" href="" class="i-goto-similar">找相似</a>');
+				str.push('<a target="_blank" data-spm="d4920134" href="'+link+'" class="i-goto-similar">找相似</a>');
 				str.push('</div>');
 				str.push('<div class="s-pic">');
 				str.push('<a href="'+link+'" target="_blank" class="s-pic-link" data-spm="d4919530">');
@@ -584,7 +584,7 @@ m-guess-you-like .s-item-list .s-item .s-pic .s-pic-link {
 				str.push('</a>');
 				str.push('</div>');
 				str.push('<div class="s-price-box">');
-				str.push('<span class="s-price"><em class="s-price-sign">¥</em><em class="s-value">"'+item.price+'"</em></span> <span class="s-history-price"><em class="s-price-sign"></em><em class="s-value"></em></span>');
+				str.push('<span class="s-price"><em class="s-price-sign">¥</em><em class="s-value">'+Number(item.price)+'</em></span> <span class="s-history-price"><em class="s-price-sign"></em><em class="s-value"></em></span>');
 				str.push('</div>');
 				str.push('<div class="s-title">');
 				str.push('<a href="" title="'+item.name+'" target="_blank" data-spm="d4919530">'+item.name+'</a>');

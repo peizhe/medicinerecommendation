@@ -32,6 +32,7 @@ public class RecItemCfSimServiceImpl implements RecItemCfSimService {
 	
 	@Override
 	public List<ItemPO> findByItemId(long id) {
+
 		QueryParam query=new QueryParam();
 		Map<String, Object> eq=new HashMap<String, Object>();
 		eq.put("itemId", id);
