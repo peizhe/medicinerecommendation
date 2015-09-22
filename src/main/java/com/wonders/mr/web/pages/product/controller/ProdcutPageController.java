@@ -211,7 +211,7 @@ public class ProdcutPageController {
 						str.append("</a>");	
 						str.append("</div>");	
 						str.append("<div class=\"s-price-box\">");	
-						str.append("<span class=\"s-price\"><em class=\"s-price-sign\">¥</em><em class=\"s-value\">"+item.getPrice()+"</em></span> <span class=\"s-history-price\"><em class=\"s-price-sign\">¥</em><em class=\"s-value\"></em></span>");	
+						str.append("<span class=\"s-price\"><em class=\"s-price-sign\">¥</em><em class=\"s-value\">"+item.getPrice()+"</em></span> <span class=\"s-history-price\"><em class=\"s-price-sign\"></em><em class=\"s-value\"></em></span>");	
 						str.append("</div>");	
 						str.append("<div class=\"s-title\">");	
 						str.append("<a href=\"\" title=\""+item.getItemName()+"\" target=\"_blank\" data-spm=\"d4919530\">"+item.getItemName()+"</a>");	
