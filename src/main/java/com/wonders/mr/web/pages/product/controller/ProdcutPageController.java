@@ -70,10 +70,17 @@ public class ProdcutPageController {
 			List<ItemPO> itemPOs=itemPages.getResult();
 			TagPO tagPO= tagservice.findByTagId(tagId);
 			int total=itemPages.getTotal();
-			int totalPage=total%pageNum==0? total/9+1:total/9;
+			int totalPage=total%pageNum==0? total/9:total/9 +1;
 			List<Map<String, Object>> list = new ArrayList<>();
+			int limit = 0;
+			if(currentPage == totalPage) {
+				limit = total - (currentPage - 1) * pageNum;
+			}else{
+				limit = pageNum;
+			}
 			
-			for(int i=0;i<pageNum;i++) {
+			
+			for(int i=0;i<limit;i++) {
 				Map<String, Object> tag = new HashMap<>();
 				tag.put("itemId",itemPOs.get(i).getItemId());
 				tag.put("itemName", itemPOs.get(i).getItemName());
