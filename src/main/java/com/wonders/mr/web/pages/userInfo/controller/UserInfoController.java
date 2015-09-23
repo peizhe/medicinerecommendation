@@ -74,7 +74,6 @@ public class UserInfoController {
 						map.put("symptomDesc", item.getsymptomDesc());
 						map.put("name", item.getItemName());
 						map.put("price", item.getPrice().toString());
-						map.put("image", item.getImgUrl());
 						jsonList.add(map);
 						
 					}	
