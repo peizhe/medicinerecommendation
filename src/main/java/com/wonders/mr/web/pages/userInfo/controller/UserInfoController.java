@@ -75,7 +75,6 @@ public class UserInfoController {
 						map.put("name", item.getItemName());
 						map.put("price", item.getPrice().toString());
 						map.put("image", item.getImgUrl());
-						map.put("image", item.getImgUrl());
 						jsonList.add(map);
 						
 					}	
