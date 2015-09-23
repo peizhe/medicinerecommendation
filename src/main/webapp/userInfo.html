@@ -590,7 +590,7 @@ m-guess-you-like .s-item-list .s-item .s-pic .s-pic-link {
 				str.push('<a href="" title="'+item.name+'" target="" data-spm="d4919530">'+item.name+'</a>');
 				str.push('</div>');
 				str.push('<div class="s-extra-box">');
-				str.push('<span class="s-comment"></span> <span class="s-sales mouseOvers"><button style="color: black;font-weight: bold;" onclick="addToShoppingCart('+item.id+')\">加入购物车</button></span>');
+				str.push('<span class="s-comment"></span> <span class="s-sales mouseOvers"><button style="color: black;font-weight: bold;" onclick="addToShoppingCart('+item.id+')\">购买</button></span>');
 				str.push('</div>');
 				str.push('</div>');
 				str.push('</div>');								
@@ -677,10 +677,10 @@ m-guess-you-like .s-item-list .s-item .s-pic .s-pic-link {
 				dataType : "json",
 				success : function(data) {
 					if (data.msg == "success") {
-						alert("加入购物车成功")
+						alert("购买成功")
 						$('#search-med').html(str.join(""));
 					} else if (data.msg == "error") {
-						alert("加入购物车失败");
+						alert("购买失败");
 					}
 				}
 			});

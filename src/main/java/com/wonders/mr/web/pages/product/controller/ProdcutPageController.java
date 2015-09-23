@@ -154,7 +154,7 @@ public class ProdcutPageController {
 				str.append("<div class=\"itemInfo\"><lable class=\"intag\">用途：</lable><p>"+selfPo.getsymptomDesc()+"</p></div>");
 				str.append("<div class=\"itemInfo\"><lable class=\"intag\">主要成分：</lable>"+selfPo.getComponent()+"</div>");
 				str.append("<div class=\"itemInfo\"><lable class=\"intag\">生产商：</lable>"+selfPo.getCompany()+"</div>");
-				str.append("<div onclick=\"addToShoppingCart("+selfPo.getItemId()+")\"><a class=\"now-get get-cart\" style=\"margin-top: 10px;\">加入购物车</a></div>");
+				str.append("<div onclick=\"addToShoppingCart("+selfPo.getItemId()+")\"><a class=\"now-get get-cart\" style=\"margin-top: 10px;\">购买</a></div>");
 				str.append("</div>");
 				str.append("</div>");
 				str.append("<div class=\"women-product\">");			
@@ -217,7 +217,7 @@ public class ProdcutPageController {
 						str.append("<a href=\"\" title=\""+item.getItemName()+"\" target=\"\" data-spm=\"d4919530\">"+item.getItemName()+"</a>");	
 						str.append("</div>");	
 						str.append("<div class=\"s-extra-box\">");	
-						str.append("<span class=\"s-comment\"></span> <span class=\"s-sales mouseOvers\"><button style=\"color: black;font-weight: bold;\" onclick=\"addToShoppingCart("+item.getItemId()+")\">加入购物车</button></span>");	
+						str.append("<span class=\"s-comment\"></span> <span class=\"s-sales mouseOvers\"><button style=\"color: black;font-weight: bold;\" onclick=\"addToShoppingCart("+item.getItemId()+")\">购买</button></span>");	
 						str.append("</div>");	
 						str.append("</div>");	
 						str.append("</div>");		
@@ -280,7 +280,7 @@ public class ProdcutPageController {
 						str.append("<a href=\"\" title=\""+item.getItemName()+"\" target=\"\" data-spm=\"d4919530\">"+item.getItemName()+"</a>");	
 						str.append("</div>");	
 						str.append("<div class=\"s-extra-box\">");	
-						str.append("<span class=\"s-comment\"></span> <span class=\"s-sales\"><button style=\"color: black;font-weight: bold;\" onclick=\"addToShoppingCart("+item.getItemId()+")\">加入购物车</button></span>");	
+						str.append("<span class=\"s-comment\"></span> <span class=\"s-sales\"><button style=\"color: black;font-weight: bold;\" onclick=\"addToShoppingCart("+item.getItemId()+")\">购买</button></span>");	
 						str.append("</div>");	
 						str.append("</div>");	
 						str.append("</div>");		

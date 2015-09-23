@@ -156,7 +156,7 @@ public class IndexTagController {
 						str.append("<label for=\"rating-input-1-1\" class=\"rating-star\"> </label>");
 						str.append("</span>");
 						str.append("</div>");
-						str.append("<a class=\"now-get get-cart\" onclick=\"addToShoppingCart("+item.getItemId()+")\">加入购物车</a> ");
+						str.append("<a class=\"now-get get-cart\" onclick=\"addToShoppingCart("+item.getItemId()+")\">购买</a> ");
 						str.append("<div class=\"clearfix\"> </div>");
 						str.append("</div>");
 						str.append("</div>");
@@ -215,7 +215,7 @@ public class IndexTagController {
 						str.append("<label for=\"rating-input-1-1\" class=\"rating-star\"> </label>");
 						str.append("</span>");
 						str.append("</div>");
-						str.append("<a class=\"now-get get-cart\" onclick=\"addToShoppingCart("+item.getItemId()+")\">加入购物车</a> ");
+						str.append("<a class=\"now-get get-cart\" onclick=\"addToShoppingCart("+item.getItemId()+")\">购买</a> ");
 						str.append("<div class=\"clearfix\"> </div>");
 						str.append("</div>");
 						str.append("</div>");
@@ -250,7 +250,7 @@ public class IndexTagController {
 				List<ItemPO> items=recTableIcfService.findByUserId(Long.parseLong(userId.toString()));
 				if(items!=null&&items.size()>0){					
 					StringBuilder str=new StringBuilder();
-					for(int i=0;i<4;i++){
+					for(int i=0;i<3;i++){
 						ItemPO item=items.get(i);
 						String link="single2.html?itemId="+item.getItemId();
 						str.append("<div class=\"col-md-4 chain-grid grid-top-chain\" style=\"width:30%;margin-right:15px;margin-bottom:10px\">");
@@ -275,7 +275,7 @@ public class IndexTagController {
 						str.append("<label for=\"rating-input-1-1\" class=\"rating-star\"> </label>");
 						str.append("</span>");
 						str.append("</div>");
-						str.append("<a class=\"now-get get-cart\" onclick=\"addToShoppingCart("+item.getItemId()+")\">加入购物车</a> ");
+						str.append("<a class=\"now-get get-cart\" onclick=\"addToShoppingCart("+item.getItemId()+")\">购买</a> ");
 						str.append("<div class=\"clearfix\"> </div>");
 						str.append("</div>");
 						str.append("</div>");
@@ -333,7 +333,7 @@ public class IndexTagController {
 						str.append("<label for=\"rating-input-1-1\" class=\"rating-star\"> </label>");
 						str.append("</span>");
 						str.append("</div>");
-						str.append("<a class=\"now-get get-cart\" onclick=\"addToShoppingCart("+item.getItemId()+")\">加入购物车</a> ");
+						str.append("<a class=\"now-get get-cart\" onclick=\"addToShoppingCart("+item.getItemId()+")\">购买</a> ");
 						str.append("<div class=\"clearfix\"> </div>");
 						str.append("</div>");
 						str.append("</div>");
