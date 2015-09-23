@@ -154,7 +154,7 @@ public class ProdcutPageController {
 				str.append("<div class=\"itemInfo\"><lable class=\"intag\">用途：</lable><p>"+selfPo.getsymptomDesc()+"</p></div>");
 				str.append("<div class=\"itemInfo\"><lable class=\"intag\">主要成分：</lable>"+selfPo.getComponent()+"</div>");
 				str.append("<div class=\"itemInfo\"><lable class=\"intag\">生产商：</lable>"+selfPo.getCompany()+"</div>");
-				str.append("<div onclick=\"addToShoppingCart("+selfPo.getItemId()+"\")><a class=\"now-get get-cart\" style=\"margin-top: 10px;\">加入购物车</a></div>");
+				str.append("<div onclick=\"addToShoppingCart("+selfPo.getItemId()+")\"><a class=\"now-get get-cart\" style=\"margin-top: 10px;\">加入购物车</a></div>");
 				str.append("</div>");
 				str.append("</div>");
 				str.append("<div class=\"women-product\">");			
@@ -203,10 +203,10 @@ public class ProdcutPageController {
 						str.append("<div class=\"s-item-wrap\">");	
 						str.append("<div class=\"s-item\">");	
 						str.append("<div class=\"s-top-hover\">");	
-						str.append("<a target=\"_blank\" data-spm=\"d4920134\" href=\"\" class=\"i-goto-similar\">找相似</a>");	
+						str.append("<a target=\"\" data-spm=\"d4920134\" href=\"\" class=\"i-goto-similar\">找相似</a>");	
 						str.append("</div>");	
 						str.append("<div class=\"s-pic\">");	
-						str.append("<a href=\""+link+"\" target=\"_blank\" class=\"s-pic-link\" data-spm=\"d4919530\"> ");	
+						str.append("<a href=\""+link+"\" target=\"\" class=\"s-pic-link\" data-spm=\"d4919530\"> ");	
 						str.append("<img src=\""+item.getImgUrl()+"\" alt=\""+item.getsymptomDesc()+"\" title=\""+item.getItemName()+"\" class=\"s-pic-img s-guess-item-img\">");	
 						str.append("</a>");	
 						str.append("</div>");	
@@ -214,7 +214,7 @@ public class ProdcutPageController {
 						str.append("<span class=\"s-price\"><em class=\"s-price-sign\">¥</em><em class=\"s-value\">"+item.getPrice()+"</em></span> <span class=\"s-history-price\"><em class=\"s-price-sign\"></em><em class=\"s-value\"></em></span>");	
 						str.append("</div>");	
 						str.append("<div class=\"s-title\">");	
-						str.append("<a href=\"\" title=\""+item.getItemName()+"\" target=\"_blank\" data-spm=\"d4919530\">"+item.getItemName()+"</a>");	
+						str.append("<a href=\"\" title=\""+item.getItemName()+"\" target=\"\" data-spm=\"d4919530\">"+item.getItemName()+"</a>");	
 						str.append("</div>");	
 						str.append("<div class=\"s-extra-box\">");	
 						str.append("<span class=\"s-comment\"></span> <span class=\"s-sales mouseOvers\"><button style=\"color: black;font-weight: bold;\" onclick=\"addToShoppingCart("+item.getItemId()+")\">加入购物车</button></span>");	
@@ -266,10 +266,10 @@ public class ProdcutPageController {
 						str.append("<div class=\"s-item-wrap\">");	
 						str.append("<div class=\"s-item\">");	
 						str.append("<div class=\"s-top-hover\">");	
-						str.append("<a target=\"_blank\" data-spm=\"d4920134\" href=\"\" class=\"i-goto-similar\">找相似</a>");	
+						str.append("<a target=\"\" data-spm=\"d4920134\" href=\"\" class=\"i-goto-similar\">找相似</a>");	
 						str.append("</div>");	
 						str.append("<div class=\"s-pic\">");	
-						str.append("<a href=\""+link+"\" target=\"_blank\" class=\"s-pic-link\" data-spm=\"d4919530\"> ");	
+						str.append("<a href=\""+link+"\" target=\"\" class=\"s-pic-link\" data-spm=\"d4919530\"> ");	
 						str.append("<img src=\""+item.getImgUrl()+"\" alt=\""+item.getsymptomDesc()+"\" title=\""+item.getItemName()+"\" class=\"s-pic-img s-guess-item-img\">");	
 						str.append("</a>");	
 						str.append("</div>");	
@@ -277,7 +277,7 @@ public class ProdcutPageController {
 						str.append("<span class=\"s-price\"><em class=\"s-price-sign\">¥</em><em class=\"s-value\">"+item.getPrice()+"</em></span> <span class=\"s-history-price\"><em class=\"s-price-sign\">¥</em><em class=\"s-value\"></em></span>");	
 						str.append("</div>");	
 						str.append("<div class=\"s-title\">");	
-						str.append("<a href=\"\" title=\""+item.getItemName()+"\" target=\"_blank\" data-spm=\"d4919530\">"+item.getItemName()+"</a>");	
+						str.append("<a href=\"\" title=\""+item.getItemName()+"\" target=\"\" data-spm=\"d4919530\">"+item.getItemName()+"</a>");	
 						str.append("</div>");	
 						str.append("<div class=\"s-extra-box\">");	
 						str.append("<span class=\"s-comment\"></span> <span class=\"s-sales\"><button style=\"color: black;font-weight: bold;\" onclick=\"addToShoppingCart("+item.getItemId()+")\">加入购物车</button></span>");	

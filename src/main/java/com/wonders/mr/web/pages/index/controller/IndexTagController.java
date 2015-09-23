@@ -382,10 +382,10 @@ public class IndexTagController {
 						String  link="userInfo.html?userId="+user.getId();
 						String imgeUrl="images/user.jpg";
 						str.append("<li><div class=\"user-info\">");
-						str.append("<a href=\""+link+"\" class=\"user-avatar\" target=\"_blank\"><img src=\""+imgeUrl+"\"></a>");
+						str.append("<a href=\""+link+"\" class=\"user-avatar\" target=\"\"><img src=\""+imgeUrl+"\"></a>");
 						str.append("<div class=\"info-details\">");
 						str.append("<p>");
-						str.append("<a href=\""+link+"\" title=\""+user.getLoginName()+"\" target=\"_blank\" class=\"user-name textoverflow\">"+user.getLoginName()+"</a>");
+						str.append("<a href=\""+link+"\" title=\""+user.getLoginName()+"\" target=\"\" class=\"user-name textoverflow\">"+user.getLoginName()+"</a>");
 						str.append("</p>");
 						str.append("<p>");
 						str.append("<span class=\"user-desc c_tx3\">职业："+userInfoController.getUserOccupation(user.getOccupation())+"</span>");
