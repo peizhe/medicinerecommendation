@@ -29,4 +29,9 @@ public class ItemServiceTest extends AbstractTestCase{
 		
 	}
 	
+	@Test
+	public void findByTest() {
+		
+	}
+	
 }
